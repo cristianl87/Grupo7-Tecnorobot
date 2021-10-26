@@ -10,3 +10,5 @@ Integrantes del equipo
 - Ariel Dorssi
 - Kevin Alexis Giron
 - Cristian Luna
+
+link del repositorio: https://github.com/cristianl87/Grupo7-Tecnorobot.git
