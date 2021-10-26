@@ -6,7 +6,7 @@ Nuestros productos apuntan a aquellas personas que busquen disfrutar más de su 
 
 Integrantes del equipo
 
-- Franco Nicolas Zaccaría López
+- Franco Nicolás Zaccaría López
 - Ariel Dorssi
 - Kevin Alexis Giron
 - Cristian Luna
