@@ -15,14 +15,17 @@ _Nuestros productos apuntan a aquellas personas que busquen disfrutar más de su
 
 🤖 Cristian Luna
 
-
-
-
-
 ### 📰 Sitios de Referencia
 
 🔗 https://www.irobot.com/
+
 🔗 https://www.robotshop.com/
+
 🔗 
+
 🔗
+
 🔗
+
+
+link del repositorio: https://github.com/cristianl87/Grupo7-Tecnorobot.git
