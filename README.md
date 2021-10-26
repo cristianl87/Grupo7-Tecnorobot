@@ -1,4 +1,4 @@
-# TecnoRobot
+# TecnoRobot 
 
 _Somos una empresa la cual se especializa en la venta de robots los cuales se centran en realizar tareas domesticas en el hogar, tambien llamados Home Appliances.
 Los productos se centran principalmente en cubrir las tareas básicas que se requieren a diario en el hogar._
@@ -7,11 +7,22 @@ _Nuestros productos apuntan a aquellas personas que busquen disfrutar más de su
 
 ## Integrantes del equipo
 
-🧑 Franco Nicolás Zaccaría López
+🤖 Franco Nicolás Zaccaría López
 
-🧑 Ariel Dorssi
+🤖 Ariel Dorssi
 
-🧑 Kevin Alexis Giron
+🤖 Kevin Alexis Giron
 
-🧑 Cristian Luna
+🤖 Cristian Luna
 
+
+
+
+
+## 📰 Sitios de Referencia
+
+🔗 https://www.irobot.com/
+🔗 https://www.robotshop.com/
+🔗 
+🔗
+🔗
