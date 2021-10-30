@@ -8,33 +8,37 @@ _Nuestros productos apuntan a aquellas personas que busquen disfrutar más de su
 
 ### Integrantes del equipo
 
-🤖 Lautaro Boiola
+🤖 Lautaro Boiola <br>
+_Emprendedor de la estética corporal. Inversor._
 
-🤖 Ariel Dorssi
+🤖 Ariel Dorssi <br>
+_Administrador de Redes y Servidores._
 
-🤖 Kevin Alexis Giron
+🤖 Kevin Alexis Giron <br>
+_Colombiano de 22 años viviendo actualmente en Chile. Trabaja en una empresa de energia y telecomunicaciones e invierte en criptomonedas.
 
-🤖 Cristian Luna
+🤖 Cristian Luna <br>
+_34 años, Moreno zona Oeste, empleado de comercio, estudiante de programación web full stack._
 
 
 ### 📰 Sitios de Referencia
 
-🔗 https://www.irobot.com/
- _Fabrica productos innovadores orientados a la limpieza del hogar._
+🔗 https://www.irobot.com/ <br>
+_Fabrica productos innovadores orientados a la limpieza del hogar._
 
 
-🔗 https://www.robotshop.com/
+🔗 https://www.robotshop.com/ <br>
 _Elegido por ofrecer una muy amplia variedad de dispositivos para diferentes tareas._
 
 
-🔗 https://www.robotec.com.uy/
+🔗 https://www.robotec.com.uy/ <br>
 _Excelente sitio para encontrar robots para fines educativos a costo razonable._
 
-🔗 https://www.myrobotcenter.eu/
+🔗 https://www.myrobotcenter.eu/ <br>
 _Además de tener variedad de productos, cuenta con un e-commerce con todas las funcionalidades._
 
 
-🔗 https://www.thermomix.uy/ 
+🔗 https://www.thermomix.uy/ <br>
 _Tiene un home con un diseño cómodo y minimalista._
 
 
