@@ -23,7 +23,7 @@ _34 años, Moreno zona Oeste, empleado de comercio, estudiante de programación 
 
 ### 📰 Sitios de Referencia
 
-🔗 https://www.irobot.com/ <br>
+🔗 https://www.irobot.lat/ <br>
 _Fabrica productos innovadores orientados a la limpieza del hogar._
 
 
