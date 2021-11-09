@@ -43,3 +43,5 @@ _Tiene un home con un diseño cómodo y minimalista._
 
 
 Link del repositorio: https://github.com/cristianl87/Grupo7-Tecnorobot.git
+
+Link Trello: https://trello.com/b/cE7aGAUv/tecnorobot
