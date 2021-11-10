@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/cristianl87/Grupo7-Tecnorobot#readme",
   "dependencies": {
-    "nodemon": "^2.0.15"
+    "express": "^4.17.1"
   }
 }
