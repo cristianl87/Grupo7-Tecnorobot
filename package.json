@@ -1,0 +1,22 @@
+{
+  "name": "grupo7-tecnorobot",
+  "version": "1.0.0",
+  "description": "Tienda Online de Tecnología",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cristianl87/Grupo7-Tecnorobot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cristianl87/Grupo7-Tecnorobot/issues"
+  },
+  "homepage": "https://github.com/cristianl87/Grupo7-Tecnorobot#readme",
+  "dependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
