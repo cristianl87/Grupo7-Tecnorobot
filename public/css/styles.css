@@ -1,0 +1,456 @@
+:root {
+    --sombra: -1px 1px 8px 0px rgba(0,0,0,0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    background-color: #f3f3f3;
+    min-width: 320px;
+}
+
+img {
+    max-width: 100%;
+}
+
+li {
+    list-style: none;
+}
+a, a:hover {
+    text-decoration: none;
+}
+
+/* ICONOS */
+
+i.fas.fa-ellipsis-v,
+i.fas.fa-shopping-cart {
+    color: white;
+    font-size: 2.2rem;
+}
+
+/* FIN ICONOS */
+.contenedor {
+    margin: 1rem auto;
+    max-width: 1200px;
+}
+.separador {
+    width: 45px;
+    color: #8080808c;
+    margin: 0 auto;
+    border: 2px solid;
+    border-radius: 2px;
+}
+
+/* ESTILOS HEADER */
+.header-home {
+    background: rgb(0 0 0);
+}
+.contenedor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.192);
+}
+.barra-busqueda {
+    position: relative;
+    padding: 0 10px;
+    flex-grow: 0.3;
+    max-width: 550px;
+}
+.barra-busqueda i {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    padding: 0 5px;
+    color: #ababab;
+    z-index: 10;
+    cursor: pointer;
+}
+.barra-busqueda input {
+    height: 3.6rem;
+    padding: 5px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.192)
+}
+.barra-busqueda::after {
+    content: '';
+    background-color: #fff;
+    height: 100%;
+    position: absolute;
+    width: 40px;
+    right: 10px;
+    border-radius: 0 5px 5px 0;
+}
+.iconos-header {
+    padding: 0 10px;
+    display: flex;
+    gap: 2rem;
+}
+.iconos-header i {
+    cursor: pointer;
+    color: white;
+    font-size: 2.2rem;
+}
+.user-account-icon {
+    display: none;
+}
+.tablet {
+    display: none;
+}
+
+nav.desktop {
+    display: none;
+}
+nav.desktop ul {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    margin-top: 1rem;
+    width: 70%;
+}
+nav.desktop ul li {
+    padding: 3px 12px;
+    opacity: 0.80;
+    transition: all .2s;
+}
+nav.desktop ul li a {
+    color: #333;
+}
+
+nav.desktop ul li:hover {
+    opacity: 1;
+}
+
+nav.desktop ul li:nth-last-child(1) a {
+    padding: 3px 12px;
+    background-color: dodgerblue;
+    border-radius: 6px 0 6px 0;
+    color: #fff;
+}
+/* FIN ESTILOS HEADER */
+
+.slide {
+    overflow: hidden;
+    height: 200px;
+}
+
+/* ESTILOS CARDS */
+.home-cards {
+    display: grid;
+    gap: .3rem;
+}
+
+.tarjeta-ofertas {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.tarjeta-ofertas h2 {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: #fff;
+    text-transform: uppercase;
+}
+.tarjeta-ofertas h3, h4 {
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.home-cards .first {
+    background: linear-gradient(45deg, black, transparent), url(/images/aspiradora-mujer.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.home-cards .second {
+    background: linear-gradient(45deg, black, transparent), url(/images/robot-lawn-mower.webp);
+    background-size: cover;
+    background-position: center center;
+}
+
+.home-cards .third {
+    background: linear-gradient(45deg, black, transparent), url(/images/curso-robotica.jpeg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.h3-home {
+    text-align: center;
+}
+
+.h3-home h3 {
+    margin: 10px 0 5px;
+    font-weight: 200;
+    font-size: 1.9rem;
+}
+
+.lista-productos {
+    margin: 15px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .5rem;
+}
+
+/* ESTILOS PRODUCTOS */
+.producto {
+    background-color: #fff;
+    box-shadow: var(--sombra);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    transition: all .3s;
+    cursor: pointer;
+}
+.producto img {
+    width: 100%;
+    align-self: center;
+    transition: all .3s;
+}
+
+.info-producto {
+    flex-direction: column;
+    padding: 10px;
+    height: 100%;
+}
+.precio {
+    color: #006dc3;
+    font-weight: 600;
+}
+
+.titulo,
+.descripcion-corta {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.descripcion-corta {
+    position: relative;
+}
+.descripcion-corta p {
+    display: none;
+    position: absolute;
+    top: -200px;
+    transition: all 1s;
+}
+.banner-img-bg {
+    background-image: url('/images/trapeador.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 340px;
+    position: relative;
+}
+.banner-img-bg h4 {
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    font-weight: bold;
+    color: firebrick;
+}
+.btnCenterBot {
+    font-size: 2rem;
+    bottom: 10px;
+    right: 10%;
+}
+
+.info-cursos {
+    background-color: #333;
+}
+.info-cursos h4 {
+    text-align: center;
+    font-weight: 100;
+}
+.info-cursos article {
+    font-family: 'Nunito', sans-serif;
+    padding: 15px;
+    color: #fff;
+    font-weight: 100;
+}
+.info-cursos img {
+    position: relative;
+    bottom: -30px;
+    z-index: 2;
+}
+.info-cursos h3 {
+    text-align: center;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+/*ESTILOS FOOTER */
+
+.footer {
+    height: 220px;
+    background-color: #3586ff;
+    text-align: center;
+    position: relative;
+}
+.footer .wave1 {
+    background-image: url(/images/wave.png);
+    height: 100px;
+    position: absolute;
+    top: -96px;
+    left: 0;
+    width: 100%;
+}
+.footer .social-icons {
+    display: flex;
+    gap: 1.6rem;
+    justify-content: center;
+    padding: 30px;
+    font-size: 3rem;
+}
+.footer .social-icons a {
+    color: #fff;
+    transition: all 0.5s;
+}
+.footer .social-icons a:hover {
+    transform: translateY(-10px);
+}
+.nav-footer ul {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-footer ul li a {
+    color: #fff;
+    opacity: 0.75;
+}
+
+.nav-footer ul li a:hover {
+    opacity: 1;
+}
+.copy {
+    color: #fff;
+}
+/* MEDIA QUERIES */
+
+/* TABLET */
+@media (min-width: 481px) {
+    .lista-productos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+    .producto {
+        width: 100%;
+    }
+    .home-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .home-cards .first {
+        grid-column: 1 / 3;
+    }
+}
+
+/* DESKTOP */
+@media (min-width: 769px) {
+    .header-home {
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+        box-shadow: -1px 1px 8px 0px rgb(0 0 0 / 65%);
+    }
+    .contenedor-header {
+        width: 80%;
+    }
+    .logo .logo-mobile {
+        display: none;
+    }
+    .logo .tablet {
+        display: block;
+    }
+    .iconos-header {
+        gap: 4.5rem;
+    }
+    .user-account-icon {
+        display: block;
+    }
+    .slide {
+        height: 360px;
+    }
+    nav.desktop {
+        display: flex;
+        justify-content: center;
+        margin-top: 70px;
+    }
+    .contenedor {
+        width: 80%;
+    }
+    .lista-productos {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    .mobile {
+        display: none;
+    }
+    .home-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .home-cards .first {
+        grid-column: 1 / 2;
+    }
+    .producto:hover {
+        transform: scale(1.03);
+    }
+    .producto:hover img {
+        width: 60%;
+    }
+    .producto:hover .precio {
+        color: #fff;
+    }
+    .producto:hover .descripcion-corta p {
+        display: block;
+        color: white;
+        top: 0px;
+    }
+    .producto:hover .titulo {
+        font-weight: 600;
+        color: white;
+    }
+    .producto:hover .info-producto {
+        background: linear-gradient(197deg, #3586ff, transparent);
+        background-color: #333;
+        padding-bottom: 0;
+    }
+    .info-cursos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 145px;
+    }
+    .info-cursos article {
+        align-self: flex-start;
+        margin-top: 50px;
+        justify-self: center;
+    }
+    .info-cursos img {
+        position: relative;
+        top: -150px;
+        flex: 40%;
+    }
+    .nav-footer ul {
+        display: flex;
+    }
+}
+
+@media (min-width: 992px) {
+    .info-cursos article {
+        max-width: 65%;
+    }
+}
