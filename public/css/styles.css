@@ -357,8 +357,10 @@ input.nombre{
     justify-content:space-between;
     flex-direction: column;
     width: 100%;
+
    
 }
+
 input.contraseña{
     display: flex;
     flex-wrap: wrap;
@@ -378,6 +380,10 @@ input.contraseña{
     margin-top: 40px;
     margin-bottom: 50px;
 
+
+ }
+ .boton-login:hover{
+     background-color: blue;
  }
 form{
     display: flex;
@@ -387,16 +393,44 @@ form{
 .checkbox{
     position: relative;
     color: blanchedalmond;
-    top: -40px;
+    top: -38px;
 }
 .text-checkbox{
     position: absolute;
-    left:20px;
+    left:22px;
+    font-size: 15px;
     
 
 }
 label{
     color: blanchedalmond;
+}
+.info{
+    font-size: 13px;
+}
+.info:hover{
+    color: seagreen;
+}
+.reCAPTCHA{
+    width: 50px;
+    position: absolute;
+    right:5px
+}
+.div-recaptcha{
+    background-color: seashell;
+    margin-bottom: 15px;
+    padding-bottom: 25px;
+    position: relative;
+}
+.text{
+    position: absolute;
+    left: 30px;
+    bottom: 15px;
+}
+.checkbox2{
+    position: relative;
+    bottom: -12px;
+    left: 10px;
 }
 /*FIN LOGIN*/
 
