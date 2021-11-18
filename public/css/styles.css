@@ -337,6 +337,69 @@ nav.desktop ul li:nth-last-child(1) a {
 .copy {
     color: #fff;
 }
+/* LOGIN*/
+.form-login{
+    display: flex;
+        flex-wrap: wrap;
+        flex-direction:column ;
+        background-color: black;
+        width: 30vw;
+        box-shadow: 5px 10px 5px 3px rgba(0,0,0,0.75);
+        padding: 30px;
+        margin-top: 30px;
+        margin-bottom: 200px;
+        margin-left: 30%;
+        justify-content:space-between;
+}
+input.nombre{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    flex-direction: column;
+    width: 100%;
+   
+}
+input.contraseña{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    margin-top: 40px;
+    width: 100%;
+    
+}
+.iniciar-sesion{
+    margin-bottom: 80px;
+    color: blanchedalmond;
+}
+.boton-login{
+    background-color: #3586ff;
+    color: white;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 50px;
+
+ }
+form{
+    display: flex;
+    align-content: center;
+    width: 80%;
+}
+.checkbox{
+    position: relative;
+    color: blanchedalmond;
+    top: -40px;
+}
+.text-checkbox{
+    position: absolute;
+    left:20px;
+    
+
+}
+label{
+    color: blanchedalmond;
+}
+/*FIN LOGIN*/
+
 /* MEDIA QUERIES */
 
 /* TABLET */
