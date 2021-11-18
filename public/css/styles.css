@@ -440,9 +440,7 @@ nav.desktop ul li:nth-last-child(1) a {
         justify-self: center;
     }
     .info-cursos img {
-        position: relative;
         top: -150px;
-        flex: 40%;
     }
     .nav-footer ul {
         display: flex;
