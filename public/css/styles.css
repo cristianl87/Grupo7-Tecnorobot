@@ -371,6 +371,191 @@ nav.desktop ul li:nth-last-child(1) a {
 .copy {
     color: #fff;
 }
+/* LOGIN*/
+.form-login{
+    display: flex;
+        flex-wrap: wrap;
+        flex-direction:column ;
+        background-color: black;
+        width: 400px;
+        box-shadow: 0px 10px 5px 10px rgba(0,0,0,0.75);
+        padding: 30px;
+        margin-top: 30px;
+        margin-bottom: 400px;
+        margin-left: 30%;
+        justify-content:space-between;
+        border-radius: 5px;
+}
+input.nombre{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+
+   
+}
+
+input.contraseña{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    margin-top: 40px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+.iniciar-sesion{
+    margin-bottom: 80px;
+    color: blanchedalmond;
+}
+.boton-login{
+    background-color: #3586ff;
+    color: white;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    bottom: -130px;
+
+
+ }
+ .boton-login:hover{
+     background-color: rgb(30, 101, 255);
+ }
+form{
+    display: flex;
+    align-content: center;
+    width: 100%;
+}
+.checkbox{
+    position: relative;
+    color: blanchedalmond;
+    top: -63px;
+}
+.text-checkbox{
+    position: absolute;
+    left:22px;
+    font-size: 15px;
+    bottom: 60px;
+    
+
+}
+label{
+    color: blanchedalmond;
+}
+.info{
+    font-size: 13px;
+}
+.info:hover{
+    color: seagreen;
+}
+.reCAPTCHA{
+    width: 50px;
+    position: absolute;
+    right:5px;
+    
+}
+.div-recaptcha{
+    background-color: seashell;
+    margin-bottom: 15px;
+    padding-bottom: 25px;
+    position: relative;
+    top:-80px
+}
+.text{
+    position: absolute;
+    left: 30px;
+    bottom: 15px;
+}
+.checkbox2{
+    position: relative;
+    bottom: -12px;
+    left: 10px;
+}
+.boton-registro{
+    border-top: solid rgb(12, 11, 11) 2px;
+    position: relative;
+    top:230px;
+    bottom: 250px;
+    padding: 10px;
+    width: 350px;
+   
+   
+}
+.text-registro{
+    position: absolute;
+    left: 65px;
+    padding-top: 10px;
+  
+    
+}
+.boton-registro1{
+    background-color: #3586ff;
+    color: white;
+    width: 100%;
+    position: relative;
+    top: 60px;
+    padding: 10px;
+    border-radius: 5px;
+    
+    
+}
+
+.boton-registro1:hover{
+    background-color: rgb(30, 101, 255);
+}
+
+/*FIN LOGIN*/
+/*REGISTER*/
+.form-register{
+    display: flex;
+        flex-wrap: wrap;
+        flex-direction:column ;
+        background-color: black;
+        width: 400px;
+        box-shadow: 0px 10px 5px 10px rgba(0,0,0,0.75);
+        padding: 30px;
+        margin-top: 30px;
+        margin-bottom: 400px;
+        margin-left: 30%;
+        justify-content:space-between;
+        border-radius: 5px;
+}
+input.email{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+
+   
+}
+.boton-register{
+    background-color: #3586ff;
+    color: white;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+.boton-register:hover{
+    background-color: rgb(30, 101, 255);
+}
+.text-register{
+    color: white;
+}
+
 /* MEDIA QUERIES */
 
 /* TABLET */
