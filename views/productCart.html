@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnorobot - Carrito de compras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+</head>
+<body>
+    <header class="header-home">
+        <div class="contenedor-header">
+            <section class="logo">
+                <img src="/images/logo-mobile.jpg" alt="Logo TecnoRobot" class="logo-mobile">
+                <img src="/images/TecnoRobot.jpg" alt="Logo TecnoRobot" class="tablet">
+            </section>
+            <section class="barra-busqueda">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscar...">
+            </section>
+            <section class="iconos-header">
+                <i class="fas fa-shopping-cart"></i>
+                <nav class="mobile">
+                    <i class="fas fa-ellipsis-v"></i>
+                </nav>
+                <i class="fas fa-user user-account-icon"></i>
+            </section>
+        </div>
+    </header>
+    <nav class="desktop">
+        <ul>
+            <li> <a href="#"> Inicio </a> </li>
+            <li> <a href="#"> Categorías </a> </li>
+            <li> <a href="#"> Marcas </a> </li>
+            <li> <a href="#"> Cursos </a> </li>
+            <li> <a href="#"> Nosotros </a> </li>
+            <li> <a href="#"> Tienda </a> </li>
+        </ul>
+    </nav>
+    <main>
+        <div class="encabezado-carrito">
+            <div class="carrito-titulo">
+                <div>
+                    <i id="carro" class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="h3-home">
+                    <h3>
+                        CARRITO DE COMPRAS
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <article class="articulo-carrito">
+            <div class="producto-carrito">
+                <img class="imagen-producto-carrito" src="/images/vaccum-robot.jpg" alt="Producto elegido 1">
+                <p class="titulo-producto-carrito">Aspiradora Roboto X453</p>
+                <div class="tacho-basura">
+                    <i class="far fa-trash-alt" id="tachito"></i>
+                </div>
+            </div>
+            <div class="detalle-producto-carrito">
+                <div class="titulares-producto">
+                    <p class="etiquetas-productos">Precio unitario</p>
+                    <p class="etiquetas-productos">Cantidad</p>
+                    <p class="etiquetas-productos">Subtotal</p>
+                </div>
+                <div class="valores-producto">
+                    <p class="precio-unitario">$10</p>
+                    <div class="cantidad-producto">
+                        <div class="recuadro-cantidad">
+                            <p class="texto-recuadro">-</p>
+                            <p class="texto-recuadro">1</p>
+                            <p class="texto-recuadro">+</p>
+                        </div>
+                    </div>
+                    <p class="subtotal">$200</p>
+                </div>
+            </div>
+        </article>
+        <article class="articulo-carrito">
+            <div class="producto-carrito">
+                <img class="imagen-producto-carrito" src="/images/vaccum-robot.jpg" alt="Producto elegido 1">
+                <p class="titulo-producto-carrito">Aspiradora Roboto X453</p>
+                <div class="tacho-basura">
+                    <i class="far fa-trash-alt" id="tachito"></i>
+                </div>
+            </div>
+            <div class="detalle-producto-carrito">
+                <div class="titulares-producto">
+                    <p class="etiquetas-productos">Precio unitario</p>
+                    <p class="etiquetas-productos">Cantidad</p>
+                    <p class="etiquetas-productos">Subtotal</p>
+                </div>
+                <div class="valores-producto">
+                    <p class="precio-unitario">$10</p>
+                    <div class="cantidad-producto">
+                        <div class="recuadro-cantidad">
+                            <p class="texto-recuadro">-</p>
+                            <p class="texto-recuadro">1</p>
+                            <p class="texto-recuadro">+</p>
+                        </div>
+                    </div>
+                    <p class="subtotal">$200</p>
+                </div>
+            </div>
+        </article>
+        <section class="section-cupon">
+            <p>CUPÓN</p>
+            <form action="/productCart.html" method="post" class="formulario-cupon">
+                <label for="codigo-cupon">Ingresá el código del cupón</label>
+                <input type="text" name="codigo-cupon" id="codigo-cupon" class="barra-texto">
+                <input type="submit" name="aceptar" value="ACEPTAR" class="boton-aceptar">
+            </form>
+        </section>
+    </main>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer class="footer">
+        <span class="wave1"></span>
+        <section class="social-icons">
+            <a href="#">
+                <i class="far fa-envelope"></i>
+            </a>
+            <a href="#">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </section>
+        <nav class="nav-footer">
+            <ul>
+                <li> <a href="#"> Inicio </a> </li>
+                <li> <a href="#"> Categorías </a> </li>
+                <li> <a href="#"> Marcas </a> </li>
+                <li> <a href="#"> Cursos </a> </li>
+                <li> <a href="#"> Nosotros </a> </li>
+                <li> <a href="#"> Tienda </a> </li>
+            </ul>
+        </nav>
+        <p class="copy">&copy; 2021 Tecnorobot USA, Inc. All rights reserved.</p>
+    </footer>
+</body>
+</html>
