@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnorobot - Tienda de Tecnología</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/944daabda3.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+</head>
+<body>
+    <header class="header-home">
+        <div class="contenedor-header">
+            <section class="logo">
+                <img src="/images/logo-mobile.jpg" alt="Logo TecnoRobot" class="logo-mobile">
+                <img src="/images/TecnoRobot.jpg" alt="Logo TecnoRobot" class="tablet">
+            </section>
+            <section class="barra-busqueda">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscar...">
+            </section>
+            <section class="iconos-header">
+                <i class="fas fa-shopping-cart"></i>
+                <nav class="mobile">
+                    <i class="fas fa-ellipsis-v"></i>
+                </nav>
+                <i class="fas fa-user user-account-icon"></i>
+            </section>
+        </div>
+    </header>
+    <nav class="desktop">
+        <ul>
+            <li> <a href="#"> Inicio </a> </li>
+            <li> <a href="#"> Categorías </a> </li>
+            <li> <a href="#"> Marcas </a> </li>
+            <li> <a href="#"> Cursos </a> </li>
+            <li> <a href="#"> Nosotros </a> </li>
+            <li> <a href="#"> Tienda </a> </li>
+        </ul>
+    </nav>
+        <div class="product">
+            <div class="img_container">
+                <img id="imagebox" src="/images/trapeador.jpg">
+            
+                <div class="cont-img-sall">
+                <div class="product-small-img">
+                <img src="/images/trapeador.jpg" onclick="mifuncion(this)">
+                <img src="/images/aspiradora200.jpg"onclick="mifuncion(this)">
+                <img src="/images/mycook-touch.webp" onclick="mifuncion(this)">
+                <img src="/images/cortadora-cesped.webp" onclick="mifuncion(this)">
+                </div>
+                </div>
+            </div>
+        
+            
+            
+        
+        
+    <script type="text/javascript">
+        function mifuncion(smallImg){
+            var fullImg=document.getElementById("imagebox");
+            fullImg.src=smallImg.src;
+        }
+    </script>
+    <div class="detail-contenedor">
+            <hr size="4" width="100%" color="">
+            <div class="caja_titulo1">
+            <h1 class="titulo_detail">Trapeador 2°</h1>
+                    <div class="star_caja">
+                    <div class="iconos_calificar">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    </div>
+                    </div>
+            </div>
+            <div class="caja-car">
+                <div class="iconos_carrito">
+                <i class="fas fa-cart-plus"></i>
+                    <a href="" class="agregar"></a>
+                </div>
+            </div>
+        <hr size="4" width="100%" color="rgb(65, 44, 44)">
+        <div class="Caja-pm"></div>
+        <h2 class="precios-T">$ 123</h2>
+        <div class="seleccion">
+        <select class="selector">
+            <option>Modelo 1</option>
+            <option>Modelo 2</option>
+            <option>Modelo 3</option>
+        </div>
+        </select>
+        <p>Bienvenido un proceso de trapeo en su máxima expresión. El robot trapeador<br>es la apuesta más avanzada y limpia tal y como tú lo harías. El máximo robot <br>trapeador con pulverizador de chorro a presión, ayuda a hacerse cargo de las manchas<br> pegajosas, la suciedad y la grasa de la cocina con menos esfuerzo <br>de su parte.</p>
+        </div> 
+    </div>    
+</div>
+<hr width="100%" color="rgb(65, 44, 44)">
+    <div class="container-product">
+        <h2 class="subtitulos-p">Productos Similares</h2>
+        <div class="product-small-img">
+            <img src="/images/trapeador.jpg">
+            <div class="estrellas">
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <img src="/images/aspiradora200.jpg">
+            <div class="estrellas">
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <img src="/images/mycook-touch.webp">
+            <div class="estrellas">
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <img src="/images/cortadora-cesped.webp">
+            <div class="estrellas">
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+        </div>
+    </div>
+        <hr width="95%" color="rgb(65, 44, 44)">
+    
+    
+
+<section class="testimonios">
+    <div class="testimonios_footer">
+        <span>Comentarios</span>
+    </div>
+    <div class="testimonios-contenedor">
+        <div class="testimonios-caja">
+            <div class="caja-top">
+                <div class="perfil">
+                    <div class="perfil-img">
+                        <img src="/images/perfil -dma.jpg">
+                    </div>
+                    <div class="name-user">
+                        <strong>Juanita La Peligrosa</strong>
+                    </div>
+                </div>
+                <div class="reseñas">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div> 
+            
+            
+            <div class="comentarios-clientes">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+        </div>
+        <div class="testimonios-caja">
+            <div class="caja-top">
+                <div class="perfil">
+                    <div class="perfil-img">
+                        <img src="/images/perfil-cabllero.png">
+                    </div>
+                    <div class="name-user">
+                        <strong>mark zuckerberg</strong>
+                    </div>
+                </div>
+                <div class="reseñas">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </div> 
+            
+            
+            <div class="comentarios-clientes">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+        </div>
+    </div>
+    <div class="boton-agregar">
+    <button class="add-boton" type="submit" value="añadir comentario">Añadir Comentario</button>
+    </div>
+    
+</section>
+</body>
+
+
+</html>    
