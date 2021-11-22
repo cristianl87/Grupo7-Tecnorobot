@@ -404,6 +404,11 @@ article.cursos-detalle {
 
 /*CARRITO DE COMPRAS*/
 
+.encabezado-carrito{
+    display: flex;
+    justify-content: center;
+}
+
 .carrito-titulo{
     display: flex;
     justify-content: center;
@@ -452,7 +457,15 @@ article.cursos-detalle {
     margin: 40% 0%;
 }
 
-.detalle-producto-carrito 
+#tachito:hover{
+    color: rgb(56, 48, 48);
+    font-size: 2.3rem;
+}
+
+.detalle-producto-carrito-desktop{
+    display: flex;
+    margin: 10px 0px;
+}
 
 .titulares-producto {
     display: flex;
@@ -475,34 +488,65 @@ article.cursos-detalle {
 }
 
 .precio-unitario{
+    display: flex;
+    margin: 0px;
     width: 30%;
+    justify-content: center;
     text-align: center;
+    align-items: center;
+    font-size: 2rem;
 }
 
 .cantidad-producto{
     display: flex;
+    flex-wrap: wrap;
     width: 30%;
     justify-content: center;
+    align-items: center;
 }
 
 .recuadro-cantidad{
     display: flex;
+    flex-wrap: wrap;
     width: 60%;
-    max-width: 100  px;
+    height: 30px;
+    max-width: 110px;
     border-radius: 5px;
     justify-content: space-around;
     background-color: #f3f3f3;
     align-items: center;
-    margin: 0px;
 }
 
 .texto-recuadro{
-    margin: 0px;
+    width: 33%;
+    text-align: center;
+    align-items: center;
+}
+
+
+#menos-mas:hover{
+    font-size: 20px;
+    background-color: #3586ff;
+    font-weight: bold;
+    color: white;
 }
 
 .subtotal{
+    display: flex;
+    margin: 0px;
     width: 30%;
+    justify-content: center;
     text-align: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.valores-producto-desktop{
+    display: none;
+}
+
+.features-carro{
+    display: none;
 }
 
 /*CUPON DESCUENTO*/
@@ -512,7 +556,7 @@ article.cursos-detalle {
     margin: auto;
     margin-top: 40px;
     font-family: 'Nunito', sans-serif;
-    border: solid black 1.5px;
+    border: solid #8080808c 1.5px;
     border-radius: 5px;
     padding: 20px;
 }
@@ -528,19 +572,92 @@ article.cursos-detalle {
 }
 
 .barra-texto{
+    padding-left: 10px;
     width: 70%;
     border: 0px;
 }
 
 .boton-aceptar{
     width: 25%;
+    min-width: 55px;
     margin-left: 5%;
     border-radius: 0px;
     color: white;
     border: 0px;
-    background: #8080808c;
+    background: #3586ff;
     height: 35px;
     font-weight: 800;
+    font-size: 12px;
+}
+
+.section-seguir-comprando {
+    display: flex;
+    color: #8080808c;
+    flex-wrap: wrap;
+    width: 80vw;
+    margin: auto;
+    margin-top: 40px;
+    font-family: 'Nunito', sans-serif;
+    border: solid #8080808c 1.5px;
+    border-radius: 5px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.section-seguir-comprando:hover{
+    color: #333;
+}
+
+.flecha-atras i {
+    color: #3586ff;
+    margin-right: 15px;
+}
+
+.section-seguir-comprando p {
+    margin: 0%;
+}
+
+.total-carrito {
+    width: 80vw;
+    margin: auto;
+    margin-top: 40px;
+    font-family: 'Nunito', sans-serif;
+    background-color: #333;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.total-detalle {
+    padding: 30px 0px;
+    border-bottom: #8080808c 1px solid;
+}
+
+.finalizar-compra{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3586ff;
+    margin: auto;
+    margin-top: 25px;
+    width: 65%;
+    min-width: 185px;
+}
+
+.finalizar-compra:hover{
+    background-color: #5498fd;
+}
+
+.boton-finalizar-compra{
+    margin: 10px;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+.detalle-producto-carrito-desktop{
+    display: none;
 }
 
 
@@ -687,17 +804,17 @@ label{
 /*REGISTER*/
 .form-register{
     display: flex;
-        flex-wrap: wrap;
-        flex-direction:column ;
-        background-color: black;
-        width: 400px;
-        box-shadow: 0px 10px 5px 10px rgba(0,0,0,0.75);
-        padding: 30px;
-        margin-top: 30px;
-        margin-bottom: 400px;
-        margin-left: 30%;
-        justify-content:space-between;
-        border-radius: 5px;
+    flex-wrap: wrap;
+    flex-direction:column ;
+    background-color: black;
+    width: 400px;
+    box-shadow: 0px 10px 5px 10px rgba(0,0,0,0.75);
+    padding: 30px;
+    margin-top: 30px;
+    margin-bottom: 400px;
+    margin-left: 30%;
+    justify-content:space-between;
+    border-radius: 5px;
 }
 input.email{
     display: flex;
@@ -852,6 +969,188 @@ input.email{
     }
     .nav-footer ul {
         display: flex;
+    }
+
+    /*@medias Sección carrito*/
+
+    main{
+        padding: 0px 5px;
+    }
+
+    .articulo-carrito{
+        padding: 0px 20px;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        width: 80vw;
+    }
+
+    .encabezado-carrito{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .carrito-titulo{
+        display: flex;
+        justify-content: left;
+        padding-left: 15px;
+        align-items: center;
+    }
+
+    .detalle-producto-carrito-desktop{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 45%;
+    }
+
+    #carrito-h3{
+        font-size: 2.3rem;
+    }
+
+    .titulares-producto{
+        width: 100%;
+        padding: 0px 20px;
+        padding-bottom: 2px;
+        justify-content: space-around;
+        align-items: end;
+    }
+
+    .etiquetas-productos{
+        font-weight: 300;
+    }
+
+    .detalle-producto-carrito{
+        display: none;
+    }
+
+    .imagen-producto-carrito{
+        width: 15%;
+        margin-left: 10px;
+        padding: 0px;
+    }
+
+    .titulo-producto-carrito{
+        width: 34%;
+        margin-left: 10px;
+        font-size: 20px;
+    }
+
+    .valores-producto-desktop{
+        display: flex;
+        justify-content: space-around;
+        width: 43%;
+        justify-content: space-between;
+    }
+
+    .tacho-basura{
+        justify-content: end;
+        width: 3%;
+        border: solid black 0px;
+    }
+
+    #tachito{
+        margin: 0px;
+    }
+
+    .features-carro{
+        display: flex;
+        border-radius: 5px;
+        width: 80vw;
+        margin: auto;
+        justify-content: space-between;
+    }
+
+    .cupon-seguir{
+        width: 48%;
+    }
+
+    .section-cupon-desktop{
+        width: 100%;
+        margin: auto;
+        margin-top: 40px;
+        font-family: 'Nunito', sans-serif;
+        border: solid #8080808c 1.5px;
+        border-radius: 5px;
+        padding: 20px;
+    }
+    .section-seguir-comprando-desktop {
+        display: flex;
+        color: #8080808c;
+        flex-wrap: wrap;
+        width: 100%;
+        margin: auto;
+        margin-top: 40px;
+        font-family: 'Nunito', sans-serif;
+        border: solid #8080808c 1.5px;
+        border-radius: 5px;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .section-seguir-comprando-desktop:hover{
+        color: #333;
+    }
+
+    .seguircomprando-p{
+        margin: 0px;
+    }
+
+    .total-carrito-desktop {
+        width: 48%;
+        margin-top: 40px;
+        font-family: 'Nunito', sans-serif;
+        background-color: #333;
+        color: #ffffff;
+        border-radius: 5px;
+        padding: 20px;
+    }
+
+    .formulario-cupon{
+        display: block;
+    }
+
+    .texto-cupon{
+        font-size: 2rem;
+    }
+
+    .barra-texto{
+        padding-left: 10px;
+        width: 95%;
+        font-size: 1.6rem;
+        margin: auto;
+        margin-bottom: 1.3rem;
+        border: 0px;
+    }
+
+    .boton-aceptar{
+        width: 95%;
+        min-width: 55px;
+        margin: auto;
+        border-radius: 0px;
+        color: white;
+        border: 0px;
+        background: #3586ff;
+        height: 35px;
+        font-weight: normal;
+        font-size: 1.5rem;
+    }
+
+    .boton-aceptar:hover{
+        background-color: #5498fd;
+    }
+
+    .section-cupon{
+        display: none;
+    }
+
+    .section-seguir-comprando{
+        display: none;
+    }
+
+    .total-carrito{
+        display: none;
     }
 }
 
