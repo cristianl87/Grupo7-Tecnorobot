@@ -17,3 +17,4 @@ Rojo descuentos                         #dc3545
 Celeste "footer"                        #3586ff
 Celeste "Precios"                       #006dc3
 Azul botón "Tienda"                     dodgerblue
+ 
