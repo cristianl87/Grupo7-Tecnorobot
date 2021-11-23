@@ -1173,17 +1173,35 @@ input.email{
 }
 
 .product-small-img img:hover{
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: -3px -3px 7px rgb(65, 44, 44),3px 3px 5px #3586ff;
 }
 .product-small-img{
-    width: 10%;
+    width: 15%;
     display: flex;
-    position: relative;
-    left: 40px;
     
     
 }
+
+.product_similars{
+    width: 10%;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.product_similars img{
+    border: solid 1px rgba(0,0,0,.2);
+    border-radius: 5px;
+    padding: 8px;
+    margin: 10px 10px 15px;
+    cursor: pointer;
+    transition: all 450ms;
+}
+.product_similars img:hover{
+    border-radius: 20px;
+    box-shadow: -3px -3px 7px rgb(65, 44, 44),3px 3px 5px #3586ff;
+}
+
 .img_container img{
     height: 330px;
     width: 330px;
@@ -1192,26 +1210,73 @@ input.email{
     padding: 10px;
     object-fit: fill;
     
-   
+    
 }
 .img_container{
     padding: 10px;
     width: 60%;
 }
 .cont-img-sall img{
-   width:100% ;
-   height: 100%;
-   
+    width:100% ;
+    height: 100%;
+
 }
 .cont-img-sall{
     display: flex;
     
 }
-
+/*<<SECCION DESCRIPCION DE PRODUCTO>>*/
+.precios-T{
+    font-size: 30PX;
+}
+.parrafo-d{
+    text-align: left;
+    justify-content: left;
+}
+.caja-pr{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.caja-producto{
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+.estrellas{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.cook{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
 .product-small-img img{
     display: flex;
+    margin: 3px;
 }
-/*<<SECCION DESCRIPCION DE PRODUCTO>>*/
+.product-small-img{
+    display: flex;
+    position: relative;
+    left: 60px;
+    
+}
+.ti-pr{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 .titulo_detail{
     font-weight:bold;
@@ -1245,6 +1310,27 @@ input.email{
 .Caja-pm{
     display: flex;
     flex-direction: column;
+    
+}
+.container-product{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.subtitulos-p{
+    display: flex;
+    justify-content: center;
+}
+.container-product {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.caja-producto{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     
 }
 /*<<<FIN DESCRIPCION DE PRODUCTO*/
