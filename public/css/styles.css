@@ -667,12 +667,10 @@ article.cursos-detalle {
         flex-wrap: wrap;
         flex-direction:column ;
         background-color: black;
-        width: 400px;
+        width: 100%;
         box-shadow: 0px 10px 5px 10px rgba(0,0,0,0.75);
-        padding: 30px;
-        margin-top: 30px;
+        padding: 20px;
         margin-bottom: 400px;
-        margin-left: 30%;
         justify-content:space-between;
         border-radius: 5px;
 }
@@ -807,14 +805,14 @@ label{
     flex-wrap: wrap;
     flex-direction:column ;
     background-color: black;
-    width: 400px;
+    width: 100%;
     box-shadow: 0px 10px 5px 10px rgba(0,0,0,0.75);
     padding: 30px;
-    margin-top: 30px;
-    margin-bottom: 400px;
-    margin-left: 30%;
+    padding-bottom: 80px;
+   margin-bottom: 50px;
     justify-content:space-between;
     border-radius: 5px;
+    
 }
 input.email{
     display: flex;
@@ -870,6 +868,25 @@ input.email{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
+    .form-register{
+        width: 80%;
+        padding: 30px;
+        padding-bottom: 80px;
+       margin-bottom: 120px;
+       margin-left:75px ;
+       margin-top: 30px;
+       
+    }
+    .form-login{
+            width: 80%;
+            padding: 30px;
+            margin-bottom: 400px;
+            margin-left:75px ;
+            margin-top: 30px;
+            
+    }
+
+
 }
 
 /* DESKTOP */
@@ -1151,6 +1168,18 @@ input.email{
 
     .total-carrito{
         display: none;
+    }
+    .form-register{
+        width: 50%;
+        padding: 30px;
+        padding-bottom: 100px;
+       margin-bottom: 140px;
+       margin-left: 300px;
+        
+    }   
+    .form-login{
+        width: 50%;
+        margin-left:300px ; 
     }
 }
 /* <<<<COMIENZO DETALLE DEL PRODUCTO>>>>>*/
