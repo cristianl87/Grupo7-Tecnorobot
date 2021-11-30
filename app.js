@@ -1,28 +1,23 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const mainRoutes = require('./routes/main');
+const loginRoute = require('./routes/login');
+const registerRoute = require('./routes/register');
+const productRoute = require('./routes/product');
+const carritoRoute = require('./routes/carrito.js')
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views/index.html'));
-});
+app.use('/', mainRoutes);
 
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views/login.html'));
-});
+app.use('/login', loginRoute);
 
-app.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views/register.html'));
-});
+app.use('/register', registerRoute);
 
-app.get('/producto', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views/productDetail.html'));
-});
+app.use('/producto', productRoute);
 
-app.get('/carrito', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views/productCart.html'));
-});
+app.use('/carrito', carritoRoute);
 
 
 
