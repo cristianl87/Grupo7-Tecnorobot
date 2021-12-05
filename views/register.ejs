@@ -1,38 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnorobot - Tienda de Tecnología</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;800&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/normalize.css">
-</head>
+//head
+<%- include('./partials/head.ejs') %>
 <body>
-    <header class="header-home">
-        <div class="contenedor-header">
-            <section class="logo">
-                <img src="/images/logo-mobile.jpg" alt="Logo TecnoRobot" class="logo-mobile">
-                <img src="/images/TecnoRobot.jpg" alt="Logo TecnoRobot" class="tablet">
-            </section>
-            <section class="barra-busqueda">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Buscar...">
-            </section>
-            <section class="iconos-header">
-                <i class="fas fa-shopping-cart"></i>
-                <nav class="mobile">
-                    <i class="fas fa-ellipsis-v"></i>
-                </nav>
-                <i class="fas fa-user user-account-icon"></i>
-            </section>
-        </div>
-    </header>
+    //header
+    <%- include('./partials/header.ejs') %>   
     <nav class="desktop">
         <ul>
             <li> <a href="#"> Inicio </a> </li>
@@ -67,31 +39,7 @@
     </form>
    
     </main>
-    <footer class="footer">
-        <span class="wave1"></span>
-        <section class="social-icons">
-            <a href="#">
-                <i class="far fa-envelope"></i>
-            </a>
-            <a href="#">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="#">
-                <i class="fab fa-instagram"></i>
-            </a>
-        </section>
-        <nav class="nav-footer">
-            <ul>
-                <li> <a href="#"> Inicio </a> </li>
-                <li> <a href="#"> Categorías </a> </li>
-                <li> <a href="#"> Marcas </a> </li>
-                <li> <a href="#"> Cursos </a> </li>
-                <li> <a href="#"> Nosotros </a> </li>
-                <li> <a href="#"> Tienda </a> </li>
-            </ul>
-        </nav>
-        <p class="copy">&copy; 2021 Tecnorobot USA, Inc. All rights reserved.</p>
-    </footer>
+    <%- include('./partials/footer.ejs') %>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
