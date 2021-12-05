@@ -12,10 +12,12 @@ html {
     font-size: 62.5%;
 }
 body {
+    margin: 0 auto!important;
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
     background-color: #f3f3f3;
     min-width: 320px;
+    max-width: 1920px;
 }
 
 img {
@@ -47,7 +49,7 @@ i.fas.fa-shopping-cart {
 /* FIN ICONOS */
 .contenedor {
     margin: 1rem auto;
-    max-width: 1200px;
+    max-width: 1920px;
 }
 .separador {
     width: 45px;
@@ -281,6 +283,17 @@ nav.desktop ul li:nth-last-child(1) a {
     top: -200px;
     transition: all 1s;
 }
+
+.verProductoBtn {
+    z-index: 10;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 7px;
+    color: black;
+    text-align: center;
+}
+
 .banner-img-bg {
     background-image: url('/images/trapeador.jpg');
     background-position: center center;
@@ -295,6 +308,7 @@ nav.desktop ul li:nth-last-child(1) a {
     right: 10px;
     font-weight: bold;
     color: firebrick;
+    font-size: 3rem;
 }
 .btnCenterBot {
     background-color: var(--celeste);
@@ -323,10 +337,6 @@ nav.desktop ul li:nth-last-child(1) a {
     bottom: -30px;
     z-index: 2;
     transition: all .3s;
-    animation: robot 1s infinite;
-}
-@keyframes robot {
-
 }
 .info-cursos img:hover {
     transform: scale(1.1);
@@ -772,8 +782,7 @@ label{
     bottom: 250px;
     padding: 10px;
     width: 350px;
-   
-   
+    text-align: center;   
 }
 .text-registro{
     position: absolute;
@@ -790,8 +799,9 @@ label{
     top: 60px;
     padding: 10px;
     border-radius: 5px;
-    
-    
+    display: block;
+    text-transform: none;
+    font-weight: 400;
 }
 
 .boton-registro1:hover{
@@ -896,6 +906,7 @@ input.email{
         justify-content: center;
         position: fixed;
         top: 0;
+        max-width: 1920px;
         width: 100%;
         z-index: 10;
         box-shadow: -1px 1px 8px 0px rgb(0 0 0 / 65%);
@@ -963,6 +974,7 @@ input.email{
         background-color: #333;
         padding-bottom: 0;
     }
+
     .info-cursos {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -989,10 +1001,6 @@ input.email{
     }
 
     /*@medias Sección carrito*/
-
-    main{
-        padding: 0px 5px;
-    }
 
     .articulo-carrito{
         padding: 0px 20px;
