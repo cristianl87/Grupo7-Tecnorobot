@@ -1462,3 +1462,45 @@ input.email{
         max-width: 65%;
     }
 }
+@media (max-width:761px){
+.product-small-img{
+    display: none;
+}
+.product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.caja_titulo1 {
+    align-items: center;
+    font-size: 12px;
+}
+.iconos_carrito i{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+.precios-T{
+    display: flex;
+    justify-content: center;
+}
+.estrellas{
+    display: none;
+    
+}
+.selector{
+    margin-bottom: 10px;
+    
+}
+.seleccion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.parrafo-d{
+    text-align: center;
+    justify-content: center;
+}
+
+}
