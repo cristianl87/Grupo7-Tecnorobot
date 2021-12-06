@@ -4,8 +4,6 @@ const productController = require('../controllers/productController');
 
 router.get('/', productController.detail);
 
-router.get('/adminDashboard/', productController.adminDashboard);
-
-router.get('/adminDashboard/editar/:id', productController.productEdit);
+router.post('/add-product', productController.addProduct);
 
 module.exports = router;
