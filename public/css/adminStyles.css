@@ -62,6 +62,11 @@ a, a:hover {
     grid-row: 2;
     grid-column: 1 / 4;
 }
+
+.filtrarProductos button {
+    padding: 1.1rem 1.4rem;
+}
+
 #buscar {
     width: 80%;
     padding: 1.2rem;
@@ -122,6 +127,7 @@ a, a:hover {
     display: flex;
     gap: .5rem;
     justify-content: center;
+    margin-top: 7px;
 }
 .producto-admin {
     margin: 0 0 4rem 0;
@@ -197,6 +203,10 @@ i {
     border: 0;
     border-radius: 5px;
 }
+input#precio-modal {
+    width: 100px;
+}
+
 @media (min-width: 481px) {
     .gridProductos {
         grid-template-columns: repeat(3, 1fr );
@@ -277,11 +287,11 @@ i {
         margin: 1rem 0;
         padding: 1rem;
     }    
-    .barra-lateral ul li:hover {
+    .barra-lateral ul li:hover:not(:nth-child(1)) {
         background-color: #fff;
         color: #3586ff;
     }
-    .barra-lateral ul li:hover::before {
+    .barra-lateral ul li:hover::before:not(:nth-child(1)) {
         content: '';
         position: absolute;
         right: 0;
@@ -292,7 +302,7 @@ i {
         border-radius: 50%;
         box-shadow: 20px 15px 0 10px white;
     }
-    .barra-lateral ul li:hover::after {
+    .barra-lateral ul li:hover::after:not(:nth-child(1)) {
         content: '';
         position: absolute;
         right: 0;

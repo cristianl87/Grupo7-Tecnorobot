@@ -3,16 +3,20 @@ const productos = require('../productos');
 
 const productController = {
     detail: (req, res) => {
-        res.render('productDetail');
+        res.render('./products/productDetail');
     },
-    adminDashboard: (req, res) => {
-        res.render('adminDashboard', {listadoProductos: productos});
-    },
-    productEdit: (req, res) => {
-        const id = req.params.id;
-        const producto = productos.filter( producto => producto.id == id);
-        res.render('productEdit', {producto: producto});
-    },
+    addProduct: (req, res) => {
+        const {nombre, precio, categoria, disponible, imagen} = req.body;
+        const producto = {
+            nombre,
+            precio,
+            categoria,
+            disponible,
+            imagen
+        }
+        productos.unshift(producto);
+        res.redirect('/adminDash');
+    }
 }
 
 module.exports = productController;

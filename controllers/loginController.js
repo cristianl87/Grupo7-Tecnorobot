@@ -1,8 +1,8 @@
 const express = require('express');
 
 const loginController = {
-    index: (req, res) => {
-        res.render('login');
+    login: (req, res) => {
+        res.render('./users/login')
     }
 }
 

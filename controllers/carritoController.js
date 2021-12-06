@@ -2,7 +2,7 @@ const express = require('express');
 
 const carritoController = {
     index: (req, res) => {
-        res.render('productCart');
+        res.render('./products/productCart');
     }
 }
 
