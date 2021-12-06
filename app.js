@@ -8,7 +8,7 @@ const registerRoute = require('./routes/register');
 const productRoute = require('./routes/product');
 const carritoRoute = require('./routes/carrito.js')
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + './public'));
 
 app.set('view engine', 'ejs');
 
