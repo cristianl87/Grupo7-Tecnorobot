@@ -35,6 +35,11 @@
             </section>
         </div>
     </header>
+//head
+    <%- include('./partials/head.ejs') %>
+    <body>
+//header
+        <%- include('./partials/header.ejs') %>  
     <nav class="desktop">
         <ul>
             <li> <a href="/"> Inicio </a> </li>
@@ -232,31 +237,7 @@
     <br>
     <br>
     <br>
-    <footer class="footer">
-        <span class="wave1"></span>
-        <section class="social-icons">
-            <a href="#">
-                <i class="far fa-envelope"></i>
-            </a>
-            <a href="#">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="#">
-                <i class="fab fa-instagram"></i>
-            </a>
-        </section>
-        <nav class="nav-footer">
-            <ul>
-                <li> <a href="#"> Inicio </a> </li>
-                <li> <a href="#"> Categorías </a> </li>
-                <li> <a href="#"> Marcas </a> </li>
-                <li> <a href="#"> Cursos </a> </li>
-                <li> <a href="#"> Nosotros </a> </li>
-                <li> <a href="#"> Tienda </a> </li>
-            </ul>
-        </nav>
-        <p class="copy">&copy; 2021 Tecnorobot USA, Inc. All rights reserved.</p>
-    </footer>
+    <%- include('./partials/footer.ejs') %>
 </body>
 
 
