@@ -33,4 +33,6 @@ app.use('/perfil', perfilRoute);
 app.use('/adminDash', adminDashRoute);
 
 
-app.listen(3000, () => console.log("Server corriendo en puerto 3000"));
+app.listen(process.env.PORT || 4000, () =>{
+    console.log('servidor corriendo en el puerto 4000')
+})
