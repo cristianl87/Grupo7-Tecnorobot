@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const methodOverride = require('method-override');
 
 // RUTAS
 const mainRoutes = require('./routes/main');
@@ -10,6 +11,8 @@ const productRoute = require('./routes/product');
 const carritoRoute = require('./routes/carrito.js');
 const perfilRoute = require('./routes/perfil');
 const adminDashRoute = require('./routes/adminDash');
+
+app.use(methodOverride('_method'));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

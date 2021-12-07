@@ -76,6 +76,11 @@ a, a:hover {
     box-shadow: inset 1px 4px 20px #eae4e4d9;
 }
 
+.contenedor-botones {
+    width: 80%;
+    margin: 0 auto;
+}
+
 .bntDashboard1 {
     border: 0;
     padding: .6rem 1rem;
