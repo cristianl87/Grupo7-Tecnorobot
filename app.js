@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const path = require('path');
 const methodOverride = require('method-override');
 
 // RUTAS
@@ -27,13 +26,18 @@ app.use('/login', loginRoute);
 
 app.use('/register', registerRoute);
 
-app.use('/producto', productRoute);
+app.use('/products', productRoute);
 
 app.use('/carrito', carritoRoute);
 
 app.use('/perfil', perfilRoute);
 
 app.use('/adminDash', adminDashRoute);
+
+app.use((req, res, next) => {
+    res.status(404).render('404');
+   })
+   
 
 
 app.listen(process.env.PORT || 4000, () =>{

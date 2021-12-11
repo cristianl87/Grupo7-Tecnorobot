@@ -2,20 +2,10 @@
 <html lang="en">
     <%- include('../partials/head') %>
     <body>
-        <%- include('../partials/header') %>  
-    <nav class="desktop">
-        <ul>
-            <li> <a href="/"> Inicio </a> </li>
-            <li> <a href="#"> Categorías </a> </li>
-            <li> <a href="#"> Marcas </a> </li>
-            <li> <a href="#"> Cursos </a> </li>
-            <li> <a href="#"> Nosotros </a> </li>
-            <li> <a href="#"> Tienda </a> </li>
-        </ul>
-    </nav>
+        <%- include('../partials/header') %>
         <div class="product">
             <div class="img_container">
-                <img id="imagebox" src="/images/vaccum-robot.jpg">
+                <img id="imagebox" src="<%= product.image %>">
             
                 <div class="cont-img-sall">
                 <div class="product-small-img">
@@ -40,7 +30,7 @@
     <div class="detail-contenedor">
             <hr size="4" width="100%" color="">
             <div class="caja_titulo1">
-            <h1 class="titulo_detail">Trapeador 2°</h1>
+            <h1 class="titulo_detail"> <%= product.name %> </h1>
                     <div class="star_caja">
                     <div class="iconos_calificar">
                     <i class="fas fa-star"></i>
@@ -59,7 +49,7 @@
             </div>
         <hr size="4" width="100%" color="">
         <div class="Caja-pm"></div>
-        <h2 class="precios-T">$ 123</h2>
+        <h2 class="precios-T"> <%= product.currency %> <%= product.price %> </h2>
         <div class="seleccion">
         <select class="selector">
             <option>Modelo 1</option>
@@ -67,7 +57,7 @@
             <option>Modelo 3</option>
         </div>
         </select>
-        <p class="parrafo-d">Bienvenido al proceso de trapeo en su máxima expresión.<br> El robot trapeador es la apuesta más avanzada y limpia tal<br> y como tú lo harías. El máximo robot trapeador con pulverizador<br>de chorro a presiónayuda a hacerse cargo de las manchas pegajosas,<br>la suciedad y la grasa de la cocina con menos esfuerzo de su parte.<br>¡ justo para los programadores full stack que no les queda tiempo !.</p>
+        <p class="parrafo-d"> <%= product.description %> </p>
         </div> 
     </div>    
 </div>

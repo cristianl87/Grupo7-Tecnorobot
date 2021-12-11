@@ -43,11 +43,84 @@ a, a:hover {
 
 .mobile {
     font-size: 3rem;
+    cursor: pointer;
     color: black;
 }
 
+.active {
+    color: #fff;
+    z-index: 99;
+    position: relative;
+    left: 100px;
+    top: -10px;
+}
+
+.mostrarMenu {
+    width: 200px!important;
+    transition: width .2s;
+}
+
 .barra-lateral {
-    display: none;
+    width: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: linear-gradient(290deg, #3586ff, #1950a1);
+    color: #fff;
+    transition: width .2s;
+}
+.barra-lateral a {
+    color: #fff;
+}
+.barra-lateral ul li:nth-child(1) {
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+    font-weight: bold;
+}
+.barra-lateral ul {
+    width: 100%;
+}
+.barra-lateral ul li {
+    cursor: pointer;
+    position: relative;
+    font-size: 1.6rem;
+    font-weight: 100;
+    margin: 1rem 0;
+    padding: 1rem;
+}    
+.barra-lateral ul li:hover:not(:nth-child(1)) {
+    background-color: #fff;
+}
+.barra-lateral ul li:hover a {
+    color: #3586ff;
+}
+.barra-lateral ul li:hover::before:not(:nth-child(1)) {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -20px;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 20px 15px 0 10px white;
+}
+.barra-lateral ul li:hover::after:not(:nth-child(1)) {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 17px -17px 0 10px white;
+}
+.barra-lateral ul li i {
+    font-size: 2.3rem;
+    margin-right: 2.6rem;
 }
 .header-admin h1 {
     font-size: 1.9rem;
@@ -92,6 +165,9 @@ a, a:hover {
     background: #c12232db!important;
     border-color: #dc3545!important;
 }
+button.eliminar-producto.bntDashboard1.btn-danger {
+    padding: .9rem 1.1rem;
+}
 .contenedor {
     width: 90%;
     margin: 0 auto;
@@ -102,9 +178,11 @@ a, a:hover {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    padding: 1rem;
 }
 
 .productTable {
+    display: none;
     width: 80%;
     margin: 0 auto;
     border-collapse: separate;
@@ -114,7 +192,7 @@ a, a:hover {
     background-color: aliceblue;
 }
 .productTable thead th {
-    padding: 1rem;
+    padding: 1rem 3rem;
     text-align: center;
 }
 
@@ -127,6 +205,7 @@ a, a:hover {
 }
 .productTable tbody tr td {
     text-align: center;
+    padding: 0 .5rem;
 }
 .acciones {
     display: flex;
@@ -186,7 +265,31 @@ i {
 .form-modal-edit {
     display: grid;
 }
+.input-shipping input,
+.input-published input {
+    width: auto!important;
+}
+.input-shipping,
+.input-published {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.form-modal-edit textarea {
+    width: 100%;
+    padding: .5rem;
+}
 
+/* Form product create */
+.price-fields {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.price-fields:nth-child(1), 
+.price-fields:nth-child(2) {
+    flex: 50%;
+}
 /* Ventana Modal editar product */
 
 .modal-tecno {
@@ -201,7 +304,7 @@ i {
     display: block;
     margin: 0;
 }
-.modal-tecno input {
+.modal-tecno input, select {
     width: 100%;
     max-width: 500px;
     padding: 1rem;
@@ -246,13 +349,18 @@ input#precio-modal {
         grid-template-rows: auto;
         padding: 3rem;
     }
+    .barra-lateral {
+        display: flex;
+        width: 200px;
+    }
     .main-contenedor {
         margin-left: 200px;
     }
+    .productTable {
+        display: block;
+    }
     .gridProductos {
-        grid-template-columns: repeat(5, 1fr);
-        max-width: 85rem;
-        margin-top: 10rem;
+        display: none;
     }
     .mobile {
         display: none;
@@ -267,59 +375,14 @@ input#precio-modal {
     #buscar {
         margin-bottom: 0;
     }
-    .barra-lateral {
-        display: flex;
-        width: 200px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        background: linear-gradient(290deg, #3586ff, #1950a1);
-        color: #fff;
-    }
-    .barra-lateral ul li:nth-child(1) {
-        margin-bottom: 10rem;
-        font-weight: bold;
-    }
-    .barra-lateral ul {
-        width: 100%;
-    }
-    .barra-lateral ul li {
-        cursor: pointer;
-        position: relative;
-        font-size: 1.6rem;
-        font-weight: 100;
-        margin: 1rem 0;
-        padding: 1rem;
-    }    
-    .barra-lateral ul li:hover:not(:nth-child(1)) {
-        background-color: #fff;
-        color: #3586ff;
-    }
-    .barra-lateral ul li:hover::before:not(:nth-child(1)) {
-        content: '';
-        position: absolute;
-        right: 0;
-        top: -20px;
-        width: 20px;
-        height: 20px;
-        background-color: transparent;
-        border-radius: 50%;
-        box-shadow: 20px 15px 0 10px white;
-    }
-    .barra-lateral ul li:hover::after:not(:nth-child(1)) {
-        content: '';
-        position: absolute;
-        right: 0;
-        bottom: -20px;
-        width: 20px;
-        height: 20px;
-        background-color: transparent;
-        border-radius: 50%;
-        box-shadow: 17px -17px 0 10px white;
-    }
-    .barra-lateral ul li i {
-        font-size: 2.3rem;
-        margin-right: 2.6rem;
-    }
+    
+}
+
+.form-createProduct {
+    padding: 1rem;
+}
+.form-createProduct input, textarea {
+    padding: 1rem;
+    margin: .5rem 0;
+    width: 100%;
 }

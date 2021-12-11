@@ -265,10 +265,15 @@ nav.desktop ul li:nth-last-child(1) a {
     height: 100%;
 }
 .precio {
+    position: relative;
     color: #006dc3;
     font-weight: 600;
 }
-
+.precio .cart-icon {
+    position: absolute;
+    right: 0;
+    font-size: 2.5rem;
+}
 .titulo,
 .descripcion-corta {
     font-size: 1.2rem;
@@ -364,6 +369,7 @@ article.cursos-detalle {
 /*ESTILOS FOOTER */
 
 .footer {
+    margin-top: 16rem;
     height: 220px;
     background-color: #3586ff;
     text-align: center;
@@ -938,7 +944,7 @@ input.email{
         width: 80%;
     }
     .lista-productos {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
     .mobile {
         display: none;
@@ -951,7 +957,7 @@ input.email{
     }
     .producto:hover {    
         transform: scale(1.03);
-        max-height: 300px;
+        max-height: 320px;
         overflow: hidden;
     }
     .producto:hover img {
@@ -965,7 +971,8 @@ input.email{
         color: white;
         top: 0px;
     }
-    .producto:hover .titulo {
+    .producto:hover .titulo,
+    .producto:hover .categoria {
         font-weight: 600;
         color: white;
     }
@@ -1240,18 +1247,13 @@ input.email{
 }
 
 .img_container img{
-    height: 330px;
     width: 330px;
-    margin: auto;
-    width: 90%;
-    padding: 10px;
-    object-fit: fill;
-    
-    
 }
 .img_container{
+    display: flex;
     padding: 10px;
     width: 60%;
+    flex-direction: column;
 }
 .cont-img-sall img{
     width:100% ;
@@ -1461,6 +1463,9 @@ input.email{
     .info-cursos article {
         max-width: 65%;
     }
+    .lista-productos {
+        grid-template-columns: repeat(5, 1fr);
+    }
 }
 @media (max-width:761px){
 .product-small-img{
@@ -1503,4 +1508,18 @@ input.email{
     justify-content: center;
 }
 
+}
+
+
+/* Estilos Pagina 404 */
+
+.not-found-404 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(/images/error-404.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }

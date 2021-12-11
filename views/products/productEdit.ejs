@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/admin/head.ejs') %>
+        <body>
+            <%- include('../partials/admin/header.ejs') %>
+                <main class="main-contenedor">
+                    <%- include('../partials/admin/sidebar.ejs') %>
+                    <form action="/products/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="form-createProduct">
+                        <div>
+                            <input type="text" name="name" id="name" placeholder="Nombre" value="<%= product.name %>" required>
+                        </div>
+                        <section class="price-fields">
+                            <div>
+                                <select name="currency" id="currency" required>
+                                    <option value="" disabled>--Moneda--</option>
+                                    <option value="$"<% if(product.currency === '$') { %>
+                                        <%= 'selected' %>
+                                        
+                                        <% } %>
+                                        >$
+                                    </option>
+                                    <option value="USD"<% if(product.currency === 'USD') { %>
+                                        <%= 'selected' %>
+                                        
+                                        <% } %>
+                                        >USD
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <input type="number" name="price" id="price" value="<%= product.price %>" required>
+                            </div>
+                        </section>
+                        <div>
+                            <input type="text" name="category" id="category" value="<%= product.category %>" required>
+                        </div>
+                        <label>Envío gratis</label>
+                            <div class="input-shipping">
+                                <input type="radio" name="freeShipping" id="shipping1" value="true" 
+                                <% if(product.freeShipping === true) { %>
+                                    <%= 'checked' %>
+                                >
+                                <% } %>
+                                <label for="shipping1"> Si </label>                            
+                            </div>
+                        <div class="input-shipping">
+                            <input type="radio" name="freeShipping" id="shipping2" value="false"
+                            <% if(product.freeShipping === false) { %>
+                                <%= 'checked' %>
+                            >
+                            <% } %>
+                            <label for="shipping2"> No </label>
+                        </div>               
+                        <div>
+                            <label>Publicado</label>
+                            <div class="input-published">
+                                <input type="radio" name="published" id="published1" value="true"
+                                <% if(product.published === true) { %>
+                                    <%= 'checked' %>
+                                >
+                                <% } %>
+                                <label for="published1"> Si </label>
+                            </div>
+                            <div class="input-published">
+                                <input type="radio" name="published" id="published2" value="false" 
+                                <% if(product.published === false) { %>
+                                    <%= 'checked' %>
+                                >
+                                <% } %>
+                                <label for="published2"> No </label>
+                            </div>                 
+                            <div>
+                                <label for="image">Imagenes del Producto</label>
+                                <div class="products-images">
+                                    <img src="<%= product.image %>" width="80px">
+                                </div>
+                                <input type="file" name="image">
+                            </div>
+
+                            <div>
+                                <textarea name="description" id="description" cols="30" rows="5" width="100%" required><%= product.description %></textarea>
+                            </div>
+                   
+                        </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='/adminDash'">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+                </main>
+        </body>
+</html>

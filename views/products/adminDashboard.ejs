@@ -1,106 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TecnoDashboard - Gestionar Productos</title>
-        <link rel="icon" type="image/jpg" href="/images/logo-mobile.jpg">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;800&display=swap" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/normalize.css">
-        <link rel="stylesheet" href="/css/adminStyles.css">
-    </head>
-<body>
-<header class="header-admin">
-        <i class="fas fa-bars mobile"></i>
-        <h1>Dashboard</h1>
-        <form class="filtrarProductos">
-            <input type="text" name="buscar" id="buscar" placeholder="Buscar...">
-            <button class="bntDashboard1"><i class="fas fa-filter"></i></button>
-        </form>
-        <div class="user"></div>
-</header>
-    <main class="main-contenedor">
-        <div class="barra-lateral">
-            <ul>
-                <li><i class="fab fa-apple"></i> Grupo 7 - Apple</li>
-                <li><i class="fas fa-home"></i> Dashboard</li>
-                <li><i class="fas fa-user-friends"></i> Clientes</li>
-                <li><i class="far fa-comment"></i> Mensajes</li>
-                <li><i class="fas fa-cogs"></i> Ajustes</li>
-                <li><i class="fas fa-sign-out-alt"></i> Cerrar sesión</li>
-            </ul>
-        </div>
-        <section class="contenedor-botones">
-            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addProductModal">
-                <i class="fas fa-plus-circle"></i> Agregar Producto
-            </a>
-        </section>
-        <table class="productTable listadoProductos">
-            <thead>
-                <tr>
-                    <th>Imagen</th>
-                    <th>SKU</th>
-                    <th>Nombre</th>
-                    <th>Categoría</th>
-                    <th>Precio</th>
-                    <th>Stock</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for(let producto of listadoProductos) { %>
-                    <tr>
-                        <td><img id="imagen" width="50px" src=<%= producto.imagen %>></td>
-                        <td><%= producto.id %></td>
-                        <td><%= producto.nombre %></td>
-                        <td><%= producto.categoria %></td>
-                        <td><%= producto.precio %></td>
-                        <td> <% if(producto.disponible === true) { %>
-                            <i class="fas fa-long-arrow-alt-up enStock"></i>
-                        <% }else { %>
-                            <i class="fas fa-long-arrow-alt-down sinStock"></i>
-                        <% } %></td>
-                        <td class="acciones">
-                            <a href="#exampleModalCenter" id="editar" class="editar-producto bntDashboard1" data-toggle="modal" data-id="<%= producto.id %>" data-nombre="<%= producto.nombre %>" data-precio="<%= producto.precio %>" data-imagen="<%= producto.imagen %>" data-categoria="<%= producto.categoria %>" > <i class="fas fa-pen"> </i> </a>
-                        
-                            <a href="#/<%= producto.id %>" class="eliminar-producto bntDashboard1 btn-danger"><i class="far fa-trash-alt"></i></a>
-                        
-                        </td>                        
-                    </tr>
-                <% } %>
-            </tbody>
-        </table>
+    <%- include('../partials/admin/head.ejs') %>
+        <body>
+            <%- include('../partials/admin/header.ejs') %>
+                <main class="main-contenedor">
+                    <%- include('../partials/admin/sidebar.ejs') %>
+                        <section class="contenedor-botones">
+                            <a href="/products/create" class="btn btn-primary">
+                                <i class="fas fa-plus-circle"></i> Agregar Producto
+                            </a>
+                        </section>
+                        <table class="productTable listadoProductos">
+                            <thead>
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>SKU</th>
+                                    <th>Nombre</th>
+                                    <th>Categoría</th>
+                                    <th>Precio</th>
+                                    <th>Publicado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <% for(let producto of listadoProductos) { %>
+                                    <tr>
+                                        <td><img id="imagen" width="50px" src=<%= producto.image %>></td>
+                                        <td><%= producto.id %></td>
+                                        <td><%= producto.name %></td>
+                                        <td><%= producto.category %></td>
+                                        <td><%= producto.currency %> <%= producto.price %></td>
+                                        <td> <% if(producto.published === true) { %>
+                                            <i class="fas fa-check enStock"></i>
+                                        <% }else { %>
+                                            <i class="fas fa-times sinStock"></i>
+                                        <% } %></td>
+                                        <td class="acciones">
+                                            <a href="/products/edit/<%= producto.id %>" id="editar" class="editar-producto bntDashboard1"> <i class="fas fa-pen"> </i> </a>
+                                            
+                                        <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
+                                            <button type="submit" class="eliminar-producto bntDashboard1 btn-danger"><i class="far fa-trash-alt"></i></button> 
+                                        </form>
+                                        
+                                        </td>                        
+                                    </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
 
-        <section class="gridProductos contenedor listadoProductos">
-            <% for(let producto of listadoProductos) { %>
-                <article class="producto-admin">
-                    <img id="imagen" src=<%= producto.imagen %>>
-                    <div class="info-producto-admin">
-                        <div class="titulo-producto-admin" id="nombre"><%= producto.nombre %></div>
-                        <div class="precio-producto-admin" id="precio"> $ <%= producto.precio %></div>
-                        <div class="sku-producto-admin" id="id"> SKU: <%= producto.id %> </div>
-                        <div class="stock-producto-admin">Stock:
-                            <% if(producto.disponible === true) { %>
-                                <i class="fas fa-long-arrow-alt-up enStock"></i>
-                            <% }else { %>
-                                <i class="fas fa-long-arrow-alt-down sinStock"></i>
+                        <section class="gridProductos contenedor listadoProductos">
+                            <% for(let producto of listadoProductos) { %>
+                                <article class="producto-admin">
+                                    <img id="imagen" src=<%= producto.imagen %>>
+                                    <div class="info-producto-admin">
+                                        <div class="titulo-producto-admin" id="nombre"><%= producto.nombre %></div>
+                                        <div class="precio-producto-admin" id="precio"> $ <%= producto.precio %></div>
+                                        <div class="sku-producto-admin" id="id"> SKU: <%= producto.id %> </div>
+                                        <div class="stock-producto-admin">Stock:
+                                            <% if(producto.disponible === true) { %>
+                                                <i class="fas fa-long-arrow-alt-up enStock"></i>
+                                            <% }else { %>
+                                                <i class="fas fa-long-arrow-alt-down sinStock"></i>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                    <div class="iconos-acciones">
+                                        <a href="#exampleModalCenter" id="editar" class="editar-producto bntDashboard1" data-toggle="modal" data-id="<%= producto.id %>" data-nombre="<%= producto.nombre %>" data-precio="<%= producto.precio %>" data-imagen="<%= producto.imagen %>" data-categoria="<%= producto.categoria %>" > <i class="fas fa-pen"> </i> </a>
+
+                                        <a href="#/<%= producto.id %>" class="eliminar-producto bntDashboard1 btn-danger"><i class="far fa-trash-alt"></i></a>
+                                    </div>
+                                </article>
                             <% } %>
-                        </div>
-                    </div>
-                    <div class="iconos-acciones">
-                        <a href="#exampleModalCenter" id="editar" class="editar-producto bntDashboard1" data-toggle="modal" data-id="<%= producto.id %>" data-nombre="<%= producto.nombre %>" data-precio="<%= producto.precio %>" data-imagen="<%= producto.imagen %>" data-categoria="<%= producto.categoria %>" ><i class="fas fa-pen"></i></a>
-                        <a href="#/<%= producto.id %>" class="eliminar-producto bntDashboard1 btn-danger"><i class="far fa-trash-alt"></i></a>
-                    </div>
-                </article>
+                        </section>
 
                 <!-- Modal -->
-                
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content modal-tecno">
                             <div class="modal-header">
@@ -149,43 +124,58 @@
                         </div>
                     </div>
                 </div>
-            <% } %>
-         </section>
-    </main>
-    <%- include('../partials/addProduct.ejs') %>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+                </main>
+            <%- include('../partials/addProduct.ejs') %>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <script type="text/javascript">
-        const products = document.querySelector('.listadoProductos')
-        products.addEventListener('click', leerProductos);
+            <script type="text/javascript">
 
-        function leerProductos(e){
-            if(e.target.classList.contains('editar-producto')) {
-                productoId = e.target.getAttribute('data-id');
-                productoNombre = e.target.getAttribute('data-nombre');
-                productoPrecio = e.target.getAttribute('data-precio');
-                productoCategoria = e.target.getAttribute('data-categoria');
-                productoImagen = e.target.getAttribute('data-imagen');
+                const mobileMenu = document.querySelector('.mobile');
+                mobileMenu.addEventListener('click', mostrarMenu);
 
-                modalTitle = document.querySelector('#modalTitle');
-                modalTitle.textContent = 'Editar producto #' + productoId;
+                const barraLateral = document.querySelector('.barra-lateral');
 
-                nombreModal = document.querySelector('#nombre-modal');
-                nombreModal.value = productoNombre;
+                function mostrarMenu() {
+                    mobileMenu.classList.toggle('active');
+                    barraLateral.classList.toggle('mostrarMenu');
+                }
 
-                precioModal = document.querySelector('#precio-modal');
-                precioModal.value = productoPrecio;
 
-                categoriaModal = document.querySelector('#categoria-modal');
-                categoriaModal.value = productoCategoria;
 
-                imagenModal = document.querySelector('#imagen-modal');
-                imagenModal.src = productoImagen;
+                const productTable = document.querySelector('.productTable')
+                productTable.addEventListener('click', leerProductos);
 
-            }
-        }
-    </script>
-</body>
+                const gridProductos = document.querySelector('.gridProductos')
+                gridProductos.addEventListener('click', leerProductos);
+
+
+                function leerProductos(e){
+                    if(e.target.classList.contains('editar-producto')) {
+                        productoId = e.target.getAttribute('data-id');
+                        productoNombre = e.target.getAttribute('data-nombre');
+                        productoPrecio = e.target.getAttribute('data-precio');
+                        productoCategoria = e.target.getAttribute('data-categoria');
+                        productoImagen = e.target.getAttribute('data-imagen');
+
+                        modalTitle = document.querySelector('#modalTitle');
+                        modalTitle.textContent = 'Editar producto #' + productoId;
+
+                        nombreModal = document.querySelector('#nombre-modal');
+                        nombreModal.value = productoNombre;
+
+                        precioModal = document.querySelector('#precio-modal');
+                        precioModal.value = productoPrecio;
+
+                        categoriaModal = document.querySelector('#categoria-modal');
+                        categoriaModal.value = productoCategoria;
+
+                        imagenModal = document.querySelector('#imagen-modal');
+                        imagenModal.src = productoImagen;
+
+                    }
+                }
+            </script>
+        </body>
 </html>

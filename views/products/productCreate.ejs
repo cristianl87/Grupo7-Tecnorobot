@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/admin/head.ejs') %>
+        <body>
+            <%- include('../partials/admin/header.ejs') %>
+                <main class="main-contenedor">
+                    <%- include('../partials/admin/sidebar.ejs') %>
+                    <form action="/products/create" method="POST" enctype="multipart/form-data" class="form-createProduct">
+                        <div>
+                            <input type="text" name="name" id="name" placeholder="Nombre">
+                        </div>
+                        <section class="price-fields">
+                                <div>
+                                    <select name="currency" id="currency">
+                                        <option value="" disabled selected>--Moneda--</option>
+                                        <option value="$">$</option>
+                                        <option value="USD">U$S</option>
+                                    </select>
+                                </div>
+    
+                                <div>
+                                    <input type="number" name="price" id="price" placeholder="Precio: Ejemplo: 150">
+                                </div>
+                        </section>
+                        <div>
+                            <input type="text" name="category" id="category" placeholder="Categoría">
+                        </div>
+                        <label>Envío gratis</label>
+                        <div class="input-shipping">
+                            <input type="radio" name="freeShipping" id="shipping1" value="true">
+                            <label for="shipping1"> Si </label>
+                          </div>
+                          <div class="input-shipping">
+                            <input type="radio" name="freeShipping" id="shipping2" value="false" checked>
+                            <label for="shipping2"> No </label>
+                          </div>                 
+                        <div>
+                            <label>Publicado</label>
+                            <div class="input-published">
+                                <input type="radio" name="published" id="published1" value="true">
+                                <label for="published1"> Si </label>
+                              </div>
+                              <div class="input-published">
+                                <input type="radio" name="published" id="published2" value="false" checked>
+                                <label for="published2"> No </label>
+                              </div>                 
+                            <div>
+                            <label for="image">Imagenes del Producto</label>
+                            <input type="file" name="image">
+                        </div>
+                        <div>
+                            <textarea name="description" id="description" cols="30" rows="5" placeholder="Describe tu producto" width="100%"></textarea>
+                        </div>
+                   
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+                </main>
+        </body>
+</html>
