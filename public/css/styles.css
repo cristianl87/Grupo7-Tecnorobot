@@ -1523,3 +1523,14 @@ input.email{
     background-size: cover;
     background-position: center center;
 }
+.volverAHome{
+    display: flex;
+    position: relative;
+    left: 340px;
+    bottom: -50px;
+    
+}
+.colorText404{
+    color: black;
+    font-weight: bold;
+}
