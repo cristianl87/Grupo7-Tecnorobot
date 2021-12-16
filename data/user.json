@@ -7,7 +7,7 @@
     "password":1234,
     "country": "Argentina",
     "city":"Buenos Aires",
-    "Avatar-image":,
+    "Avatar-image":"./images/user_avatar/avatarMasculino.png",
     "gender":"M" 
 },
 {
@@ -19,7 +19,7 @@
     "password":1223,
     "country": "Argentina",
     "city":"Buenos Aires",
-    "Avatar-image":,
+    "Avatar-image":"./images/user_avatar/avatarMasculino.png",
     "gender":"M" 
 },{
     "id":10003,
@@ -41,7 +41,7 @@
     "password":5534,
     "country": "Argentina",
     "city":"Mar del Plata",
-    "Avatar-image":,
+    "Avatar-image":"./images/user_avatar/avatarMasculino.png",
     "gender":"M" 
 },{
     "id":10005,
@@ -52,7 +52,7 @@
     "password":9934,
     "country": "Argentina",
     "city":"Bariloche",
-    "Avatar-image":,
+    "Avatar-image":"./images/user_avatar/avatarFemenino.png",
     "gender":"F" 
 },{
     "id":10006,
@@ -63,7 +63,7 @@
     "password":8780,
     "country": "Argentina",
     "city":"Buenos Aires",
-    "Avatar-image":,
+    "Avatar-image":"./images/user_avatar/avatarMasculino.png",
     "gender":"M" 
 },{
     "id":10007,
@@ -74,7 +74,7 @@
     "password":1279,
     "country": "Argentina",
     "city":"Rosario",
-    "Avatar-image":,
+    "Avatar-image":"./images/user_avatar/avatarMasculino.png",
     "gender":"M" 
 },{
     "id":10008,
@@ -85,7 +85,7 @@
     "password":9954,
     "country": "Argentina",
     "city":"Corrientes",
-    "Avatar-image":,
+    "Avatar-image":"./images/user_avatar/avatarMasculino.png",
     "gender":"M" 
 },{
     "id":10009,
@@ -96,7 +96,7 @@
     "password":1994,
     "country": "Argentina",
     "city":"La Plata",
-    "Avatar-image":,
+    "Avatar-image":"./images/user_avatar/avatarFemenino.png",
     "gender":"F" 
 },{
     "id":10010,
@@ -107,7 +107,7 @@
     "password":1554,
     "country": "Argentina",
     "city":"Buenos Aires",
-    "Avatar-image":,
+    "Avatar-image":"./images/user_avatar/avatarMasculino.png",
     "gender":"M" 
 }
 ]
