@@ -3,6 +3,14 @@
     <%- include('../partials/head.ejs') %>
 <body>
     <%- include('../partials/header.ejs') %>
+    <div class="slider-container">
+
+        <ul class="slider" id="slider">
+            <li class="slides"><img class="img-slider" src="/images/vaccum-clenar.jpg" alt=""></li>
+            <li class="slides"><img class="img-slider" src="/images/girl-class.jpg" alt=""></li>
+            <li class="slides"><img class="img-slider" src="/images/vaccum-clenar.jpg" alt=""></li>
+        </ul>
+    </div>
     <main class="contenedor">
         <section class="lista-productos">
             <% for(let product of products) { %>
