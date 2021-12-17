@@ -7,7 +7,7 @@
                     <%- include('../partials/admin/sidebar.ejs') %>
                     <form action="/products/create" method="POST" enctype="multipart/form-data" class="form-createProduct">
                         <div>
-                            <input type="text" name="name" id="name" placeholder="Nombre">
+                            <input type="text" name="name" id="name" placeholder="Nombre de tu producto...">
                         </div>
                         <section class="price-fields">
                                 <div>
@@ -43,8 +43,12 @@
                               <div class="input-published">
                                 <input type="radio" name="published" id="published2" value="false" checked>
                                 <label for="published2"> No </label>
+                              </div>
+                              <div class="input-featured">
+                                  <label for="featured">Producto destacado</label>
+                                  <input type="checkbox" name="featured" id="featured">
                               </div>                 
-                            <div>
+                            <div class="input-imagenes">
                             <label for="image">Imagenes del Producto</label>
                             <input type="file" name="image">
                         </div>
@@ -54,7 +58,7 @@
                    
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <a href="/adminDash" class="btn btn-secondary">Cerrar</a>
                 <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
             </form>

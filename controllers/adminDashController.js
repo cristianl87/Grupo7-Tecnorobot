@@ -6,7 +6,10 @@ const products = JSON.parse(productsJSON);
 
 const adminDashboard={
     adminDashboard: (req, res) => {
-        res.render('./products/adminDashboard', {listadoProductos: products});
+        res.render('./admin/adminDashboard', {listadoProductos: products});
+    },
+    settings: (req, res) => {
+        res.send('hola')
     }
 }
 
