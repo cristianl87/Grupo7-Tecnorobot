@@ -15,41 +15,38 @@
                 <img src="/images/vaccum-robot.jpg" onclick="mifuncion(this)">
                 </div>
                 </div>
-            </div>
-        
-            
-            
-        
-        
-    <script type="text/javascript">
-        function mifuncion(smallImg){
-            var fullImg=document.getElementById("imagebox");
-            fullImg.src=smallImg.src;
-        }
-    </script>
-    <div class="detail-contenedor">
+        </div>
+
+        <div class="detail-contenedor">
             <hr size="4" width="100%" color="">
             <div class="caja_titulo1">
-            <h1 class="titulo_detail"> <%= product.name %> </h1>
-                    <div class="star_caja">
+                <h1 class="titulo_detail"> <%= product.name %> </h1>
+                <div class="star_caja">
                     <div class="iconos_calificar">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
                     </div>
-                    </div>
+                </div>
             </div>
             <div class="caja-car">
                 <div class="iconos_carrito">
-                <i class="fas fa-cart-plus"></i>
-                    <a href="" class="agregar"></a>
+                    
+                    <a href="#" class="agregar-carrito">
+                        Agregar al carrito <i class="fas fa-cart-plus"></i>
+                    </a>
                 </div>
             </div>
         <hr size="4" width="100%" color="">
         <div class="Caja-pm"></div>
         <h2 class="precios-T"> <%= product.currency %> <%= product.price %> </h2>
+        <% if(product.freeShipping === true) { %>
+            <div class="free-shipping-detail">
+                <div class="badge badge-success">Envío gratis</div>
+            </div>
+        <% } %>
         <div class="seleccion">
         <select class="selector">
             <option>Modelo 1</option>
@@ -139,15 +136,14 @@
                         <strong>Juanita La Peligrosa</strong>
                     </div>
                 </div>
-                <div class="reseñas">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
             </div> 
-            
+            <div class="reseñas">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
             
             <div class="comentarios-clientes">
                 <p>Como programdora full stack me sirvio bastante con la limpieza de mi hogar, ya que no me queda tiempo para nada...ni para socializar.</p>
@@ -163,14 +159,14 @@
                         <strong>mark zuckerberg</strong>
                     </div>
                 </div>
-                <div class="reseñas">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-            </div> 
+            </div>
+            <div class="reseñas">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
             
             
             <div class="comentarios-clientes">
@@ -192,6 +188,11 @@
     <br>
     <%- include('../partials/footer.ejs') %>
 </body>
-
+<script type="text/javascript">
+    function mifuncion(smallImg){
+        var fullImg=document.getElementById("imagebox");
+        fullImg.src=smallImg.src;
+    }
+</script>
 
 </html>    

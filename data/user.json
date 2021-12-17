@@ -1,0 +1,113 @@
+[{
+    "id":10001,
+    "first_name":"Javier",
+    "last_name":"Alvarez",
+    "username":"javi86",
+    "email":"javier_alvarez@gmail.com",
+    "password":1234,
+    "country": "Argentina",
+    "city":"Buenos Aires",
+    "Avatar-image":"./images/user_avatar/avatarMasculino.png",
+    "gender":"M" 
+},
+{
+    "id":10002,
+    "first_name":"Lucas",
+    "last_name":"Garcia",
+    "username":"luca78",
+    "email":"lucas78@gmail.com",
+    "password":1223,
+    "country": "Argentina",
+    "city":"Buenos Aires",
+    "Avatar-image":"./images/user_avatar/avatarMasculino.png",
+    "gender":"M" 
+},{
+    "id":10003,
+    "first_name":"Lucia",
+    "last_name":"Nuñez",
+    "username":"LuciaN2021",
+    "email":"lu_nuñez@gmail.com",
+    "password":7298,
+    "country": "Argentina",
+    "city":"Cordoba",
+    "Avatar-image":,
+    "gender":"F" 
+},{
+    "id":10004,
+    "first_name":"Martin",
+    "last_name":"Cuña",
+    "username":"m_cuña77",
+    "email":"martin21_cuña@gmail.com",
+    "password":5534,
+    "country": "Argentina",
+    "city":"Mar del Plata",
+    "Avatar-image":"./images/user_avatar/avatarMasculino.png",
+    "gender":"M" 
+},{
+    "id":10005,
+    "first_name":"Rocio",
+    "last_name":"Sanchez",
+    "username":"Ro_sanchez",
+    "email":"rociosanchez_2021@gmail.com",
+    "password":9934,
+    "country": "Argentina",
+    "city":"Bariloche",
+    "Avatar-image":"./images/user_avatar/avatarFemenino.png",
+    "gender":"F" 
+},{
+    "id":10006,
+    "first_name":"Angel",
+    "last_name":"Gonzalez",
+    "username":"angelito-2021",
+    "email":"angel_gonzalez21@gmail.com",
+    "password":8780,
+    "country": "Argentina",
+    "city":"Buenos Aires",
+    "Avatar-image":"./images/user_avatar/avatarMasculino.png",
+    "gender":"M" 
+},{
+    "id":10007,
+    "first_name":"Abel",
+    "last_name":"Vivas",
+    "username":"abel1987",
+    "email":"abelvivas_87@gmail.com",
+    "password":1279,
+    "country": "Argentina",
+    "city":"Rosario",
+    "Avatar-image":"./images/user_avatar/avatarMasculino.png",
+    "gender":"M" 
+},{
+    "id":10008,
+    "first_name":"Matias",
+    "last_name":"Messi",
+    "username":"messi86",
+    "email":"matias_messi@gmail.com",
+    "password":9954,
+    "country": "Argentina",
+    "city":"Corrientes",
+    "Avatar-image":"./images/user_avatar/avatarMasculino.png",
+    "gender":"M" 
+},{
+    "id":10009,
+    "first_name":"sofia",
+    "last_name":"Gatica",
+    "username":"sofi2022",
+    "email":"sofiagatica_2022@gmail.com",
+    "password":1994,
+    "country": "Argentina",
+    "city":"La Plata",
+    "Avatar-image":"./images/user_avatar/avatarFemenino.png",
+    "gender":"F" 
+},{
+    "id":10010,
+    "first_name":"Pablo",
+    "last_name":"Perez",
+    "username":"pabloperez12",
+    "email":"pabloperez@gmail.com",
+    "password":1554,
+    "country": "Argentina",
+    "city":"Buenos Aires",
+    "Avatar-image":"./images/user_avatar/avatarMasculino.png",
+    "gender":"M" 
+}
+]

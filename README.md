@@ -45,3 +45,5 @@ _Tiene un home con un diseño cómodo y minimalista._
 Link del repositorio: https://github.com/cristianl87/Grupo7-Tecnorobot.git
 
 Link Trello: https://trello.com/b/cE7aGAUv/tecnorobot
+
+El proyecto cuenta con un CRUD de productos al cual se puede acceder desde la ruta /adminDash. Alli se pueden listar, crear, editar y eliminar productos.
