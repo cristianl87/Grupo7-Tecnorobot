@@ -1517,6 +1517,57 @@ input.email{
     background-size: cover;
     background-position: center center;
 }
+<<<<<<< HEAD
+
+
+
+
+
+/* Estilos Slider nuevo */
+
+.slider-container{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    margin: auto;
+    overflow: hidden;
+
+}
+
+.slider{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 300%;
+    height: 360px;
+    
+    animation: cambio-slider 15s infinite alternate;
+}
+
+.slides{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100vw;
+    height: inherit;
+}
+
+.img-slider{
+    object-fit: cover;
+    width: 100vw;
+    height: inherit;
+}
+
+@keyframes cambio-slider {
+    0% {margin-left: 0%;}
+    25%{margin-left: 0%;}
+
+    33%{margin-left: -100%;}
+    58%{margin-left: -100%;}
+
+    66%{margin-left: -200%;}
+    100%{margin-left: -200%;}
+=======
 .volverAHome{
     display: flex;
     position: relative;
@@ -1579,4 +1630,5 @@ input.email{
     border-radius: 5px;
     background-color: var(--celeste);
     font-weight: bold;
+>>>>>>> f3d5272d71995abc77308c311dae0bd79abf189c
 }
