@@ -1535,7 +1535,7 @@ input.email{
     margin: 0;
     padding: 0;
     margin: auto;
-    /* overflow: hidden; */
+    overflow: hidden;
 
 }
 
@@ -1546,8 +1546,7 @@ input.email{
     width: 300%;
     height: 360px;
     
-
-    animation: cambio-slider 20s infinite alternate;
+    animation: cambio-slider 15s infinite alternate;
 }
 
 .slides{
