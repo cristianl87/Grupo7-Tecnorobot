@@ -731,7 +731,7 @@ input.contraseña{
  .boton-login:hover{
      background-color: rgb(30, 101, 255);
  }
-form{
+.form-login{
     display: flex;
     align-content: center;
     width: 100%;
@@ -749,11 +749,10 @@ form{
     
 
 }
-label{
-    color: blanchedalmond;
-}
+
 .info{
     font-size: 13px;
+    color: blanchedalmond;
 }
 .info:hover{
     color: seagreen;
