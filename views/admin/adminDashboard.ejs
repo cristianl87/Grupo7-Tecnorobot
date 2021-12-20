@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/admin/head.ejs') %>
+        <body>
+            <%- include('../partials/admin/header.ejs') %>
+                <main class="main-contenedor">
+                    <%- include('../partials/admin/sidebar.ejs') %>
+                        <section class="contenedor-botones">
+                            <a href="/products/create" class="btn btn-primary">
+                                <i class="fas fa-plus-circle"></i> Agregar Producto
+                            </a>
+                            <a href="/" class="btn btn-primary" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Ver sitio
+                            </a>
+                        </section>
+                        <table class="productTable listadoProductos">
+                            <thead>
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>SKU</th>
+                                    <th>Nombre</th>
+                                    <th>Categoría</th>
+                                    <th>Precio</th>
+                                    <th>Publicado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <% for(let producto of listadoProductos) { %>
+                                    <tr>
+                                        <td><img id="imagen" width="50px" src=<%= producto.image %>></td>
+                                        <td><%= producto.id %></td>
+                                        <td><%= producto.name %></td>
+                                        <td><%= producto.category %></td>
+                                        <td><%= producto.currency %> <%= producto.price %></td>
+                                        <td> <% if(producto.published === true) { %>
+                                            <i class="fas fa-check enStock"></i>
+                                        <% }else { %>
+                                            <i class="fas fa-times sinStock"></i>
+                                        <% } %></td>
+                                        <td class="acciones">
+                                            <a href="/products/edit/<%= producto.id %>" id="editar" class="editar-producto bntDashboard1"> <i class="fas fa-pen"> </i> </a>
+                                            
+                                        <form onsubmit="recargar" action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
+                                            <button type="submit" class="eliminar-producto bntDashboard1 btn-danger"><i class="far fa-trash-alt"></i></button> 
+                                        </form>
+                                        
+                                        </td>                        
+                                    </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+
+                        <section class="gridProductos contenedor listadoProductos">
+                            <% for(let producto of listadoProductos) { %>
+                                <article class="producto-admin">
+                                    <img id="imagen" src=<%= producto.image %>>
+                                    <div class="info-producto-admin">
+                                        <div class="titulo-producto-admin" id="nombre"><%= producto.name %></div>
+                                        <div class="precio-producto-admin" id="precio"> <%= producto.currency %> <%= producto.price %></div>
+                                        <div class="sku-producto-admin" id="id"> SKU: <%= producto.id %> </div>
+                                        <div class="stock-producto-admin">Publicado:
+                                            <% if(producto.published === true) { %>
+                                                <i class="fas fa-check enStock"></i>
+                                            <% }else { %>
+                                                <i class="fas fa-times sinStock"></i>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                    <div class="iconos-acciones">
+                                        <a href="/products/edit/<%= producto.id %>" id="editar" class="editar-producto bntDashboard1"> <i class="fas fa-pen"> </i> </a>
+
+                                        <form onsubmit="recargar" action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
+                                            <button type="submit" class="eliminar-producto bntDashboard1 btn-danger"><i class="far fa-trash-alt"></i></button> 
+                                        </form>
+                                    </div>
+                                </article>
+                            <% } %>
+                        </section>
+                </main>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+            <script type="text/javascript">
+                const mobileMenu = document.querySelector('.mobile');
+                mobileMenu.addEventListener('click', mostrarMenu);
+
+                const barraLateral = document.querySelector('.barra-lateral');
+
+                function mostrarMenu() {
+                    mobileMenu.classList.toggle('active');
+                    barraLateral.classList.toggle('mostrarMenu');
+                }
+                function recargar() {
+                    alert('recargar');
+                }
+            </script>
+        </body>
+</html>

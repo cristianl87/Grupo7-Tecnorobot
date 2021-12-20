@@ -58,19 +58,27 @@
                                 <input type="radio" name="published" id="published1" value="true"
                                 <% if(product.published === true) { %>
                                     <%= 'checked' %>
-                                >
                                 <% } %>
+                                >
                                 <label for="published1"> Si </label>
                             </div>
                             <div class="input-published">
                                 <input type="radio" name="published" id="published2" value="false" 
                                 <% if(product.published === false) { %>
                                     <%= 'checked' %>
-                                >
                                 <% } %>
+                                >
                                 <label for="published2"> No </label>
+                            </div>
+                            <div class="input-featured">
+                                <label for="featured">Producto destacado</label>
+                                <input type="checkbox" name="featured" id="featured"
+                                <% if(product.featured === true) { %>
+                                    <%= 'checked' %>
+                                <% } %>
+                                >
                             </div>                 
-                            <div>
+                            <div class="input-imagenes">
                                 <label for="image">Imagenes del Producto</label>
                                 <div class="products-images">
                                     <img src="<%= product.image %>" width="80px">
@@ -83,11 +91,11 @@
                             </div>
                    
                         </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="window.location.href='/adminDash'">Cerrar</button>
-                <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
-            </form>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="window.location.href='/adminDash'">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
                 </main>
         </body>
 </html>

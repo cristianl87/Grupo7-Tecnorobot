@@ -16,8 +16,7 @@
                 <img class="d-block w-100" src="/images/vaccum-clenar.jpg" alt="Third slide">
               </div>
             </div>
-          </div>
-        
+          </div>        
     </section>
     <main>
         <div class="contenedor">
@@ -46,60 +45,27 @@
                 <hr class="separador">
             </div>
             <section class="lista-productos">
-                <article class="producto">
-                    <img src="/images/vaccum-robot.jpg">
-                    <div class="info-producto">
-                        <div class="precio">$1500</div>
-                        <div class="badge bg-danger text-white">
-                            <i class="fas fa-tags"></i>
-                            15% OFF
-                        </div>
-                        <div class="titulo">Aspiradora Roboto X453</div>
-                        <div class="descripcion-corta">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem fugit tenetur iusto vitae velit perferendis. Commodi cupiditate architecto.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-                <article class="producto">
-                    <img src="/images/cortadora-cesped.webp">
-                    <div class="info-producto">
-                        <div class="precio">$1500</div>
-                        <div class="badge bg-danger text-white">
-                            <i class="fas fa-tags"></i>
-                            15% OFF
-                        </div>
-                        <div class="titulo">Cortadora Cesped EasyMow 260</div>
-                        <div class="descripcion-corta">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem fugit tenetur iusto vitae velit perferendis. Commodi cupiditate architecto.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-                <article class="producto">
-                    <img src="/images/vaccum-robot.jpg">
-                    <div class="info-producto">
-                        <div class="precio">$1500</div>
-                        <div class="badge bg-primary text-white">Envío gratis</div>
-                        <div class="titulo">Aspiradora Roboto X453</div>
-                    </div>
-                </article>
-                <article class="producto">
-                    <img src="/images/vaccum-robot.jpg">
-                    <div class="info-producto">
-                        <div class="precio">$1500</div>
-                        <div class="badge bg-primary text-white">Envío gratis</div>
-                        <div class="titulo">Aspiradora Roboto X453</div>
-                    </div>
-                </article>
-                <article class="producto">
-                    <img src="/images/vaccum-robot.jpg">
-                    <div class="info-producto">
-                        <div class="precio">$1500</div>
-                        <div class="badge bg-primary text-white">Envío gratis</div>
-                        <div class="titulo">Aspiradora Roboto X453</div>
-                    </div>
-                </article>
+                <% for(let product of products) { %>
+                    <% if(product.featured === true) { %>
+                        <article class="producto" data-id="<%= product.id %>">
+                            <img loading="lazy" src="<%= product.image %>">
+                            <div class="info-producto">
+                                <div class="precio"> 
+                                    <%= product.currency %> <%= product.price %>
+                                    <i class="fas fa-cart-plus cart-icon"></i> 
+                                </div>
+                                <% if(product.freeShipping === true) { %>
+                                <div class="badge badge-success">Envío gratis</div>
+                                <% } %>
+                                <div class="titulo"> <%= product.name %> </div>
+                                <div class="categoria"> <%= product.category %> </div>
+                                <div class="descripcion-corta">
+                                    <p> <%= product.description %> </p>
+                                </div>
+                            </div>
+                        </article>
+                    <% } %>
+                <% } %>
             </section>
             <section class="banner-img-bg">
                 <h4>El fin del viejo trapeado.</h4>
@@ -110,58 +76,25 @@
                 <hr class="separador">
             </div>
             <section class="lista-productos">
-                <article class="producto">
-                    <img src="/images/vaccum-robot.jpg">
-                    <div class="info-producto">
-                        <div class="precio">$1500</div>
-                        <div class="badge bg-danger text-white">
-                            <i class="fas fa-tags"></i>
-                            15% OFF
-                        </div>
-                        <div class="titulo">Aspiradora Roboto X453</div>
-                    </div>
-                </article>
-                <article class="producto">
-                    <img src="/images/vaccum-robot.jpg">
-                    <div class="info-producto">
-                        <div class="precio">$1500</div>
-                        <div class="badge bg-primary text-white">Envío gratis</div>
-                        <div class="titulo">Aspiradora Roboto X453</div>
-                    </div>
-                </article>
-                <article class="producto">
-                    <img src="/images/vaccum-robot.jpg">
-                    <div class="info-producto">
-                        <div class="precio">$1500</div>
-                        <div class="badge bg-danger text-white">
-                            <i class="fas fa-tags"></i>
-                            15% OFF
-                        </div>
-                        <div class="titulo">Aspiradora Roboto X453</div>
-                    </div>
-                </article>
-                <article class="producto">
-                    <img src="/images/vaccum-robot.jpg">
-                    <div class="info-producto">
-                        <div class="precio">$1500</div>
-                        <div class="badge bg-danger text-white">
-                            <i class="fas fa-tags"></i>
-                            15% OFF
-                        </div>
-                        <div class="titulo">Aspiradora Roboto X453</div>
-                    </div>
-                </article>
-                <article class="producto">
-                    <img src="/images/vaccum-robot.jpg">
-                    <div class="info-producto">
-                        <div class="precio">$1500</div>
-                        <div class="badge bg-danger text-white">
-                            <i class="fas fa-tags"></i>
-                            15% OFF
-                        </div>
-                        <div class="titulo">Aspiradora Roboto X453</div>
-                    </div>
-                </article>
+                <% for(let newProduct of newProducts) { %>
+                        <article class="producto" data-id="<%= newProduct.id %>">
+                            <img loading="lazy" src="<%= newProduct.image %>">
+                            <div class="info-producto">
+                                <div class="precio"> 
+                                    <%= newProduct.currency %> <%= newProduct.price %>
+                                    <i class="fas fa-cart-plus cart-icon"></i> 
+                                </div>
+                                <% if(newProduct.freeShipping === true) { %>
+                                <div class="badge badge-success">Envío gratis</div>
+                                <% } %>
+                                <div class="titulo"> <%= newProduct.name %> </div>
+                                <div class="categoria"> <%= newProduct.category %></div>
+                                <div class="descripcion-corta">
+                                    <p> <%= newProduct.description %> </p>
+                                </div>
+                            </div>
+                        </article>
+                <% } %>
             </section>
         </div>
         <section class="info-cursos">
@@ -205,6 +138,7 @@
         </section>
     </main>
     <%- include('./partials/footer.ejs') %>
+    <script src="/js/productList.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

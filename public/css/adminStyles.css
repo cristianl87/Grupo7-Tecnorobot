@@ -275,6 +275,29 @@ i {
     gap: 1rem;
     align-items: center;
 }
+.input-featured {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: .8rem .5rem;
+    background-color: var(--celeste);
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+}
+.input-featured label {
+    margin: 0!important;
+}
+.input-imagenes {
+    margin: 1rem 0;
+    padding: 1rem .5rem;
+    border: 1px solid;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.form-createProduct input[type="file"] {
+    padding: 1rem;
+}
 .form-modal-edit textarea {
     width: 100%;
     padding: .5rem;
@@ -381,7 +404,11 @@ input#precio-modal {
 .form-createProduct {
     padding: 1rem;
 }
-.form-createProduct input, textarea {
+.form-createProduct label {
+    font-weight: bold;
+}
+.form-createProduct input[type="text"], input[type="number"], textarea {
+    border-radius: 10px;
     padding: 1rem;
     margin: .5rem 0;
     width: 100%;
