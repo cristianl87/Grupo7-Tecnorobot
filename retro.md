@@ -2,7 +2,7 @@ RETROSPECTIVA - Ceremonia Starfish
 
 Start doing:
         - Reuniones de Zoom para "puestas en común":
-        
+        - Analizar con que parte del proyecto se siente mejor cada uno para poder dividir mejor las tareas de los sprint.
 
 More of:
         - Trello:
