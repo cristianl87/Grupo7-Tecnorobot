@@ -30,7 +30,7 @@
     "password":7298,
     "country": "Argentina",
     "city":"Cordoba",
-    "Avatar-image":,
+    "Avatar-image":"./images/user_avatar/avatarFemenino.png",
     "gender":"F" 
 },{
     "id":10004,
