@@ -291,7 +291,7 @@ i {
 .input-imagenes {
     margin: 1rem 0;
     padding: 1rem .5rem;
-    border: 1px solid;
+    border: 1px solid #80808047;
     overflow: hidden;
     border-radius: 5px;
 }
@@ -312,30 +312,6 @@ i {
 .price-fields:nth-child(1), 
 .price-fields:nth-child(2) {
     flex: 50%;
-}
-/* Ventana Modal editar product */
-
-.modal-tecno {
-    border-radius: 2rem;
-    border: 0;
-    background-color: #ffffffd6;
-}
-.modal-tecno div {
-    margin: 1rem 0;
-}
-.modal-tecno label {
-    display: block;
-    margin: 0;
-}
-.modal-tecno input, select {
-    width: 100%;
-    max-width: 500px;
-    padding: 1rem;
-    border: 0;
-    border-radius: 5px;
-}
-input#precio-modal {
-    width: 100px;
 }
 
 @media (min-width: 481px) {
@@ -403,13 +379,23 @@ input#precio-modal {
 
 .form-createProduct {
     padding: 1rem;
+    background: linear-gradient(45deg, #ff00d15c, #75fff9);
+    max-width: 600px;
+    margin: 2rem auto;
+    border-radius: 10px;
+    box-shadow: 8px 8px 50px 5px #80808069;
+}
+.form-createProduct input {
+    max-width: 600px;
 }
 .form-createProduct label {
     font-weight: bold;
 }
-.form-createProduct input[type="text"], input[type="number"], textarea {
-    border-radius: 10px;
+.form-createProduct input[type="text"], input[type="number"], textarea, select {
     padding: 1rem;
     margin: .5rem 0;
     width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #80808047;
 }

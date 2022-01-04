@@ -1517,12 +1517,6 @@ input.email{
     background-size: cover;
     background-position: center center;
 }
-<<<<<<< HEAD
-
-
-
-
-
 /* Estilos Slider nuevo */
 
 .slider-container{
@@ -1567,7 +1561,7 @@ input.email{
 
     66%{margin-left: -200%;}
     100%{margin-left: -200%;}
-=======
+}
 .volverAHome{
     display: flex;
     position: relative;
@@ -1630,5 +1624,24 @@ input.email{
     border-radius: 5px;
     background-color: var(--celeste);
     font-weight: bold;
->>>>>>> f3d5272d71995abc77308c311dae0bd79abf189c
+}
+.carritoBtn:hover .cartList {
+    display: block;
+    height: 300px;
+    overflow-y: scroll;
+}
+.cartList {
+    width: 380px;
+    background-color: #fff;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    height: 0px;
+    z-index: 100;
+    display: none;
+    transition: all 1s;
+}
+.cartList ul {
+    display: flex;
+    justify-content: space-around;
 }
