@@ -10,6 +10,7 @@ const productRoute = require('./routes/product');
 const carritoRoute = require('./routes/carrito.js');
 const perfilRoute = require('./routes/perfil');
 const adminDashRoute = require('./routes/adminDash');
+const userRoute = require('./routes/users');
 
 app.use(methodOverride('_method'));
 
@@ -33,6 +34,8 @@ app.use('/carrito', carritoRoute);
 app.use('/perfil', perfilRoute);
 
 app.use('/adminDash', adminDashRoute);
+
+app.use('/users', userRoute);
 
 app.use((req, res, next) => {
     res.status(404).render('404');
