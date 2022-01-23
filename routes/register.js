@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const registerController = require('../controllers/registerController');
 const { body } = require('express-validator');
-const userNoAutenticado = require('../middlewares/userNoAutenticado');
+//const userNoAutenticado = require('../middlewares/userNoAutenticado');
 
 const registerValidation = [
     body('name').notEmpty().withMessage('El nombre es obligatorio'),

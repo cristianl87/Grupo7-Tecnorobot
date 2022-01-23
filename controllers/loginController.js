@@ -4,7 +4,7 @@ const User = require('../models/User');
 
 const loginController = {
     login: (req, res) => {
-        res.render('./users/login', {registerMessage: req.session.registerMessage})
+        res.render('./users/login'/*, {registerMessage: req.session.registerMessage}*/)
     },
     processLogin: (req, res) => {
         let errors = validationResult(req);
