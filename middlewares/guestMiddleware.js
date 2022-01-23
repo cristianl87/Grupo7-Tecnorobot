@@ -1,8 +1,8 @@
 
 
 function guestMiddleware(req, res, next) {
-	if (req.session) {
-		return res.redirect('/perfil');
+	if (req.session.userLogueado) {
+		return res.redirect('./perfil');
 	}
 	next();
 }
