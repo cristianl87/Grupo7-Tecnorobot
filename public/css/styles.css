@@ -1441,6 +1441,17 @@ input.email{
     cursor: pointer;
     border-radius: 5px;
 }
+.contain.img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+main.main-contenedor {
+    width: 90%;
+    max-width: 70rem;
+    margin: 0 auto;
+}
 .perfil-img{
     width: 50px;
     height: 50px;
@@ -1455,8 +1466,19 @@ input.email{
 }
 .perfil{
     display: flex;
-    
-
+}
+.container-info-perfil {
+    background-color: #fff;
+    border-radius: 10px;
+}
+.content-info-perfil {
+    padding: 1rem;
+}
+.content-info-perfil h1 {
+    text-align: center;
+}
+.img-perfil {
+    position: relative;
 }
 .titulo_detail{
     margin: 5px;
