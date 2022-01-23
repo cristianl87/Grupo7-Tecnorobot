@@ -4,21 +4,44 @@
     <body>
 <%- include('../partials/header.ejs') %>   
  
-    <form class="form-register" action="/login" method="POST">
+    <form class="form-register" action="/register" method="POST">
         <span class="iniciar-sesion" ><strong>CREAR CUENTA</strong> </span>
         <div class="formulario">
-        <input class="nombre" type="text" name="user" placeholder="Nombre de usuario">
-        </div>
-        <div class="">
-            <input class="email" type="email" name="user" placeholder="Correo electrónico">
+        <input class="nombre <%= locals.errors && errors.name ? 'invalid' : ''%>" type="text" name="name" placeholder="Nombre de usuario" value="<%= locals.old && old.name ? old.name : ''%>">
+        <% if (locals.errors && errors.name) { %>
+            <div class="errors-form">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p class="feedback"><%= errors.name.msg %></p>
             </div>
+        <% } %>
+        </div>
         <div class="formulario">
-            <input class="contraseña" type="password" name="password" placeholder="Ingresá contraseña">
-            <label class="info"><i class="fas fa-info-circle"></i> La contraseña debe contener al menos seis caracteres.</label>
+            <input class="email <%= locals.errors && errors.email ? 'invalid' : ''%>" type="email" name="email" placeholder="Correo electrónico" value="<%= locals.old && old.email ? old.email : ''%>">
+            <% if (locals.errors && errors.email) { %>
+                <div class="errors-form">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p class="feedback"><%= errors.email.msg %></p>
+                </div>
+            <% } %>
+        </div>
+        <div class="formulario">
+            <input class="password <%= locals.errors && errors.password ? 'invalid' : ''%>" type="password" name="password" placeholder="Ingresá contraseña">
+            <% if (locals.errors && errors.password) { %>
+                <div class="errors-form">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p class="feedback"><%= errors.password.msg %>. Al menos seis caracteres, una mayúscula y un número.</p>
+                </div>
+            <% } %>
         </div> 
         <div class="formulario">
-            <input class="contraseña" type="password" name="password" placeholder="Repita su contraseña">
+            <input class="password <%= locals.errors && errors.password_confirm ? 'invalid' : ''%>" type="password" name="password_confirm" placeholder="Repita su contraseña">
             <label class="info"></label>
+            <% if (locals.errors && errors.password_confirm) { %>
+                <div class="errors-form">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p class="feedback"><%= errors.password_confirm.msg %></p>
+                </div>
+            <% } %>
         </div> 
         <div class="formulario"> 
             <button class="boton-register" type="submit" value="">Crea tu cuenta de Tecnorobot </button>

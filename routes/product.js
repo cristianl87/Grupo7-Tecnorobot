@@ -28,5 +28,7 @@ router.put('/edit/:id', upload.single('image'), productController.editPUT);
 
 router.delete('/delete/:id', productController.delete);
 
+router.get('/restore/:id', productController.restore);
+
 
 module.exports = router;

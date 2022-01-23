@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const methodOverride = require('method-override');
+const session = require('express-session');
 
 // RUTAS
 const mainRoutes = require('./routes/main');
@@ -10,8 +11,14 @@ const productRoute = require('./routes/product');
 const carritoRoute = require('./routes/carrito.js');
 const perfilRoute = require('./routes/perfil');
 const adminDashRoute = require('./routes/adminDash');
+const userRoute =  require('./routes/userRoute');
 
 app.use(methodOverride('_method'));
+app.use(session({
+    secret: 'tecnorobot',
+    resave: false,
+    saveUninitialized: false
+}));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -23,6 +30,8 @@ app.set('view engine', 'ejs');
 app.use('/', mainRoutes);
 
 app.use('/login', loginRoute);
+
+app.use('/user', userRoute);
 
 app.use('/register', registerRoute);
 

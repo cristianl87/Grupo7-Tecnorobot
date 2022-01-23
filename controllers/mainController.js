@@ -5,13 +5,15 @@ const folderData = path.join(__dirname, '../data');
 const productsJSON = fs.readFileSync(folderData + '/products.json', 'utf-8');
 let products = JSON.parse(productsJSON);
 
-const featuredProducts = products.filter( product => product.featured === true);
+const publishedProducts = products.filter(product => product.published === true);
+
+const featuredProducts = publishedProducts.filter( product => product.featured === true);
 const featuredQuantityProducts = 10;
 const featuredProductsToFront = featuredProducts.slice(0, featuredQuantityProducts);
 
 
 const newProductsQuantity = 10;
-const productsOrderedByDate = products.sort(function(a, b) {
+const productsOrderedByDate = publishedProducts.sort(function(a, b) {
     const [dayA, monthA, yearA] = a.date.split('/');
     const [dayB, monthB, yearB] = b.date.split('/');
   
@@ -21,7 +23,11 @@ const productsOrderedByDateToFront = productsOrderedByDate.slice(0, newProductsQ
 
 const mainController = {
     index: (req, res) => {
-        res.render('index', {products: featuredProductsToFront, newProducts: productsOrderedByDateToFront});
+        res.render('index', {
+            products: featuredProductsToFront,
+            newProducts: productsOrderedByDateToFront,
+            userLogueado: req.session.userLogueado
+        });
     }
 }
 

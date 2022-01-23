@@ -1,9 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 const { exit } = require('process');
+const Product = require('../models/Product');
 const folderData = path.join(__dirname, '../data');
 const productsJSON = fs.readFileSync(folderData + '/products.json', 'utf-8'); //Leemos archivo con productos.
 let products = JSON.parse(productsJSON); //Convertimos de JSON a array de objetos.
+
+const papeleraJSON = fs.readFileSync(folderData + '/papelera.json', 'utf-8');
+let papelera = JSON.parse(papeleraJSON);
 
 const categoriesJSON = fs.readFileSync(folderData + '/categories.json', 'utf-8'); //Leemos archivo con categorias.
 let categories = JSON.parse(categoriesJSON); //Convertimos de JSON a array de objetos.
@@ -115,17 +119,30 @@ const productController = {
     delete: (req, res) => {
         const id = Number(req.params.id);
         const product = products.filter( product => product.id === id); //Guardo referencia para eliminar imagen
+        Product.aLaPapelera(product[0]);
         const image = product[0].image;
         products = products.filter( product => product.id != id);
         const productString = JSON.stringify(products);
         fs.writeFileSync(folderData + '/products.json', productString);
-        fs.unlink(path.join(__dirname, '../public') + image, (err) => {
-            if (err) {
-              console.error(err)
-              return
-            }
+        // fs.unlink(path.join(__dirname, '../public') + image, (err) => {
+        //     if (err) {
+        //       console.error(err)
+        //       return
+        //     }
+        // });
+        res.render('./admin/adminDashboard', {
+            listadoProductos: products,
+            productoEliminado: product[0].id,
         });
-        res.render('./admin/adminDashboard', {listadoProductos: products});
+    },
+
+    restore: (req, res) => {
+        const id = Number(req.params.id);
+        const productToRestore = papelera.filter(product => product.id === id);
+        Product.restoreProduct(productToRestore[0]);
+
+        res.redirect('/adminDash')
+        
     }
 }
 

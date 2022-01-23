@@ -8,6 +8,9 @@
             <i class="fas fa-search"></i>
             <input type="text" placeholder="Buscar...">
         </section>
+        <section class="mobile">
+            <i class="fas fa-ellipsis-v"></i>
+        </section>
         <section class="iconos-header">
             <a class="carritoBtn" href="/carrito"> <i class="fas fa-shopping-cart"></i>
                 <section class="cartList">
@@ -19,10 +22,23 @@
                     </ul>
                 </section>
             </a>
-            <nav class="mobile">
-                <i class="fas fa-ellipsis-v"></i>
-            </nav>
+            
+            <% if(locals.userLogueado) { %>
+                <div class="user-options-container">
+                    <a href="/perfil" class="userBtn-header"> Hola, <%= userLogueado.name %> </a>
+                    <section class="userOptions">
+                        <ul>
+                            <li><a href="/perfil"> Mi cuenta <i class="fas fa-user-circle"></i></a></li>
+                            <li><a href="/user/logout"> Cerrar sesión <i class="fas fa-sign-out-alt"></i></a></li>
+                            <% if(userLogueado.rol === 1) { %>
+                                 <li><a href="/adminDash"> Dashboard <i class="fas fa-tachometer-alt"></i></a></li>
+                            <% } %>
+                        </ul>
+                    </section>
+                </div>
+            <% } else { %>
             <a href="/login"><i class="fas fa-user user-account-icon"></i> </a>
+            <% } %>
         </section>
     </div>
     <nav class="desktop">

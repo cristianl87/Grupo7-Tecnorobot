@@ -356,7 +356,7 @@ i {
         margin-left: 200px;
     }
     .productTable {
-        display: block;
+        display: table;
     }
     .gridProductos {
         display: none;
@@ -398,4 +398,16 @@ i {
     background: transparent;
     border: 0;
     border-bottom: 1px solid #80808047;
+}
+
+.producto-deshacer {
+    margin: 0 auto;
+    text-align: center;
+    background-color: #ad1901d9;
+    color: #fff;
+    margin-top: 20px;
+}
+.producto-deshacer p a {
+    color: #fff;
+    font-weight: bold;
 }

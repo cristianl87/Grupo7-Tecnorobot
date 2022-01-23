@@ -66,7 +66,9 @@ i.fas.fa-shopping-cart {
 }
 .contenedor-header {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-around;
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.192);
@@ -106,6 +108,7 @@ i.fas.fa-shopping-cart {
     padding: 0 10px;
     display: flex;
     gap: 2rem;
+    position: relative;
 }
 .iconos-header i {
     cursor: pointer;
@@ -709,7 +712,7 @@ input.nombre{
    
 }
 
-input.contraseña{
+input.password{
     display: flex;
     flex-wrap: wrap;
     justify-content:space-between;
@@ -836,6 +839,24 @@ input.contraseña{
     border-radius: 5px;
     
 }
+.errors-form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #fff;
+    border: 1px solid #f3878785;
+    border-radius: 3px;
+    padding: 0 .5rem;
+    margin-top: 1rem;
+}
+.invalid {
+    border: 1px solid red;
+    box-shadow: inset 0px 1px 7px red;
+}
+.feedback {
+    margin: 0;
+    padding: 0;
+}
 input.email{
     display: flex;
     flex-wrap: wrap;
@@ -907,7 +928,20 @@ input.email{
             margin-top: 30px;
             
     }
-
+    .form-login .resultado {
+        padding: 1rem;
+        text-align: center;
+        color: #fff;
+        background-color: green;
+        margin: 1rem 0;
+    }
+    .form-login .login-error {
+        padding: 1rem;
+        text-align: center;
+        color: #fff;
+        background-color: red;
+        margin: 1rem 0;
+    }
 
 }
 
@@ -1638,14 +1672,48 @@ input.email{
     width: 380px;
     background-color: #fff;
     position: absolute;
-    top: 50px;
     right: 50px;
     height: 0px;
     z-index: 100;
     display: none;
     transition: all 1s;
+    border: 1px solid;
+    border-radius: 4px;
 }
 .cartList ul {
     display: flex;
     justify-content: space-around;
+}
+
+.user-options-container {
+    position: relative;
+    width: 200px;
+}
+.user-options-container a:hover {
+    color: #fff;
+}
+.user-options-container:hover .userOptions {
+    height: auto;
+    width: 100%;
+    display: block;
+}
+
+.userOptions {
+    background-color: #fff;
+    position: absolute;
+    top: 25px;
+    right: 0;
+    height: 0px;
+    z-index: 100;
+    display: none;
+    transition: all 1s;
+}
+.userOptions ul li a {
+    color: black;
+    display: block;
+    padding: .5rem;
+}
+.userOptions ul li a:hover {
+    background-color: var(--celeste);
+    color: #fff;
 }

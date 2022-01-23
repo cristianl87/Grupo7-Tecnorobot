@@ -6,12 +6,33 @@
     <%- include('../partials/header.ejs') %>
     <form class="form-login" action="/login" method="POST">
         <span class="iniciar-sesion" ><strong>INICIAR SESIÓN</strong> </span>
+        <% if(locals.registerMessage) { %>
+            <div class="resultado">
+                <%= registerMessage %>
+            </div>
+        <% } %>
+        <% if(locals.credentialError) { %>
+            <div class="login-error">
+                <%= credentialError.msg %>
+            </div>
+        <% } %>
         <div class="formulario">
-        <input class="nombre" type="text" name="user" placeholder="Nombre de usuario">
+        <input class="nombre <%= locals.errors && errors.email ? 'invalid' : ''%>" type="email" name="email" placeholder="Ingresa tu e-mail" value="<%= locals.old && old.email ? old.email : ''%>">
+        <% if (locals.errors && errors.email) { %>
+            <div class="errors-form">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p class="feedback"><%= errors.email.msg %></p>
+            </div>
+        <% } %>
         </div>
         <div class="formulario">
-        <input class="contraseña" type="password" name="password" placeholder="Ingresá tu contraseña">
-        <label class="info"><i class="fas fa-info-circle"></i> La contraseña debe contener al menos seis caracteres.</label>
+        <input class="password <%= locals.errors && errors.password ? 'invalid' : ''%>" type="password" name="password" placeholder="Ingresá tu contraseña">
+        <% if (locals.errors && errors.password) { %>
+            <div class="errors-form">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p class="feedback"><%= errors.password.msg %></p>
+            </div>
+        <% } %>
         </div> 
         <div class="formulario"> 
         <button class="boton-login" type="submit" value="">Continuar</button>
@@ -27,7 +48,7 @@
        </div>
        <div class="boton-registro">
         <span class="text-registro">¿Eres nuevo en Tecnorobot?</span>
-        <button class="boton-registro1" type="submit" value=""><a href="/register">Registrarse</a> </button>
+        <a href="/register" class="boton-registro1">Registrarse</a>
        </div>
 
     </form>
