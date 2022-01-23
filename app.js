@@ -3,6 +3,7 @@ const app = express();
 const methodOverride = require('method-override');
 const session = require('express-session');
 
+
 // RUTAS
 const mainRoutes = require('./routes/main');
 const loginRoute = require('./routes/login');
@@ -42,6 +43,8 @@ app.use('/carrito', carritoRoute);
 app.use('/perfil', perfilRoute);
 
 app.use('/adminDash', adminDashRoute);
+
+app.use('/users', userRoute);
 
 app.use((req, res, next) => {
     res.status(404).render('404');
