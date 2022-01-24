@@ -13,6 +13,7 @@ const carritoRoute = require('./routes/carrito.js');
 const perfilRoute = require('./routes/perfil');
 const adminDashRoute = require('./routes/adminDash');
 const userRoute =  require('./routes/userRoute');
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware')
 
 app.use(methodOverride('_method'));
 app.use(session({
@@ -20,6 +21,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+app.use(userLoggedMiddleware);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

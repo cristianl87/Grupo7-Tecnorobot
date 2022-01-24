@@ -1,1 +1,27 @@
-[{"id":1641667140514,"rol":1,"name":"Ariel Dorssi","email":"adorssi@gmail.com","password":"$2a$10$MWKfPNKwnc6tS.O2P6KAm.lxMSLBi/SPmcGFpSPRFGjbuGzC4xUhu","country":"Argentina","image":"./images/user_avatar/avatarMasculino.png"},{"id":1642904059062,"rol":2,"name":"Maria","email":"maria@email.com","password":"$2a$10$nRDVAr5FCTu.F7WSXOMGf.KRRiLyWSLOzoojwpT7.NmZgI3lEdqR6"}]
+[
+ {
+  "id": 1641667140514,
+  "rol": 1,
+  "name": "Ariel Dorssi",
+  "email": "adorssi@gmail.com",
+  "password": "$2a$10$MWKfPNKwnc6tS.O2P6KAm.lxMSLBi/SPmcGFpSPRFGjbuGzC4xUhu",
+  "country": "Argentina",
+  "image": "./images/user_avatar/avatarMasculino.png"
+ },
+ {
+  "id": 1642904059062,
+  "rol": 2,
+  "name": "Maria",
+  "email": "maria@email.com",
+  "password": "$2a$10$nRDVAr5FCTu.F7WSXOMGf.KRRiLyWSLOzoojwpT7.NmZgI3lEdqR6"
+ },
+ {
+  "id": 1642978282872,
+  "rol": 2,
+  "name": "Nuevo nombre",
+  "email": "lautaro@email.com",
+  "password": "$2a$10$EcWlncsl8ea3s/BwTUV6T..b.MCy33aMEdZDhheg84oEnXYo0cdza",
+  "image": "img-1642983016321.png",
+  "celular": ""
+ }
+]

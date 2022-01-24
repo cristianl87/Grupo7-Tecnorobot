@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const registerController = require('../controllers/registerController');
 const { body } = require('express-validator');
+const guestMiddleware = require('../middlewares/guestMiddleware')
 
 const registerValidation = [
     body('name').notEmpty().withMessage('El nombre es obligatorio'),
@@ -16,7 +17,7 @@ const registerValidation = [
 ];
 
 
-router.get('/', registerController.index);
+router.get('/', guestMiddleware, registerController.index);
 
 router.post('/', registerValidation, registerController.register);
 

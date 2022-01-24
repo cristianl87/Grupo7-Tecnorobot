@@ -16,7 +16,8 @@ const registerController = {
                     id: Date.now(),
                     rol: 2,
                     ...req.body,
-                    password: bcryptjs.hashSync(req.body.password, 10)
+                    password: bcryptjs.hashSync(req.body.password, 10),
+                    image: "avatarMasculino.png"
                 }
                 delete newUser.password_confirm;
 
