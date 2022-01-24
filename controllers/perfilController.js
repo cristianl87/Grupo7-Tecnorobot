@@ -5,7 +5,7 @@ const perfilController={
         res.render('./users/perfil')
     },
     edit: (req, res) => {
-        User.edit(req.body, req.file, req.session.userLogueado.email)
+        User.edit(req)
         res.redirect('/perfil')
     }
 }

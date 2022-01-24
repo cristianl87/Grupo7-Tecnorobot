@@ -1479,6 +1479,11 @@ main.main-contenedor {
 }
 .img-perfil {
     position: relative;
+    aspect-ratio: 1;
+    max-width: 200px;
+    max-height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
 }
 .titulo_detail{
     margin: 5px;

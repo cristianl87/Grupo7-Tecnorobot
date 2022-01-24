@@ -23,15 +23,17 @@ const User = {
 
         return true;
     },
-    edit: function(userInfo, userAvatar, email) {
+    edit: function(req) {
         let users = this.getAllUsers();
         let userToEdit = users.find((user) =>{
-            return user.email == email;
+            return user.email == req.session.userLogueado.email;
         })
-        userToEdit.name = userInfo.username;
-        userToEdit.email = userInfo.email;
-        userToEdit.celular = userInfo.tel;
-        userToEdit.image = userAvatar.filename;
+        userToEdit.name = req.body.username;
+        userToEdit.email = req.body.email;
+        userToEdit.celular = req.body.tel;
+        userToEdit.image = req.file.filename;
+
+        req.session.userLogueado = userToEdit
 
         let usersJSON = JSON.stringify(users, null, " ")
         fs.writeFileSync(folderData + '/user.json', usersJSON);
