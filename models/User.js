@@ -28,10 +28,16 @@ const User = {
         let userToEdit = users.find((user) =>{
             return user.email == req.session.userLogueado.email;
         })
+        let image;
+        if(req.file) {
+            image = req.file.filename;
+        }else {
+            image = userToEdit.image
+        }
         userToEdit.name = req.body.username;
         userToEdit.email = req.body.email;
         userToEdit.celular = req.body.tel;
-        userToEdit.image = req.file.filename;
+        userToEdit.image = image;
 
         req.session.userLogueado = userToEdit
 
