@@ -16,7 +16,10 @@ const loginController = {
             if(user.length > 0) {
                 if(bcrypt.compareSync(password, user[0].password)){
                     req.session.userLogueado = user[0];
+<<<<<<< HEAD
                     
+=======
+>>>>>>> f86079513b4d2fc183d582a22cf8a5a72a571a81
                     return res.redirect('/');
                 }
               

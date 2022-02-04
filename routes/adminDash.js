@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const adminDashController = require('../controllers/adminDashController');
-const authMiddleware = require('../middlewares/authMiddleware')
+const userAdministrador = require('../middlewares/userAdministrador')
 
-router.get('/',authMiddleware , adminDashController.adminDashboard);
+router.get('/', userAdministrador, adminDashController.adminDashboard);
 
 router.get('/settings', adminDashController.settings);
 
