@@ -6,7 +6,8 @@
   "email": "adorssi@gmail.com",
   "password": "$2a$10$MWKfPNKwnc6tS.O2P6KAm.lxMSLBi/SPmcGFpSPRFGjbuGzC4xUhu",
   "country": "Argentina",
-  "image": "./images/user_avatar/avatarMasculino.png"
+  "image": "img-1643248059523.webp",
+  "celular": ""
  },
  {
   "id": 1642904059062,
@@ -22,6 +23,24 @@
   "email": "lautaro@email.com",
   "password": "$2a$10$EcWlncsl8ea3s/BwTUV6T..b.MCy33aMEdZDhheg84oEnXYo0cdza",
   "image": "img-1643063935137.png",
+  "celular": ""
+ },
+ {
+  "id": 1643077115650,
+  "rol": 2,
+  "name": "cristian luna",
+  "email": "cristian@dh.com",
+  "password": "$2a$10$pAQdGg6XLLnKva6lk8TCNuS.1w/0QET3TNpbv1XRRbXgRYdJcEe/G",
+  "image": "img-1643077165720.jpg",
+  "celular": "12343567"
+ },
+ {
+  "id": 1643247141246,
+  "rol": 2,
+  "name": "cristian l",
+  "email": "cristian@d.com",
+  "password": "$2a$10$UmkvQ551VpoMOv.Hf/6pCuWJ4K6On5Bfa...j3xiB4HHndQKdziHa",
+  "image": "img-1643249207759.webp",
   "celular": ""
  }
 ]

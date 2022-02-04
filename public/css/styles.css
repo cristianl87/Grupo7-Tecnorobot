@@ -1744,3 +1744,10 @@ main.main-contenedor {
     background-color: var(--celeste);
     color: #fff;
 }
+
+.recordarUsuario{
+    display: flex;
+    position: relative;
+    top: 20px;
+    right: 17px;
+}

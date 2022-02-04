@@ -16,9 +16,12 @@ const loginController = {
             if(user.length > 0) {
                 if(bcrypt.compareSync(password, user[0].password)){
                     req.session.userLogueado = user[0];
-                    console.log(req.session.userLogueado);
+                    
                     return res.redirect('/');
-                } else {
+                }
+              
+               
+                else {
                     res.render('./users/login', {
                         credentialError: {msg: 'Credenciales inválidas'},
                         old: req.body

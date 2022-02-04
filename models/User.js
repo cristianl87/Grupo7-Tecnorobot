@@ -25,13 +25,14 @@ const User = {
     },
     edit: function(req) {
         let users = this.getAllUsers();
+        console.log(req.session.userLogueado.email)
         let userToEdit = users.find((user) =>{
             return user.email == req.session.userLogueado.email;
         })
         userToEdit.name = req.body.username;
         userToEdit.email = req.body.email;
         userToEdit.celular = req.body.tel;
-        userToEdit.image = req.file.filename;
+        userToEdit.image = req.file.filename || userToEdit.image ;
 
         req.session.userLogueado = userToEdit
 

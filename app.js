@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const methodOverride = require('method-override');
 const session = require('express-session');
-
+const cookies = require('cookie-parser');
 
 // RUTAS
 const mainRoutes = require('./routes/main');
@@ -21,6 +21,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+app.use(cookies());
 app.use(userLoggedMiddleware);
 
 app.use(express.urlencoded({ extended: false }));
