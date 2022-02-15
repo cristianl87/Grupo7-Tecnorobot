@@ -54,7 +54,30 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: true
     }
 
-    const Product = sequelize.define(alias, cols, config)
+    const Product = sequelize.define(alias, cols, config);
+
+    Product.associate = (models) => {
+        //Relación con categorías 
+        Product.belongsTo(models.Category, {
+            as: 'category',
+            foreignKey: 'category_id'
+        });
+
+        //Relación con divisas 
+        Product.belongsTo(models.Currency, {
+            as: 'currency',
+            foreignKey: 'currency_id'
+        })
+
+        //Relación con Cart
+        Product.belongsToMany(models.Cart, {
+            as: 'carts',
+            foreignKey: 'product_id',
+            otherKey: 'cart_id',
+            through: 'cart_product',
+            timestamps: true
+        })
+    }
 
     return Product
 

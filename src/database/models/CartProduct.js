@@ -1,3 +1,7 @@
+// Tabla pivot Cart-Product
+
+const Cart = require("./Cart");
+
 module.exports = (sequelize, DataTypes) => {
 
     const alias = "CartProduct";
@@ -30,6 +34,17 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     const CartProduct = sequelize.define(alias, cols, config)
+
+    //Relaciones
+    CartProduct.associate = (models) => {
+        CartProduct.belongsTo(models.Cart, {
+            foreignKey: 'cart_id'
+        });
+
+        CartProduct.belongsTo(models.Product, {
+            foreignKey: 'product_id'
+        })
+    }
 
     return CartProduct
 

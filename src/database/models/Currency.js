@@ -28,7 +28,14 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: true
     }
 
-    const Currency = sequelize.define(alias, cols, config)
+    const Currency = sequelize.define(alias, cols, config);
+
+    Currency.associate = (models) => {
+        Currency.hasMany(models.Product, {
+            as: 'products',
+            foreignKey: 'currency_id'
+        })
+    }
 
     return Currency
 

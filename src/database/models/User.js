@@ -49,6 +49,21 @@ module.exports = (sequelize, DataTypes) => {
 
     const User = sequelize.define(alias, cols, config)
 
+    //Relaciones
+    User.associate = (models) => {
+        //Relación con Role
+        User.belongsTo(models.Role, {
+            as: 'role',
+            foreignKey: 'role_id'
+        })
+
+        //Relación con Cart
+        User.hasMany(models.Cart, {
+            as: 'carts',
+            foreignKey: 'user_id'
+        })
+    }
+
     return User
 
 }
