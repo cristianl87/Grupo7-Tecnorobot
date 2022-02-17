@@ -11,10 +11,11 @@
                         </div>
                         <section class="price-fields">
                                 <div>
-                                    <select name="currency" id="currency">
+                                    <select name="currency_id" id="currency_id">
                                         <option value="" disabled selected>--Moneda--</option>
-                                        <option value="$">$</option>
-                                        <option value="USD">U$S</option>
+                                        <% for(currency of currencies) { %>
+                                            <option value="<%= currency.id %>"> <%= currency.symbol %> </option>
+                                        <% } %>
                                     </select>
                                 </div>
     
@@ -23,40 +24,48 @@
                                 </div>
                         </section>
                         <div>
-                            <input type="text" name="category" id="category" placeholder="Categoría">
+                            <select name="category_id" id="category_id">
+                                <option value="" disabled selected>--Categoría--</option>
+                                <% for(category of categories) { %>
+                                    <option value="<%= category.id %>"> <%= category.name %> </option>
+                                <% } %>
+                            </select>
                         </div>
                         <label>Envío gratis</label>
                         <div class="input-shipping">
                             <input type="radio" name="freeShipping" id="shipping1" value="true">
                             <label for="shipping1"> Si </label>
-                          </div>
-                          <div class="input-shipping">
+                        </div>
+                        <div class="input-shipping">
                             <input type="radio" name="freeShipping" id="shipping2" value="false" checked>
                             <label for="shipping2"> No </label>
-                          </div>                 
+                        </div>                 
                         <div>
                             <label>Publicado</label>
                             <div class="input-published">
-                                <input type="radio" name="published" id="published1" value="true">
-                                <label for="published1"> Si </label>
-                              </div>
-                              <div class="input-published">
-                                <input type="radio" name="published" id="published2" value="false" checked>
-                                <label for="published2"> No </label>
-                              </div>
-                              <div class="input-featured">
-                                  <label for="featured">Producto destacado</label>
-                                  <input type="checkbox" name="featured" id="featured">
-                              </div>                 
+                                <input type="radio" name="isPublished" id="isPublishedT" value="true">
+                                <label for="isPublishedT"> Si </label>
+                            </div>
+                            <div class="input-published">
+                                <input type="radio" name="isPublished" id="isPublishedF" value="false" checked>
+                                <label for="isPublishedF"> No </label>
+                            </div>
+                            <div class="input-featured">
+                                  <label for="isFeatured">Producto destacado</label>
+                                  <input type="checkbox" name="isFeatured" id="isFeatured">
+                            </div>                 
                             <div class="input-imagenes">
-                            <label for="image">Imagenes del Producto</label>
-                            <input type="file" name="image">
+                                <label for="mainImage">Imagen de Portada</label>
+                                <input type="file" name="mainImage">
+                            </div>
+                            <div class="input-imagenes">
+                                <label for="gallery">Galeria de Imagenes</label>
+                                <input type="file" name="gallery" multiple>
+                            </div>
+                            <div>
+                                <textarea name="description" id="description" cols="30" rows="5" placeholder="Describe tu producto" width="100%"></textarea>
+                            </div>
                         </div>
-                        <div>
-                            <textarea name="description" id="description" cols="30" rows="5" placeholder="Describe tu producto" width="100%"></textarea>
-                        </div>
-                   
-                </div>
                 <div class="modal-footer">
                 <a href="/adminDash" class="btn btn-secondary">Cerrar</a>
                 <button type="submit" class="btn btn-primary">Guardar</button>

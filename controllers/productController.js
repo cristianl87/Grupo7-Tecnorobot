@@ -1,147 +1,212 @@
 const fs = require('fs');
 const path = require('path');
-const { exit } = require('process');
-const Product = require('../models/Product');
+const db = require('../src/database/models');
 const folderData = path.join(__dirname, '../data');
-const productsJSON = fs.readFileSync(folderData + '/products.json', 'utf-8'); //Leemos archivo con productos.
-let products = JSON.parse(productsJSON); //Convertimos de JSON a array de objetos.
 
 const papeleraJSON = fs.readFileSync(folderData + '/papelera.json', 'utf-8');
 let papelera = JSON.parse(papeleraJSON);
 
-const categoriesJSON = fs.readFileSync(folderData + '/categories.json', 'utf-8'); //Leemos archivo con categorias.
-let categories = JSON.parse(categoriesJSON); //Convertimos de JSON a array de objetos.
 
 const productController = {
-    list: (req, res) => {
-        publishedProducts = products.filter( product => product.published === true); //Enviamos a la vista solo los productos. con publicado = true.
-        res.render('./products/productList', {products: publishedProducts, categories: categories});
+    list: async (req, res) => {
+        try {
+            const publishedProducts = await db.Product.findAll({
+                include: [
+                    {association: 'category'},
+                    {association: 'currency'}
+                ],
+                where: {
+                    isPublished: true
+                }
+            });
+    
+            res.render('./products/productList', {products: publishedProducts});
+        } catch (error) {
+            console.log(error);
+        }
     },
-    detail: (req, res) => {
+    detail: async (req, res) => {
         const productId = Number(req.params.id);
-        const productObj = products.filter( product => product.id === productId) // Filtramos por el id que llega en la ruta.
-        if(productObj.length > 0) {
-            res.render('./products/productDetail', {product: productObj[0]});
-        } else {
-            res.redirect('/')
+        try {
+            const productById = await db.Product.findByPk(productId, {
+                include: [
+                    {association: 'category'},
+                    {association: 'currency'}
+                ]
+            });
+            if(productById) {
+                res.render('./products/productDetail', {product: productById});
+            } else {
+                res.redirect('/');
+            }
+        } catch (error) {
+            console.log(error);
         }
     },
-    createGET: (req, res) => {
-        res.render('./products/productCreate.ejs')
-    },
-    createPOST: (req, res) => {
-        const id = Date.now();
-        let featured = false; // Creamos la variable featured, en el front es un input type="checkbox" y si no esta "checked" directamente no viene en el req.body
-        let image;
-        if(req.file) {
-            image = '/images/products/' + req.file.filename; //Si viene una imagen asignamos la ruta de la misma a la variable image
-        };
-        if(req.body.featured) {
-            featured = true;
+    createGET: async (req, res) => {
+        const currencies = db.Currency.findAll();
+        const categories = db.Category.findAll();
+
+        try {
+            const result = await Promise.all([currencies, categories]);
+            res.render('./products/productCreate.ejs', {
+                currencies: result[0],
+                categories: result[1]
+            });
+
+        } catch (error) {
+            console.log(error);
         }
-        const defaultImg = '/images/default.png' //Si noviene ninguna imagen para el producto, cargamos una por default.
-        let {name, currency, price, category, freeShipping, published, description} = req.body;
-        
-        //Convertimos string a boolean usando operador ternario
+
+    },
+    createPOST: async (req, res) => {
+
+        let isFeatured;
+        req.body.isFeatured ? isFeatured = true : isFeatured = false;
+
+        let mainImage;
+        req.files.mainImage ? mainImage = '/images/products/' + req.files.mainImage[0].filename : mainImage = undefined;
+
+        let gallery = [];
+        if(req.files.gallery) {
+            const imagesGallery = req.files.gallery;
+            imagesGallery.forEach( image => {
+                gallery.push(image.filename);
+            });
+        }
+
+        const defaultProductImage = '/images/default.png';
+        let {name, currency_id, price, category_id, freeShipping, isPublished, description} = req.body;
+    
         freeShipping === 'true' ? freeShipping = true : freeShipping = false;
-        published === 'true' ? published = true : published = false;
+        isPublished === 'true' ? isPublished = true : isPublished = false;
 
-        const productObj = {
-            id,
-            name,
-            currency,
-            price: Number(price),
-            category,
-            freeShipping,
-            published,
-            featured, 
-            image: image || defaultImg,
-            description,
-            date: new Date().toLocaleDateString()
+        try {
+            const createProduct = await db.Product.create({
+                name,
+                currency_id: Number(currency_id),
+                price: Number(price),
+                category_id: Number(category_id),
+                freeShipping,
+                isPublished,
+                isFeatured,
+                mainImage: mainImage || defaultProductImage,
+                gallery: JSON.stringify(gallery),
+                isDeleted: false,
+                description
+            });
+
+            res.redirect('/adminDash');
+
+        } catch (error) {
+            console.log(error);
+        }
+
+    },
+    editGET: async (req, res) => {
+        
+        const productId = Number(req.params.id);
+
+        const currencies = db.Currency.findAll();
+        const categories = db.Category.findAll();
+        const productToEdit = db.Product.findByPk(productId, {
+            include: [
+                {association: 'category'},
+                {association: 'currency'}
+             ]
+        });
+
+        try {
+            const queryResult = await Promise.all([currencies, categories, productToEdit]);
+            
+            res.render('./products/productEdit', {
+                currencies: queryResult[0],
+                categories: queryResult[1],
+                product: queryResult[2],
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    editPUT: async (req, res) => {
+        const id = Number(req.params.id);
+
+        let {name, currency_id, price, category_id, freeShipping, isPublished, description} = req.body;
+        let isFeatured = false;
+
+        let mainImage;
+
+        if(req.files.mainImage) {
+            mainImage = '/images/products/' + req.files.mainImage.filename;
+        };
+
+        let gallery = [];
+        if(req.files.gallery) {
+            const imagesGallery = req.files.gallery;
+            imagesGallery.forEach( image => {
+                gallery.push(image.filename);
+            });
         }
         
-        products.unshift(productObj); //Agregamos el objeto con el nuevo producto al array products
-        const productString = JSON.stringify(products); //Convertimos el array products a JSON
-        fs.writeFileSync(folderData + '/products.json', productString);
-        res.render('./admin/adminDashboard', {listadoProductos: products});
-    },
-    editGET: (req, res) => {
-        const productId = Number(req.params.id);
-        const productObj = products.filter( product => product.id === productId)
-        res.render('./products/productEdit', {product: productObj[0]}); //Enviamos el objeto a la vista para poder pre-rellenar los inputs y demas.
-    },
-    editPUT: (req, res) => {
-        const id = Number(req.params.id);
-        let {name, currency, price, category, freeShipping, published, description} = req.body;
-        let featured = false;
-        let image;
-
-        if(req.file) {
-            image = '/images/products/' + req.file.filename;
-        };
-        if(req.body.featured) {
-            featured = true;
+        if(req.body.isFeatured) {
+            isFeatured = true;
         }
 
         //Convertimos string a boolean
         freeShipping === 'true' ? freeShipping = true : freeShipping = false;
-        published === 'true' ? published = true : published = false;
+        isPublished === 'true' ? isPublished = true : isPublished = false;
 
-        products.forEach( product => {
-            if(product.id === id) {
+        try {
 
-                // Si subo una nueva imagen, elimino la anterior.
-                if(image != undefined) {
-                    fs.unlink(path.join(__dirname, '../public') + product.image, (err) => {
-                        if (err) {
-                        console.error(err)
-                        return
-                        }
-                    });
-                }
+            const productToEdit = await db.Product.update({
+                name,
+                currency_id: Number(currency_id),
+                price: Number(price),
+                category_id: Number(category_id),
+                freeShipping,
+                isPublished,
+                isFeatured,
+                mainImage,
+                gallery: JSON.stringify(gallery),
+                description
+            },
+            {
+                where: {id: id}
+            });
 
-                product.name = name;
-                product.currency = currency;
-                product.price = price;
-                product.category = category;
-                product.freeShipping = freeShipping;
-                product.published = published;
-                product.image = image || product.image;
-                product.featured = featured;
-                product.description = description
+            res.redirect('/adminDash');
 
-                const productString = JSON.stringify(products);
-                fs.writeFileSync(folderData + '/products.json', productString);
-                res.render('./admin/adminDashboard', {listadoProductos: products});
-            }
-        });
+        } catch (error) {
+
+            console.log(error);
+            
+        }
     },
-    delete: (req, res) => {
+    delete: async (req, res) => {
         const id = Number(req.params.id);
-        const product = products.filter( product => product.id === id); //Guardo referencia para eliminar imagen
-        Product.aLaPapelera(product[0]);
-        const image = product[0].image;
-        products = products.filter( product => product.id != id);
-        const productString = JSON.stringify(products);
-        fs.writeFileSync(folderData + '/products.json', productString);
-        // fs.unlink(path.join(__dirname, '../public') + image, (err) => {
-        //     if (err) {
-        //       console.error(err)
-        //       return
-        //     }
-        // });
-        res.render('./admin/adminDashboard', {
-            listadoProductos: products,
-            productoEliminado: product[0].id,
+        const productDeleted = await db.Product.update({
+            isDeleted: true,
+            isPublished: false
+        },
+        {
+            where: {id}
         });
+
+        res.redirect('/adminDash');
+
     },
 
-    restore: (req, res) => {
+    restore: async (req, res) => {
         const id = Number(req.params.id);
-        const productToRestore = papelera.filter(product => product.id === id);
-        Product.restoreProduct(productToRestore[0]);
+        const productRestored = await db.Product.update({
+            isDeleted: false
+        },
+        {
+            where: {id}
+        });
 
-        res.redirect('/adminDash')
+        res.redirect('/adminDash');
+
         
     }
 }

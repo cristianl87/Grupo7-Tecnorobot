@@ -38,11 +38,7 @@ const User = {
         userToEdit.name = req.body.username;
         userToEdit.email = req.body.email;
         userToEdit.celular = req.body.tel;
-<<<<<<< HEAD
-        userToEdit.image = req.file.filename || userToEdit.image ;
-=======
         userToEdit.image = image;
->>>>>>> f86079513b4d2fc183d582a22cf8a5a72a571a81
 
         req.session.userLogueado = userToEdit
 

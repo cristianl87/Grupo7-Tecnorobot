@@ -3,16 +3,15 @@
     <%- include('../partials/head') %>
     <body>
         <%- include('../partials/header') %>
-        <div class="product">
+        <div class="product product-detail-container">
             <div class="img_container">
-                <img id="imagebox" src="<%= product.image %>">
+                <img id="imagebox" src="<%= product.mainImage %>">
             
                 <div class="cont-img-sall">
                 <div class="product-small-img">
-                <img src="/images/trapeador.jpg" onclick="mifuncion(this)">
-                <img src="/images/aspiradora200.jpg"onclick="mifuncion(this)">
-                <img src="/images/mycook-touch.webp" onclick="mifuncion(this)">
-                <img src="/images/vaccum-robot.jpg" onclick="mifuncion(this)">
+                <% for(image of JSON.parse(product.gallery)) { %>
+                    <img src="/images/products/<%= image %>" width="140px" class="miniatura">
+                <% } %>
                 </div>
                 </div>
         </div>
@@ -39,22 +38,16 @@
                     </a>
                 </div>
             </div>
-        <hr size="4" width="100%" color="">
-        <div class="Caja-pm"></div>
-        <h2 class="precios-T"> <%= product.currency %> <%= product.price %> </h2>
-        <% if(product.freeShipping === true) { %>
-            <div class="free-shipping-detail">
-                <div class="badge badge-success">Envío gratis</div>
-            </div>
-        <% } %>
-        <div class="seleccion">
-        <select class="selector">
-            <option>Modelo 1</option>
-            <option>Modelo 2</option>
-            <option>Modelo 3</option>
-        </div>
-        </select>
-        <p class="parrafo-d"> <%= product.description %> </p>
+            <hr size="4" width="100%" color="">
+            <div class="Caja-pm"></div>
+            <h2 class="precios-T"> <%= product.currency.symbol %> <%= parseInt(product.price) %> </h2>
+            <% if(product.freeShipping === true) { %>
+                <div class="free-shipping-detail">
+                    <div class="badge badge-success">Envío gratis</div>
+                </div>
+            <% } %>
+            <div class="seleccion">
+            <p class="parrafo-d"> <%= product.description %> </p>
         </div> 
     </div>    
 </div>
