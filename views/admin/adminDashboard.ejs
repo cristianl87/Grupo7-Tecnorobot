@@ -34,12 +34,12 @@
                                 
                                 <% for(let producto of listadoProductos) { %>
                                     <tr>
-                                        <td><img id="imagen" width="50px" src=<%= producto.image %>></td>
+                                        <td><img id="imagen" width="50px" src=<%= producto.mainImage %>></td>
                                         <td><%= producto.id %></td>
                                         <td><%= producto.name %></td>
-                                        <td><%= producto.category %></td>
-                                        <td><%= producto.currency %> <%= producto.price %></td>
-                                        <td> <% if(producto.published === true) { %>
+                                        <td><%= producto.category.name %></td>
+                                        <td><%= producto.currency.symbol %> <%= producto.price %></td>
+                                        <td> <% if(producto.isPublished === true) { %>
                                             <i class="fas fa-check enStock"></i>
                                         <% }else { %>
                                             <i class="fas fa-times sinStock"></i>

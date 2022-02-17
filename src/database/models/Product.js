@@ -24,6 +24,9 @@ module.exports = (sequelize, DataTypes) => {
         isFeatured: {
             type: DataTypes.BOOLEAN
         },
+        isDeleted: {
+            type: DataTypes.BOOLEAN
+        },
         mainImage: {
             type: DataTypes.STRING
         },

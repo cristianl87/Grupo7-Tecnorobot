@@ -21,10 +21,16 @@ router.get('/', productController.list);
 router.get('/detail/:id', productController.detail);
 
 router.get('/create', productController.createGET);
-router.post('/create', upload.single('image'), productController.createPOST);
+router.post('/create', upload.fields([
+    {name: 'mainImage', maxCount: 1},
+    {name: 'gallery', maxCount: 10}
+]), productController.createPOST);
 
 router.get('/edit/:id', productController.editGET);
-router.put('/edit/:id', upload.single('image'), productController.editPUT);
+router.put('/edit/:id', upload.fields([
+    {name: 'mainImage', maxCount: 1},
+    {name: 'gallery', maxCount: 10}
+]), productController.editPUT);
 
 router.delete('/delete/:id', productController.delete);
 

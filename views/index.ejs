@@ -46,19 +46,19 @@
             </div>
             <section class="lista-productos">
                 <% for(let product of products) { %>
-                    <% if(product.featured === true) { %>
+                    <% if(product.isFeatured === true) { %>
                         <article class="producto" data-id="<%= product.id %>">
-                            <img loading="lazy" src="<%= product.image %>">
+                            <img loading="lazy" src="<%= product.mainImage %>">
                             <div class="info-producto">
                                 <div class="precio"> 
-                                    <%= product.currency %> <%= product.price %>
+                                    <%= product.currency.symbol %> <%= product.price %>
                                     <i class="fas fa-cart-plus cart-icon"></i> 
                                 </div>
                                 <% if(product.freeShipping === true) { %>
                                 <div class="badge badge-success">Envío gratis</div>
                                 <% } %>
                                 <div class="titulo"> <%= product.name %> </div>
-                                <div class="categoria"> <%= product.category %> </div>
+                                <div class="categoria"> <%= product.category.name %> </div>
                                 <div class="descripcion-corta">
                                     <p> <%= product.description %> </p>
                                 </div>
@@ -78,17 +78,17 @@
             <section class="lista-productos">
                 <% for(let newProduct of newProducts) { %>
                         <article class="producto" data-id="<%= newProduct.id %>">
-                            <img loading="lazy" src="<%= newProduct.image %>">
+                            <img loading="lazy" src="<%= newProduct.mainImage %>">
                             <div class="info-producto">
                                 <div class="precio"> 
-                                    <%= newProduct.currency %> <%= newProduct.price %>
+                                    <%= newProduct.currency.symbol %> <%= newProduct.price %>
                                     <i class="fas fa-cart-plus cart-icon"></i> 
                                 </div>
                                 <% if(newProduct.freeShipping === true) { %>
                                 <div class="badge badge-success">Envío gratis</div>
                                 <% } %>
                                 <div class="titulo"> <%= newProduct.name %> </div>
-                                <div class="categoria"> <%= newProduct.category %></div>
+                                <div class="categoria"> <%= newProduct.category.name %></div>
                                 <div class="descripcion-corta">
                                     <p> <%= newProduct.description %> </p>
                                 </div>

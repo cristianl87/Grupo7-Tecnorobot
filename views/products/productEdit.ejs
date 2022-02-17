@@ -11,20 +11,11 @@
                         </div>
                         <section class="price-fields">
                             <div>
-                                <select name="currency" id="currency" required>
+                                <select name="currency_id" id="currency_id" required>
                                     <option value="" disabled>--Moneda--</option>
-                                    <option value="$"<% if(product.currency === '$') { %>
-                                        <%= 'selected' %>
-                                        
-                                        <% } %>
-                                        >$
-                                    </option>
-                                    <option value="USD"<% if(product.currency === 'USD') { %>
-                                        <%= 'selected' %>
-                                        
-                                        <% } %>
-                                        >USD
-                                    </option>
+                                    <% for(currency of currencies) { %>
+                                        <option value="<%= currency.id %>" <%= product.currency_id == currency.id ? 'selected' : '' %> > <%= currency.symbol %> </option>
+                                    <% } %>
                                 </select>
                             </div>
 
@@ -33,7 +24,12 @@
                             </div>
                         </section>
                         <div>
-                            <input type="text" name="category" id="category" value="<%= product.category %>" required>
+                            <select name="category_id" id="category_id" required>
+                                <option value="" disabled>--Categoria--</option>
+                                <% for(category of categories) { %>
+                                    <option value="<%= category.id %>" <%= product.category_id == category.id ? 'selected' : '' %> > <%= category.name %> </option>
+                                <% } %>
+                            </select>
                         </div>
                         <label>Envío gratis</label>
                             <div class="input-shipping">
@@ -55,16 +51,16 @@
                         <div>
                             <label>Publicado</label>
                             <div class="input-published">
-                                <input type="radio" name="published" id="published1" value="true"
-                                <% if(product.published === true) { %>
+                                <input type="radio" name="isPublished" id="published1" value="true"
+                                <% if(product.isPublished === true) { %>
                                     <%= 'checked' %>
                                 <% } %>
                                 >
                                 <label for="published1"> Si </label>
                             </div>
                             <div class="input-published">
-                                <input type="radio" name="published" id="published2" value="false" 
-                                <% if(product.published === false) { %>
+                                <input type="radio" name="isPublished" id="published2" value="false" 
+                                <% if(product.isPublished === false) { %>
                                     <%= 'checked' %>
                                 <% } %>
                                 >
@@ -72,18 +68,30 @@
                             </div>
                             <div class="input-featured">
                                 <label for="featured">Producto destacado</label>
-                                <input type="checkbox" name="featured" id="featured"
-                                <% if(product.featured === true) { %>
+                                <input type="checkbox" name="isFeatured" id="isFeatured"
+                                <% if(product.isFeatured === true) { %>
                                     <%= 'checked' %>
                                 <% } %>
                                 >
                             </div>                 
                             <div class="input-imagenes">
-                                <label for="image">Imagenes del Producto</label>
-                                <div class="products-images">
-                                    <img src="<%= product.image %>" width="80px">
+                                <div>
+                                    <label for="mainImage">Imagenes de Portada</label>
+                                    <div class="products-images">
+                                        <img src="<%= product.mainImage %>" width="80px">
+                                    </div>
+                                    <input type="file" name="mainImage">
                                 </div>
-                                <input type="file" name="image">
+                                <div>
+                                    <label for="gallery">Galeria</label>
+                                    <div class="products-images">
+                                        <% for(image of JSON.parse(product.gallery)) { %>
+                                            <img src="/images/products/<%= image %>" width="80px">
+                                        <% } %>
+                                        
+                                    </div>
+                                    <input type="file" name="gallery" multiple>
+                                </div>
                             </div>
 
                             <div>

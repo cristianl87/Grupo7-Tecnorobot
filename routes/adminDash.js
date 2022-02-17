@@ -7,4 +7,6 @@ router.get('/', userAdministrador, adminDashController.adminDashboard);
 
 router.get('/settings', adminDashController.settings);
 
+router.get('/papelera', adminDashController.papelera);
+
 module.exports = router;
