@@ -4,7 +4,7 @@
     <body>
 <%- include('../partials/header.ejs') %>   
  
-    <form class="form-register" action="/register" method="POST">
+    <form class="form-register" action="/user/register" method="POST">
         <span class="iniciar-sesion" ><strong>CREAR CUENTA</strong> </span>
         <div class="formulario">
         <input class="nombre <%= locals.errors && errors.name ? 'invalid' : ''%>" type="text" name="name" placeholder="Nombre de usuario" value="<%= locals.old && old.name ? old.name : ''%>">
