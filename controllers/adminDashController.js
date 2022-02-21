@@ -15,7 +15,10 @@ const adminDashboard={
                 ],
                 where: {
                     isDeleted: false
-                }
+                },
+                order: [
+                    ['createdAt', 'DESC']
+                ]
             });
     
             res.render('./admin/adminDashboard', {listadoProductos: allProducts});
@@ -35,7 +38,10 @@ const adminDashboard={
                 ],
                 where: {
                     isDeleted: true
-                }
+                },
+                order: [
+                    ['updatedAt', 'DESC']
+                ]
             });
     
             res.render('./admin/adminDashboard', {listadoProductos: deletedProducts});

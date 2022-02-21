@@ -287,6 +287,15 @@ nav.desktop ul li:nth-last-child(1) a {
     right: 0;
     font-size: 2.5rem;
 }
+i.fas.fa-cart-plus.cart-icon.agregar-carrito {
+    background-color: transparent;
+}
+i.fas.fa-cart-plus.cart-icon.agregar-carrito:hover {
+    transform: scale(1.2);
+    transition: all .2s;
+    border: 1px solid #ffffff85;
+    border-radius: 50px;
+}
 .titulo,
 .descripcion-corta {
     font-size: 1.2rem;
