@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head.ejs') %>
+    <%- include('./partials/head.ejs') %>
 <body>
-    <%- include('../partials/header.ejs') %>
+    <%- include('./partials/header.ejs') %>
     <div class="slider-container">
 
         <ul class="slider" id="slider">
@@ -11,11 +11,20 @@
             <li class="slides"><img class="img-slider" src="/images/vaccum-clenar.jpg" alt=""></li>
         </ul>
     </div>
-    
-    
-   
+         <h1 class="h1Currencies">Listado de Monedas </h1>
+    <form class="formularioCurrencies" action="">
+        <label class="labelMoneda" for="fname">Moneda:</label><br>
+        <input class="formularioMoneda" type="text" id="fname" name="fname" value="Pesos"><br>
+        <label class="labelSymbol" for="lname">Symbol:</label><br>
+        <input class="formularioSymbol" type="text" id="lname" name="lname" value="AR$"><br><br>
+        <button class="button">Agregar</button>
+        <button class="button button2">Editar</button>
+        <button class="button button3">Eliminar</button>
 
-    <%- include('../partials/footer.ejs') %>
+        
+
+      </form> 
+    <%- include('./partials/footer.ejs') %>
     <script src="/js/productList.js"></script>
 </body>
 

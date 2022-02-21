@@ -24,7 +24,7 @@ create: function (req,res) {
        res.redirect('/listadoCurrencies')
     },
 
-list: function(req, res){
+listar: function(req, res){
     db.Currency.findAll()
     
 .then(function(currencies){
@@ -33,7 +33,7 @@ list: function(req, res){
 },
 
 edit: function(req,res){
-    db.Currency.findByPK(req.params.id)
+    db.Currency.findByPk(req.params.id)
     .then (function(currency){
         res.render('editarCurrencies', 
         {currency:currency})
@@ -57,6 +57,7 @@ db.Currency.destroy({
         id:req.params.id
     }
 })
+res.redirect('/listadoCurrencies')
 }
 
 

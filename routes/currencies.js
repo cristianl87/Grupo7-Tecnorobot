@@ -5,6 +5,8 @@ const currenciesController = require('../controllers/currenciesController');
 //rutas de currencies
 
 
+router.get('/', currenciesController.listar)
+
 //create
 router.get('/add', currenciesController.add );
 router.post('/add',currenciesController.create);
