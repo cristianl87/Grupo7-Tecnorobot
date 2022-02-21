@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         avatar: {
             type: DataTypes.STRING
         },
-        rol_id: {
+        role_id: {
             type: DataTypes.INTEGER,
             foreignKey: true
         },

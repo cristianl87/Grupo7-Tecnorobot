@@ -1776,3 +1776,81 @@ main.main-contenedor {
     top: 20px;
     right: 17px;
 }
+
+.formularioCurrencies{
+    display: block;
+    position: relative;
+    right: -300px;
+    top: -50px;
+    margin: 100px;
+    padding: 40px;
+    border: #006dc3 solid 2px;
+    width: 600px;
+    align-content: center;
+    background-color: black
+    
+
+}
+
+.formularioMoneda{
+    display: flex;
+    position: relative;
+    width: 300px;
+    left: 40px;
+    text-align: center;
+    height: 30px;
+    top:20px;
+    
+
+}
+.formularioSymbol{
+    display: flex;
+    position: relative;
+    width: 300px;
+    left: 40px;
+    text-align: center;
+    height: 30px;
+    top: 20px;
+
+}
+
+.labelMoneda{
+    font-weight: bold;
+    display: flex;
+    position: relative;
+    left: 40px;
+    top: 40px;
+    color: #ababab;
+}
+
+.labelSymbol{
+    font-weight: bold;
+    display: flex;
+    position: relative;
+    left: 40px;
+    top: 40px;
+    color: #ababab;
+
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  .button2 {background-color: #008CBA;} /* Blue */
+  .button3 {background-color: #f44336;} /* Red */ 
+ 
+  .h1Currencies{
+      margin: auto;
+      width: 50%;
+      padding: 10px;
+  }
