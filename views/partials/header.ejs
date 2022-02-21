@@ -25,10 +25,10 @@
             
             <% if(locals.userLogueado) { %>
                 <div class="user-options-container">
-                    <a href="/perfil" class="userBtn-header"> Hola, <%= userLogueado.name %> </a>
+                    <a href="/user/profile" class="userBtn-header"> Hola, <%= userLogueado.name %> </a>
                     <section class="userOptions">
                         <ul>
-                            <li><a href="/perfil"> Mi cuenta <i class="fas fa-user-circle"></i></a></li>
+                            <li><a href="/user/profile"> Mi cuenta <i class="fas fa-user-circle"></i></a></li>
                             <li><a href="/user/logout"> Cerrar sesión <i class="fas fa-sign-out-alt"></i></a></li>
                             <% if(userLogueado.rol === 1) { %>
                                  <li><a href="/adminDash"> Dashboard <i class="fas fa-tachometer-alt"></i></a></li>

@@ -4,7 +4,7 @@
     <%- include('../partials/head.ejs') %>
     <body>
     <%- include('../partials/header.ejs') %>
-    <form class="form-login" action="/login" method="POST">
+    <form class="form-login" action="/user/login" method="POST">
         <span class="iniciar-sesion" ><strong>INICIAR SESIÓN</strong> </span>
         <% if(locals.registerMessage) { %>
             <div class="resultado">

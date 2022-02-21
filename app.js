@@ -34,17 +34,17 @@ app.set('view engine', 'ejs');
 
 app.use('/', mainRoutes);
 
-app.use('/login', loginRoute);
+//app.use('/login', loginRoute);
 
 app.use('/user', userRoute);
 
-app.use('/register', registerRoute);
+//app.use('/register', registerRoute);
 
 app.use('/products', productRoute);
 
 app.use('/carrito', carritoRoute);
 
-app.use('/perfil', perfilRoute);
+//app.use('/perfil', perfilRoute);
 
 app.use('/adminDash', adminDashRoute);
 
