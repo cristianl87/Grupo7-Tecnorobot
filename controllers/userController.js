@@ -26,7 +26,7 @@ const userController = {
                         phone: null,
                         address: null,
                         avatar: null,
-                        role_id: 1
+                        role_id: 2
                     });
                     
                     return res.render('./users/login');
@@ -96,85 +96,10 @@ const userController = {
     detail: (req, res) => {
         res.render('./users/perfil', {userLogueado: req.session.userLogueado})
     },
-    // editGET: async (req, res) => {
-        
-    //     const productId = Number(req.params.id);
-
-    //     const currencies = db.Currency.findAll();
-    //     const categories = db.Category.findAll();
-    //     const productToEdit = db.Product.findByPk(productId, {
-    //         include: [
-    //             {association: 'category'},
-    //             {association: 'currency'}
-    //          ]
-    //     });
-
-    //     try {
-    //         const queryResult = await Promise.all([currencies, categories, productToEdit]);
-            
-    //         res.render('./products/productEdit', {
-    //             currencies: queryResult[0],
-    //             categories: queryResult[1],
-    //             product: queryResult[2],
-    //         });
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // },
-    // editPUT: async (req, res) => {
-    //     const id = Number(req.params.id);
-
-    //     let {name, currency_id, price, category_id, freeShipping, isPublished, description} = req.body;
-    //     let isFeatured = false;
-
-    //     let mainImage;
-
-    //     if(req.files.mainImage) {
-    //         mainImage = '/images/products/' + req.files.mainImage.filename;
-    //     };
-
-    //     let gallery = [];
-    //     if(req.files.gallery) {
-    //         const imagesGallery = req.files.gallery;
-    //         imagesGallery.forEach( image => {
-    //             gallery.push(image.filename);
-    //         });
-    //     }
-        
-    //     if(req.body.isFeatured) {
-    //         isFeatured = true;
-    //     }
-
-    //     //Convertimos string a boolean
-    //     freeShipping === 'true' ? freeShipping = true : freeShipping = false;
-    //     isPublished === 'true' ? isPublished = true : isPublished = false;
-
-    //     try {
-
-    //         const productToEdit = await db.Product.update({
-    //             name,
-    //             currency_id: Number(currency_id),
-    //             price: Number(price),
-    //             category_id: Number(category_id),
-    //             freeShipping,
-    //             isPublished,
-    //             isFeatured,
-    //             mainImage,
-    //             gallery: JSON.stringify(gallery),
-    //             description
-    //         },
-    //         {
-    //             where: {id: id}
-    //         });
-
-    //         res.redirect('/adminDash');
-
-    //     } catch (error) {
-
-    //         console.log(error);
-            
-    //     }
-    // }
+    logout: (req, res) => {
+        req.session.destroy();
+        res.redirect('/');
+    }
 }
 
 module.exports = userController;

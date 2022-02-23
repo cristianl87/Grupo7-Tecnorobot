@@ -33,6 +33,6 @@ router.post('/login', loginValidation, userController.processLogin)
 
 router.get('/profile', userController.detail);
 
-//router.get('/logout', authMiddleware, userController.logout);
+router.get('/logout', authMiddleware, userController.logout);
 
 module.exports = router;
