@@ -1,8 +1,7 @@
-RETROSPECTIVA - Ceremonia Starfish
+RETROSPECTIVA Sprint 6 - Ceremonia Starfish
 
 Start doing:
-        - Reuniones de Zoom para "puestas en común":
-        - Analizar con que parte del proyecto se siente mejor cada uno para poder dividir mejor las tareas de los sprint.
+        - Reuniones de Zoom para "puestas en común". Han sido escasos los encuentros.
 
 More of:
         Realización de reuniones periódicas para chequear avances, trabas y posibles soluciones al proyecto.
@@ -11,9 +10,8 @@ Keep doing:
         - Slack:
         Continuar con el uso de Slack como herramienta de comunicación, como se viene utilizando.
         
-        - Estandarización de colores y fuentes: 
         - Trello:
-        Afianzar el uso de Trello como herramienta de metodología ágil
+        Continuar con la carga de las tareas y asignacion de las mismas a cada integrante.
 
 Less of: -
         
