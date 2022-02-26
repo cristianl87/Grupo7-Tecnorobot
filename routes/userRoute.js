@@ -6,9 +6,9 @@ const { body } = require('express-validator');
 const guestMiddleware = require('../middlewares/guestMiddleware')
 
 const registerValidation = [
-    body('name').notEmpty().withMessage('El nombre es obligatorio'),
-    body('email').notEmpty().withMessage('El correo electrónico es obligatorio').bail().isEmail().withMessage('El correo no tiene un formato válido'),
-    body('password').notEmpty().withMessage('Debes introducir una contraseña').bail().isStrongPassword({minLength: 6, minLowercase: 1, minUppercase: 1, minNumbers: 1}).withMessage('La contraseña no cumple los requisitos mínimos'),
+    body('name').notEmpty().withMessage('El nombre es obligatorio').trim().escape(),
+    body('email').notEmpty().withMessage('El correo electrónico es obligatorio').bail().isEmail().withMessage('El correo no tiene un formato válido').normalizeEmail(),
+    body('password').notEmpty().withMessage('Debes introducir una contraseña').bail().isLength({minLength: 8}).withMessage('La contraseña no cumple los requisitos mínimos'),
     body('password_confirm').custom((value, { req }) => {
         if (value !== req.body.password) {
           throw new Error('Las contraseñas especificadas no coinciden');
@@ -34,5 +34,7 @@ router.post('/login', loginValidation, userController.processLogin)
 router.get('/profile', userController.detail);
 
 router.get('/logout', authMiddleware, userController.logout);
+
+router.get('/checkUserEmail', userController.checkUserEmail);
 
 module.exports = router;

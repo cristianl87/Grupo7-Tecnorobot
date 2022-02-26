@@ -31,6 +31,10 @@ a, a:hover {
     text-decoration: none;
 }
 
+p {
+    margin-bottom: 0;
+}
+
 /* ICONOS */
 
 i.fas.fa-ellipsis-v,
@@ -862,7 +866,6 @@ input.password{
     align-items: center;
     gap: 1rem;
     color: #fff;
-    border: 1px solid #f3878785;
     border-radius: 3px;
     padding: 0 .5rem;
     margin-top: 1rem;
@@ -870,6 +873,19 @@ input.password{
 .invalid {
     border: 1px solid red;
     box-shadow: inset 0px 1px 7px red;
+}
+.isValid {
+    border: 2px solid rgb(23 203 0);
+}
+.register-field{
+    position: relative;
+}
+i.check {
+    color: green;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    display: none;
 }
 .feedback {
     margin: 0;
@@ -929,7 +945,7 @@ input.email{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
-    .form-register{
+    /* .form-register{
         width: 80%;
         padding: 30px;
         padding-bottom: 80px;
@@ -937,6 +953,13 @@ input.email{
        margin-left:75px ;
        margin-top: 30px;
        
+    } */
+    form.registerForm {
+        max-width: 50rem;
+        margin: 10rem auto;
+        padding: 2rem;
+        background-color: black;
+        border-radius: 10px;
     }
     .form-login{
             width: 80%;

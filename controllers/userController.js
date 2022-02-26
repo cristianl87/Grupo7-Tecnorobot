@@ -99,6 +99,16 @@ const userController = {
     logout: (req, res) => {
         req.session.destroy();
         res.redirect('/');
+    },
+    checkUserEmail: async (req, res) => {
+        const email = req.query.email;
+        const emailExists = await db.User.findOne({
+            attributes: ['email'],
+            where: {
+                email: email
+                }
+        });
+        res.json(emailExists);
     }
 }
 
