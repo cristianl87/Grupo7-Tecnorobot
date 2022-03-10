@@ -411,3 +411,6 @@ i {
     color: #fff;
     font-weight: bold;
 }
+div.errors{
+    color: red
+}

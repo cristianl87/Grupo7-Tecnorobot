@@ -14,20 +14,24 @@
          <h1 class="h1Currencies">Listado de Monedas </h1>
     <form class="formularioCurrencies" action="">
         <label class="labelMoneda" for="fname">Moneda:</label><br>
-        <select class="formularioMoneda" name="currency">
-            <option value="Pesos">Pesos</option>
+        <select  class="formularioMoneda" name="currency">
+            <% for (i=0;i<currencies.length; i++) {%> 
+            <option value=<%= currencies[i].id  %> > <%=currencies[i].name  %>    </option>  
+              
+            <% } %> 
+            
+           <!-- /* <option value="Pesos">Pesos</option>
             <option value="Dolares">Dolares</option>
-            <option value="Euros">Euros</option>
+            <option value="Euros">Euros</option> -->
+
         </select>
-        <label class="labelSymbol" for="lname">Symbol:</label><br>
-        <select class="formularioSymbol" name="currency">
-            <option value="AR$">AR$</option>
+        <label class="labelSymbol" for="lname"> </div> </label><br>
+        
+            <!-- <option value="AR$">AR$</option>
             <option value="US$">US$</option>
-            <option value="€">€</option>
-        </select>
-        <br>
-        <br>
-        <br>
+            <option value="€">€</option> -->
+            
+        
         <button class="button">Agregar</button>
         <button class="button button2">Editar</button>
         <button class="button button3">Eliminar</button>
@@ -35,6 +39,46 @@
         
 
       </form> 
+      <style>
+        table, th, td {
+          border:1px solid black;
+         
+          position: relative;
+          right: -30px;
+        }
+        </style>
+        <body>
+        
+        
+        
+        <table style="width:50%">
+          <tr>
+            <th>Moneda</th>
+            <th>Symbol</th>
+            <th>Agregar</th>
+          </tr>
+          <tr>
+            <td>Pesos</td>
+            <td>AR$</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Dolar</td>
+            <td>US$</td>
+            <td> </td>
+          </tr>
+          <tr>
+            <td>Euro</td>
+            <td>€</td>
+            <td> </td>
+          </tr>
+        </table>
+        <br>
+        <br>
+        <br>
+        <br>
+<br>
+<br>
     <%- include('./partials/footer.ejs') %>
     <script src="/js/productList.js"></script>
 </body>
