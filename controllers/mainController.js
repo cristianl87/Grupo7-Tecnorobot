@@ -46,7 +46,7 @@ const mainController = {
             },
             limit: 10,
             order: [
-                ['createdAt', 'ASC']
+                ['createdAt', 'DESC']
             ]
         });
 
