@@ -3,6 +3,11 @@
     <%- include('../partials/admin/head.ejs') %>
         <body>
             <%- include('../partials/admin/header.ejs') %>
+            <div class="errores" >
+                <ul id="errores" >
+
+                </ul>
+            </div>
                 <main class="main-contenedor">
                     <%- include('../partials/admin/sidebar.ejs') %>
                     <form action="/products/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data" class="form-createProduct">
@@ -80,7 +85,7 @@
                                     <div class="products-images">
                                         <img src="<%= product.mainImage %>" width="80px">
                                     </div>
-                                    <input type="file" name="mainImage">
+                                    <input type="file" id="file" name="mainImage">
                                 </div>
                                 <div>
                                     <label for="gallery">Galeria</label>
@@ -90,7 +95,7 @@
                                         <% } %>
                                         
                                     </div>
-                                    <input type="file" name="gallery" multiple>
+                                    <input type="file"  id="gallery" name="gallery" multiple>
                                 </div>
                             </div>
 
@@ -101,9 +106,10 @@
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" onclick="window.location.href='/adminDash'">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" id="buttonEdit" class="btn btn-primary">Guardar</button>
                         </div>
                     </form>
                 </main>
+                <script src="/js/editValidation.js"></script>  
         </body>
 </html>

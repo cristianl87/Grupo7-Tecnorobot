@@ -412,5 +412,17 @@ i {
     font-weight: bold;
 }
 div.errors{
-    color: red
+    color:red ;
+ display: flex;
+ position: relative;
+ right: -450px;
+ width: 40%;
+ 
+}
+.errores{
+    color:red ;
+    display: flex;
+    position: relative;
+    right: -450px;
+    width: 40%;
 }

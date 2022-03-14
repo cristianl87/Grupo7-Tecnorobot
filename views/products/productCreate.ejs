@@ -5,6 +5,11 @@
             <%- include('../partials/admin/header.ejs') %>
                 <main class="main-contenedor">
                     <%- include('../partials/admin/sidebar.ejs') %>
+                    <div class="errors" >
+                        <ul >
+
+                        </ul>
+                    </div>
                     <form action="/products/create" method="POST" enctype="multipart/form-data" class="form-createProduct">
                         <div>
                             <input type="text" name="name" id="name" placeholder="Nombre de tu producto...">
@@ -18,11 +23,7 @@
                                         <% } %>
                                     </select>
                                 </div>
-                                <div class="errors">
-                                    <ul>
-
-                                    </ul>
-                                </div>
+                                
     
                                 <div>
                                     <input type="number" name="price" id="price" placeholder="Precio: Ejemplo: 150">
@@ -78,6 +79,7 @@
                 </div>
             </form>
                 </main>
-                <script src="/js/validation.js"></script>        
+                <script src="/js/createValidation.js"></script>  
+                
         </body>
 </html>
