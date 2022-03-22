@@ -2,7 +2,7 @@
 
 function guestMiddleware(req, res, next) {
 	if (req.session.userLogueado) {
-		return res.redirect('/perfil');
+		return res.redirect('/user/profile');
 	}
 	next();
 }

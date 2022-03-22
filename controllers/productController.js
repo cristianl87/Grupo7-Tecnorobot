@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const db = require('../src/database/models');
 const folderData = path.join(__dirname, '../data');
+const { validationResult } = require('express-validator' );
 
 const papeleraJSON = fs.readFileSync(folderData + '/papelera.json', 'utf-8');
 let papelera = JSON.parse(papeleraJSON);
@@ -61,47 +62,97 @@ const productController = {
     },
     createPOST: async (req, res) => {
 
-        let isFeatured;
-        req.body.isFeatured ? isFeatured = true : isFeatured = false;
+        let errors = validationResult(req);
+        const { mainImage, gallery } = req.files
 
-        let mainImage;
-        req.files.mainImage ? mainImage = '/images/products/' + req.files.mainImage[0].filename : mainImage = undefined;
-
-        let gallery = [];
-        if(req.files.gallery) {
-            const imagesGallery = req.files.gallery;
-            imagesGallery.forEach( image => {
-                gallery.push(image.filename);
-            });
+        if ( !mainImage ) {
+            const errorMain = {
+                value: '',
+                msg: 'La imagen principal es obligatoria',
+                param: 'mainImage',
+                location: 'files'
+            } 
+            errors.errors.push( errorMain )
+        } else if ( !(mainImage[0].mimetype == 'image/png' || mainImage[0].mimetype == 'image/jpg' || mainImage[0].mimetype == 'image/jpeg' || mainImage[0].mimetype == 'image/gif')) {
+            const errorMainExtension = {
+                value: '',
+                msg: 'Debes elegir un formato de imagen válido',
+                param: 'mainImage',
+                location: 'files'
+            } 
+            errors.errors.push( errorMainExtension )
         }
 
-        const defaultProductImage = '/images/default.png';
-        let {name, currency_id, price, category_id, freeShipping, isPublished, description} = req.body;
-    
-        freeShipping === 'true' ? freeShipping = true : freeShipping = false;
-        isPublished === 'true' ? isPublished = true : isPublished = false;
-
-        try {
-            const createProduct = await db.Product.create({
-                name,
-                currency_id: Number(currency_id),
-                price: Number(price),
-                category_id: Number(category_id),
-                freeShipping,
-                isPublished,
-                isFeatured,
-                mainImage: mainImage || defaultProductImage,
-                gallery: JSON.stringify(gallery),
-                isDeleted: false,
-                description
-            });
-
-            res.redirect('/adminDash');
-
-        } catch (error) {
-            console.log(error);
+        if ( !gallery ) {
+            const errorGallery = {
+                value: '',
+                msg: 'Tienes que cargar al menos una imagen para la galería',
+                param: 'gallery',
+                location: 'files'
+            } 
+            errors.errors.push( errorGallery )
         }
 
+        if ( errors.isEmpty() ) {
+            let isFeatured;
+            req.body.isFeatured ? isFeatured = true : isFeatured = false;
+
+            let mainImage = '/images/products/' + req.files.mainImage[0].filename;
+
+            let gallery = [];
+            if(req.files.gallery) {
+                const imagesGallery = req.files.gallery;
+                imagesGallery.forEach( image => {
+                    gallery.push(image.filename);
+                });
+            }
+
+            let {name, currency_id, price, category_id, freeShipping, isPublished, description} = req.body;
+        
+            freeShipping === 'true' ? freeShipping = true : freeShipping = false;
+            isPublished === 'true' ? isPublished = true : isPublished = false;
+
+            try {
+                const createProduct = await db.Product.create({
+                    name,
+                    currency_id: Number(currency_id),
+                    price: Number(price),
+                    category_id: Number(category_id),
+                    freeShipping,
+                    isPublished,
+                    isFeatured,
+                    mainImage: mainImage,
+                    gallery: JSON.stringify(gallery),
+                    isDeleted: false,
+                    description
+                });
+
+                res.redirect('/adminDash');
+
+            } catch (error) {
+                console.log(error);
+            }
+        } else {
+            try {
+                const currencies = await db.Currency.findAll();
+                const categories = await db.Category.findAll();
+
+
+                console.log('El usuario metió la pata');
+                console.log(errors)
+                console.log(errors.mapped())
+                res.render('./products/productCreate', {
+                    errors: errors.mapped(),
+                    old: req.body,
+                    currencies,
+                    categories
+                });
+                
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
     },
     editGET: async (req, res) => {
         

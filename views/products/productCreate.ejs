@@ -12,7 +12,15 @@
                     </div>
                     <form action="/products/create" method="POST" enctype="multipart/form-data" class="form-createProduct">
                         <div>
-                            <input type="text" name="name" id="name" placeholder="Nombre de tu producto...">
+                            <input type="text" name="name" id="name" placeholder="Nombre de tu producto..." value=" <%= locals.old && old.name ? old.name : '' %> ">
+                            <div id="name_feedback" class="errors-form">
+                                <% if (locals.errors && errors.name) { %>
+                                    
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        <p class="feedback"><%= errors.name.msg %></p>
+                                    
+                                <% } %>
+                            </div>
                         </div>
                         <section class="price-fields">
                                 <div>
@@ -79,7 +87,7 @@
                 </div>
             </form>
                 </main>
-                <script src="/js/createValidation.js"></script>  
+                <script src="/js/createValidation.js"></script>
                 
         </body>
 </html>
