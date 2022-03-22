@@ -259,6 +259,38 @@ const productController = {
         res.redirect('/adminDash');
 
         
+    },
+    detalleProducts: async (req, res) => {
+        const id = Number(req.params.id);
+        
+        const productId = await db.Product.findOne({
+            attributes: {exclude: ['password', 'role_id', 'createdAt', 'updatedAt']},
+            where: {
+                id: id
+            }
+        });
+
+        res.json(productId)
+    },
+
+    listadoProducts: async (req, res) => {
+        
+            const productList = await db.Product.findAll({
+                include: [
+                    {association: 'category'},
+                    //{association: 'currency'}
+                ],
+               attributes:{exclude:['isDeleted','isFeatured','isPublished','freeShipping','createdAt', 'updatedAt','currency','gallery']},
+                where: {
+                    isPublished: true
+                }
+            });
+    
+            res.json({
+                count: productList.length,
+                countByCategory:productList.category,
+                products:productList,
+                status:200})
     }
 }
 
