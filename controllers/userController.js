@@ -1,8 +1,6 @@
 const { validationResult } = require('express-validator' );
-const path = require('path');
 const bcryptjs = require('bcryptjs');
 const db = require('../src/database/models');
-
 
 const userController = {
     register: (req, res) => {
@@ -109,6 +107,41 @@ const userController = {
                 }
         });
         res.json(emailExists);
+    },
+    listAll: async (req, res) => {
+
+        const {page} = req.query;
+        const size = 10;
+        const currentPage = Number(page) * (size);
+
+        const users = await db.User.findAndCountAll({
+            attributes: ['id', 'name', 'email'],
+            limit: size,
+            offset: currentPage
+        });
+
+        users.rows.map(user => {
+            user.setDataValue("detail", `/api/users/${user.id}`);
+            
+        });
+
+        res.json({
+            users,
+            nextPage: users.rows != [] ? `/api/users?page=${Number(page) + 1}` : ''
+        })
+
+    },
+    getOne: async (req, res) => {
+        const id = Number(req.params.id);
+        
+        const user = await db.User.findOne({
+            attributes: {exclude: ['password', 'role_id', 'createdAt', 'updatedAt']},
+            where: {
+                id: id
+            }
+        });
+
+        res.json(user)
     }
 }
 

@@ -14,7 +14,8 @@ const perfilRoute = require('./routes/perfil');
 const adminDashRoute = require('./routes/adminDash');
 const userRoute =  require('./routes/userRoute');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
-const currenciesRoute= require('./routes/currencies')
+const currenciesRoute= require('./routes/currencies');
+const apiRoute= require('./routes/api');
 
 app.use(methodOverride('_method'));
 app.use(session({
@@ -51,6 +52,8 @@ app.use('/adminDash', adminDashRoute);
 app.use('/users', userRoute);
 
 app.use('/currencies', currenciesRoute);
+
+app.use('/api', apiRoute);
 
 app.use((req, res, next) => {
     res.status(404).render('404');
