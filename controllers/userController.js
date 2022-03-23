@@ -117,7 +117,7 @@ const userController = {
         const users = await db.User.findAndCountAll({
             attributes: ['id', 'name', 'email'],
             limit: size,
-            offset: currentPage
+         //   offset: currentPage
         });
 
         users.rows.map(user => {
