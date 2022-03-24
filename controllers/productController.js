@@ -3,6 +3,7 @@ const path = require('path');
 const db = require('../src/database/models');
 const folderData = path.join(__dirname, '../data');
 const { validationResult } = require('express-validator' );
+const { sequelize } = require('../src/database/models');
 
 const papeleraJSON = fs.readFileSync(folderData + '/papelera.json', 'utf-8');
 let papelera = JSON.parse(papeleraJSON);
@@ -301,22 +302,44 @@ const productController = {
     },*/
     listadoProducts: async (req, res) => {
     const products = await db.Product.findAndCountAll({
-        include: [
-            {association: 'category'}],
+       /* include: [
+            {association: 'category'}]*/
         attributes: ['id', 'name','price', 'description'],
         where: {
             isPublished: true
-        }
-     
+        },
+        raw: true   
     });
-
-    products.rows.map(product => {
-        product.setDataValue("detail", `/api/products/${product.id}`);
-        
+    const productsMapped = products.rows.map(product => {
+        return({
+            ...product,
+            detail: `/api/products/${product.id}`
+        })  
     });
-
+    
+    const categoryByCount = await db.Product.findAll({
+        group: ["category_id"],
+        attributes: [
+          "category_id",
+          [sequelize.fn("COUNT", "category_id"), "categoryCount"],
+        ],
+        where: {
+            isPublished: true
+        },
+        raw: true
+      })
+      console.log(categoryByCount)
+      const countByCategory = {}
+      for (const category of categoryByCount) {
+        countByCategory[category.category_id]= category.categoryCount            
+      }
+    
+    
     res.json({
-        products
+        count:products.count,
+        countByCategory,
+        products: productsMapped
+
         
     })
 },
