@@ -258,40 +258,114 @@ const productController = {
 
         res.redirect('/adminDash');
 
-        
+         
     },
+
+    //API DE PRODUCTOS
+
+    
     detalleProducts: async (req, res) => {
         const id = Number(req.params.id);
         
-        const productId = await db.Product.findOne({
-            attributes: {exclude: ['password', 'role_id', 'createdAt', 'updatedAt']},
+        const product = await db.Product.findOne({
+            include: [
+                {association: 'category'},
+                {association: 'currency'}
+            ],
+            attributes:  ['id', 'name','price', 'description','mainImage'],
             where: {
                 id: id
             }
         });
 
-        res.json(productId)
+        res.json(product)
     },
 
-    listadoProducts: async (req, res) => {
+    /*listadoProducts: async (req, res) => {
         
-            const productList = await db.Product.findAll({
+            const products = await db.Product.findAll({
                 include: [
                     {association: 'category'},
                     //{association: 'currency'}
                 ],
-               attributes:{exclude:['isDeleted','isFeatured','isPublished','freeShipping','createdAt', 'updatedAt','currency','gallery']},
+               attributes:{exclude:['isDeleted','isFeatured','isPublished','freeShipping','createdAt', 'updatedAt','currency','gallery','currency_id','category_id']},
                 where: {
                     isPublished: true
                 }
             });
     
             res.json({
-                count: productList.length,
-                countByCategory:productList.category,
-                products:productList,
+                count: products.length,
+                products:products,
                 status:200})
-    }
+    },*/
+    listadoProducts: async (req, res) => {
+    const products = await db.Product.findAndCountAll({
+        include: [
+            {association: 'category'}],
+        attributes: ['id', 'name','price', 'description'],
+        where: {
+            isPublished: true
+        }
+     
+    });
+
+    products.rows.map(product => {
+        product.setDataValue("detail", `/api/products/${product.id}`);
+        
+    });
+
+    res.json({
+        products
+        
+    })
+},
+
+/*
+    categories = await db.Producto.findAll({
+        include: ["categoria"],
+        attributes: ['categoria_id', [sequelize.fn("COUNT", "titulo"), "titulo_count"]],
+        group: 'categoria_id'
+    });
+    productos = [];
+    products.map(({ id, titulo, precio, descripcion, categoria }) => {
+        productos.push({
+            id,
+            titulo,
+            precio,
+            descripcion,
+            categoria,
+            detail: `/api/products/${id}`,
+        })
+    })
+    let count = 0
+    categories.map( ({dataValues}) => {
+        let { titulo_count } = dataValues;
+        count += titulo_count
+    })
+    data.count = count;
+    category = [];
+    categories.map(({ dataValues }) => {
+        let { categoria, titulo_count } = dataValues;
+        category.push({
+            category: categoria,
+            quantity: titulo_count,
+        })
+    })
+    data.countByCategory = category;
+    data.products = productos;
+    res.json(data);*/
+
+
+
+
+
+
+
+
+
+
+
 }
 
 module.exports = productController;
