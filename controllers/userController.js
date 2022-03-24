@@ -110,9 +110,19 @@ const userController = {
     },
     listAll: async (req, res) => {
 
-        const {page} = req.query;
+        let {page} = req.query;
+        if(page === undefined) {
+            page = 1;
+        }
         const size = 10;
-        const currentPage = Number(page) * (size);
+
+        let currentPage;
+        if(page === 1) {
+            currentPage = 0
+        } else {
+            currentPage = Number(page) * (size);
+        }
+        
 
         const users = await db.User.findAndCountAll({
             attributes: ['id', 'name', 'email'],
@@ -127,7 +137,7 @@ const userController = {
 
         res.json({
             users,
-            nextPage: users.rows != [] ? `/api/users?page=${Number(page) + 1}` : ''
+            nextPage: users.rows != [] ? `/api/users?page=${Number(page) + 1}` : '',
         })
 
     },
