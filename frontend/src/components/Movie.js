@@ -36,18 +36,14 @@ class Movie extends Component{
 											<tr>
 												<th>Id</th>
 												<th>Titulo</th>
-												<th>Calificación</th>
-												<th>Premios</th>
-												<th>Duración</th>
+												
 											</tr>
 										</thead>
 										<tfoot>
 											<tr>
 												<th>Id</th>
 												<th>Titulo</th>
-												<th>Calificación</th>
-												<th>Premios</th>
-												<th>Duración</th>
+												
 											</tr>
 										</tfoot>
 										<tbody>
