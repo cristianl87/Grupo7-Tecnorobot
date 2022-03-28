@@ -25,7 +25,7 @@ class Movie extends Component{
 		return(
 			<React.Fragment>
 						{/*<!-- PRODUCTS LIST -->*/}
-						<h1 className="h3 mb-2 text-gray-800">All the movies in the Database</h1>
+						<h1 className="h3 mb-2 text-gray-800">Panel de categorías con el total de productos de cada una</h1>
 						
 						{/*<!-- DataTales Example -->*/}
 						<div className="card shadow mb-4">
@@ -36,18 +36,14 @@ class Movie extends Component{
 											<tr>
 												<th>Id</th>
 												<th>Titulo</th>
-												<th>Calificación</th>
-												<th>Premios</th>
-												<th>Duración</th>
+												
 											</tr>
 										</thead>
 										<tfoot>
 											<tr>
 												<th>Id</th>
 												<th>Titulo</th>
-												<th>Calificación</th>
-												<th>Premios</th>
-												<th>Duración</th>
+												
 											</tr>
 										</tfoot>
 										<tbody>

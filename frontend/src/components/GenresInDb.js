@@ -46,7 +46,7 @@ class GenresInDb extends Component{
                     <div className="col-lg-6 mb-4">						
                         <div className="card shadow mb-4">
                             <div className="card-header py-3">
-                                <h6 onMouseOver={this.cambiarFondo} className="m-0 font-weight-bold text-gray-800">Genres in Data Base</h6>
+                                <h6  className="m-0 font-weight-bold text-gray-800">Panel con el listado de productos</h6>
                             </div>
                             <div className="card-body" id='card'>
                                 <div className="row">
