@@ -1877,3 +1877,12 @@ main.main-contenedor {
       width: 50%;
       padding: 10px;
   }
+  tr.cart_items_title {
+    display: flex;
+    gap: 1rem;
+}
+tbody#cart-body tr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
