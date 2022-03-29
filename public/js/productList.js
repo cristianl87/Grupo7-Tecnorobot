@@ -1,6 +1,8 @@
 const listaProductos = document.querySelector('.lista-productos');
+const listaProductosNew = document.querySelector('.lista-productos-new');
 const producto = document.querySelector('.producto');
 const cartBody = document.querySelector('#cart-body');
+const cantidadCarrito = document.querySelector('.cantidad-carrito');
 let carrito;
 
 const productsOnCart = localStorage.getItem('tecnoCart');
@@ -16,6 +18,7 @@ eventListeners();
 
 function eventListeners() {
     listaProductos.addEventListener('click', leerProducto);
+    listaProductosNew.addEventListener('click', leerProducto);
 }
 
 function leerProducto(e) {
@@ -39,10 +42,11 @@ function leerProducto(e) {
 
 function carritoHTML() {
     limpiarHTML();
+    cantidadCarrito.textContent = carrito.length;
     carrito.forEach(product => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-            <td> <img src="${product.mainImage}"> </td>
+            <td> <img src="${product.mainImage}" width="80px"> </td>
             <td> ${product.name} </td>
             <td> ${product.currency.symbol} ${product.price} </td>
             <td> 1 </td>

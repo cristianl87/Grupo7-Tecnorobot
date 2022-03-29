@@ -1743,6 +1743,11 @@ main.main-contenedor {
     height: 300px;
     overflow-y: scroll;
 }
+.badge-primary {
+    position: absolute;
+    left: 20px;
+    top: -10px;
+}
 .cartList {
     width: 380px;
     background-color: #fff;
@@ -1754,6 +1759,7 @@ main.main-contenedor {
     transition: all 1s;
     border: 1px solid;
     border-radius: 4px;
+    padding: 1rem;
 }
 .cartList ul {
     display: flex;

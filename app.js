@@ -3,6 +3,7 @@ const app = express();
 const methodOverride = require('method-override');
 const session = require('express-session');
 const cookies = require('cookie-parser');
+var cors = require('cors')
 
 // RUTAS
 const mainRoutes = require('./routes/main');
@@ -25,6 +26,7 @@ app.use(session({
 }));
 app.use(cookies());
 app.use(userLoggedMiddleware);
+app.use(cors());
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -32,6 +34,7 @@ app.use(express.json());
 app.use(express.static(__dirname + '/public'));
 
 app.set('view engine', 'ejs');
+
 
 app.use('/', mainRoutes);
 
