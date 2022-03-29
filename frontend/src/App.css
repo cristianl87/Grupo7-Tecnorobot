@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+.productList {
+    max-height: 30rem;
+    overflow: scroll;
+}

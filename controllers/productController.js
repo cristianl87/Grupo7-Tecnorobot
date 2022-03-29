@@ -5,10 +5,6 @@ const folderData = path.join(__dirname, '../data');
 const { validationResult } = require('express-validator' );
 const { sequelize } = require('../src/database/models');
 
-const papeleraJSON = fs.readFileSync(folderData + '/papelera.json', 'utf-8');
-let papelera = JSON.parse(papeleraJSON);
-
-
 const productController = {
     list: async (req, res) => {
         try {
@@ -18,7 +14,8 @@ const productController = {
                     {association: 'currency'}
                 ],
                 where: {
-                    isPublished: true
+                    isPublished: true,
+                    isDeleted: false
                 }
             });
     
@@ -62,7 +59,7 @@ const productController = {
 
     },
     createPOST: async (req, res) => {
-
+        
         let errors = validationResult(req);
         const { mainImage, gallery } = req.files
 
@@ -138,10 +135,6 @@ const productController = {
                 const currencies = await db.Currency.findAll();
                 const categories = await db.Category.findAll();
 
-
-                console.log('El usuario metió la pata');
-                console.log(errors)
-                console.log(errors.mapped())
                 res.render('./products/productCreate', {
                     errors: errors.mapped(),
                     old: req.body,
@@ -186,11 +179,7 @@ const productController = {
         let {name, currency_id, price, category_id, freeShipping, isPublished, description} = req.body;
         let isFeatured = false;
 
-        let mainImage;
-
-        if(req.files.mainImage) {
-            mainImage = '/images/products/' + req.files.mainImage.filename;
-        };
+        let mainImage = '/images/products/' + req.files.mainImage[0].filename;
 
         let gallery = [];
         if(req.files.gallery) {
@@ -305,6 +294,51 @@ const productController = {
        /* include: [
             {association: 'category'}]*/
         attributes: ['id', 'name','price', 'description'],
+        where: {
+            isPublished: true
+        },
+        raw: true   
+    });
+    const productsMapped = products.rows.map(product => {
+        return({
+            ...product,
+            detail: `/api/products/${product.id}`
+        })  
+    });
+    
+    const categoryByCount = await db.Product.findAll({
+        group: ["category_id"],
+        attributes: [
+          "category_id",
+          [sequelize.fn("COUNT", "category_id"), "categoryCount"],
+        ],
+        where: {
+            isPublished: true
+        },
+        raw: true
+      })
+      console.log(categoryByCount)
+      const countByCategory = {}
+      for (const category of categoryByCount) {
+        countByCategory[category.category_id]= category.categoryCount            
+      }
+    
+    
+    res.json({
+        count:products.count,
+        countByCategory,
+        products: productsMapped
+
+        
+    })
+},
+listadoProducts2: async (req, res) => {
+    const products = await db.Product.findAndCountAll({
+       include: [
+            {association: 'category'},
+            {association: 'currency'}
+        ],
+        attributes: ['id', 'name', 'currency_id', 'category_id', 'mainImage', 'price', 'description'],
         where: {
             isPublished: true
         },

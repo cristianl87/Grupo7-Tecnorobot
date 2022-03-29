@@ -31,7 +31,8 @@ const mainController = {
             ],
             where: {
                 isPublished: true,
-                isFeatured: true
+                isFeatured: true,
+                isDeleted: false
             },
             limit: 10
         });
