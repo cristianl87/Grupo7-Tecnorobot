@@ -726,6 +726,7 @@ article.cursos-detalle {
         box-shadow: 0px 10px 5px 10px rgba(0,0,0,0.75);
         padding: 20px;
         margin-bottom: 400px;
+        margin-top: 10px;
         justify-content:space-between;
         border-radius: 5px;
 }
@@ -1292,9 +1293,15 @@ input.email{
         
     }   
     .form-login{
-        width:30%;
+        width:450px;
         margin-left:auto;
         margin-right: auto; 
+    }
+    .formulario{
+        width: 425px;
+    }
+    .boton-registro{
+        width: 425px;
     }
     .iconos_carrito {
         display: inline-block!important;
@@ -1308,6 +1315,7 @@ input.email{
     
 } /*FIN ESTILOS TABLET MIN-WIDTH(769PX)
 /* <<<<COMIENZO DETALLE DEL PRODUCTO>>>>>*/
+
 .product {
     margin: 15px 30px;
     display: flex;
@@ -1467,6 +1475,7 @@ input.email{
 
 
 
+
 /*!!-----COMENTARIOSSS-----!!*/
 .testimonios{
     display: flex;
@@ -1587,8 +1596,11 @@ main.main-contenedor {
         grid-template-columns: repeat(5, 1fr);
     }
     
+    
 }
 @media (max-width:761px){
+    
+    
 .product-small-img{
     display: none;
 }

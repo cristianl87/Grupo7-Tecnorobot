@@ -371,9 +371,10 @@ listadoProducts2: async (req, res) => {
     
     
     res.json({
-        count:products.count,
+        count:products.count.Category,
         countByCategory,
-        products: productsMapped
+        products: productsMapped,
+       
 
         
     })
@@ -402,51 +403,16 @@ lastProductAdded: async (req, res) => {
         
     
     
-}
-
-/*
-    categories = await db.Producto.findAll({
-        include: ["categoria"],
-        attributes: ['categoria_id', [sequelize.fn("COUNT", "titulo"), "titulo_count"]],
-        group: 'categoria_id'
+},
+listadoCategories: async (req, res) => {
+    const categories = await db.Category.findAll({
+        attributes: ['id', 'name'],
     });
-    productos = [];
-    products.map(({ id, titulo, precio, descripcion, categoria }) => {
-        productos.push({
-            id,
-            titulo,
-            precio,
-            descripcion,
-            categoria,
-            detail: `/api/products/${id}`,
-        })
+    res.json({
+        total: categories.length,
+        categories 
     })
-    let count = 0
-    categories.map( ({dataValues}) => {
-        let { titulo_count } = dataValues;
-        count += titulo_count
-    })
-    data.count = count;
-    category = [];
-    categories.map(({ dataValues }) => {
-        let { categoria, titulo_count } = dataValues;
-        category.push({
-            category: categoria,
-            quantity: titulo_count,
-        })
-    })
-    data.countByCategory = category;
-    data.products = productos;
-    res.json(data);*/
-
-
-
-
-
-
-
-
-
+},
 
 
 }
