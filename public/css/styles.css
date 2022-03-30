@@ -271,6 +271,7 @@ nav.desktop ul li:nth-last-child(1) a {
 
 .producto img,
 .producto article img {
+    height: 200px;
     width: 100%;
     align-self: center;
     transition: all .3s;
