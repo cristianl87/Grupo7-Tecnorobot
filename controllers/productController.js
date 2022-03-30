@@ -273,7 +273,7 @@ const productController = {
 
     /*listadoProducts: async (req, res) => {
         
-            const products = await db.Product.findAll({
+            const categories = await db.Category.findAll({
                 include: [
                     {association: 'category'},
                     //{association: 'currency'}
@@ -363,6 +363,7 @@ listadoProducts2: async (req, res) => {
         raw: true
       })
       console.log(categoryByCount)
+     
       const countByCategory = {}
       for (const category of categoryByCount) {
         countByCategory[category.category_id]= category.categoryCount            

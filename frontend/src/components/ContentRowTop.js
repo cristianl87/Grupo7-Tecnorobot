@@ -1,5 +1,5 @@
 import React from 'react';
-import imagenFondo from '../assets/images/mandalorian.jpg';
+
 import ProductsList from './ProductsList';
 import CountsDashboard from './CountsDashboard';
 function ContentRowTop(){
