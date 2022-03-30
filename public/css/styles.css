@@ -503,6 +503,7 @@ article.cursos-detalle {
     text-align: center;
     color: #8080808c;
     margin: 40% 0%;
+    cursor: pointer;
 }
 
 #tachito:hover{
@@ -1891,4 +1892,15 @@ tbody#cart-body tr {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+a.toStore {
+    padding: 1rem;
+    color: white;
+    background-color: #5498fd;
+    font-weight: bold;
+}
+h2.noProducts {
+    padding: 1.2rem;
+    text-align: center;
 }
