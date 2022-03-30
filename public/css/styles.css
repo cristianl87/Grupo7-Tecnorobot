@@ -752,12 +752,12 @@ input.password{
     background-color: #3586ff;
     color: white;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 50px;
     margin-bottom: 50px;
     padding: 10px;
     border-radius: 5px;
     position: relative;
-    bottom: -130px;
+   
 
 
  }
@@ -771,7 +771,7 @@ input.password{
 }
 .checkbox{
     position: relative;
-    color: blanchedalmond;
+    color: white;
     top: -63px;
 }
 .text-checkbox{
@@ -785,7 +785,7 @@ input.password{
 
 .info{
     font-size: 13px;
-    color: blanchedalmond;
+    color: white;
 }
 .info:hover{
     color: seagreen;
@@ -963,11 +963,13 @@ input.email{
         border-radius: 10px;
     }
     .form-login{
-            width: 80%;
+            width: 40rem;
             padding: 30px;
             margin-bottom: 400px;
-            margin-left:75px ;
+            margin-left:auto ;
+            margin-right: auto;
             margin-top: 30px;
+            
             
     }
     .form-login .resultado {
@@ -995,6 +997,7 @@ input.email{
         z-index: 10;
         box-shadow: -1px 1px 8px 0px rgb(0 0 0 / 65%);
     }
+    
     .contenedor-header {
         width: 80%;
         margin: 0 auto;
@@ -1280,8 +1283,9 @@ input.email{
         
     }   
     .form-login{
-        width: 50%;
-        margin-left:300px ; 
+        width:30%;
+        margin-left:auto;
+        margin-right: auto; 
     }
     .iconos_carrito {
         display: inline-block!important;
@@ -1292,6 +1296,7 @@ input.email{
     .caja-producto {
         justify-content: center;
     }
+    
 } /*FIN ESTILOS TABLET MIN-WIDTH(769PX)
 /* <<<<COMIENZO DETALLE DEL PRODUCTO>>>>>*/
 .product {
