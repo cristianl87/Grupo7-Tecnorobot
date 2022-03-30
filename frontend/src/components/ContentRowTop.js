@@ -1,8 +1,22 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 
 import ProductsList from './ProductsList';
 import CountsDashboard from './CountsDashboard';
+
 function ContentRowTop(){
+
+	const [lastProduct, setLastProduct] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:4000/api/lastProductAdded')
+        .then(response => response.json())
+        .then(data => {
+            setLastProduct(data);
+			console.log(data);
+        });
+    }, []);
+
     return(
         <React.Fragment>
 				{/*<!-- Content Row Top -->*/}
@@ -22,14 +36,10 @@ function ContentRowTop(){
 						<div className="col-lg-6 mb-4">
 							<div className="card shadow mb-4">
 								<div className="card-header py-3">
-									<h5 className="m-0 font-weight-bold text-gray-800">Panel de detalle de último producto o usuario creado.</h5>
+									<h5 className="m-0 font-weight-bold text-gray-800"> Último producto creado.</h5>
 								</div>
-								<div className="card-body">
-									<div className="text-center">
-										
-									</div>
-									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, consequatur explicabo officia inventore libero veritatis iure voluptate reiciendis a magnam, vitae, aperiam voluptatum non corporis quae dolorem culpa citationem ratione aperiam voluptatum non corporis ratione aperiam voluptatum quae dolorem culpa ratione aperiam voluptatum?</p>
-									<a className="btn btn-danger" target="_blank" rel="nofollow" href="/">ver</a>
+								<div className="card-body ultimoProducto">
+									{lastProduct[0].name}
 								</div>
 							</div>
 						</div>

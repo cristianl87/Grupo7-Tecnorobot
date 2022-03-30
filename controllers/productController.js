@@ -378,6 +378,31 @@ listadoProducts2: async (req, res) => {
         
     })
 },
+lastProductAdded: async (req, res) => {
+    try {
+        const lastProduct = await db.Product.findAll({
+            include: [
+                 {association: 'category'},
+                 {association: 'currency'}
+             ],
+             attributes: ['id', 'name', 'currency_id', 'category_id', 'mainImage', 'price', 'description'],
+             where: {
+                 isDeleted: false
+             },
+             order: [
+                ['createdAt', 'DESC'],
+            ],
+            limit: 1,
+             raw: true   
+         });
+         res.status(200).json(lastProduct);
+    } catch (error) {
+        console.log(error);
+    }
+        
+    
+    
+}
 
 /*
     categories = await db.Producto.findAll({
