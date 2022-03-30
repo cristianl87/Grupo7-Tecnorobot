@@ -13,6 +13,7 @@ router.get('/products/:id', productController.detalleProducts);
 
 router.get('/products-2', productController.listadoProducts2);
 
-
+//api de categories
+router.get('/categories', productController.listadoCategories);
 
 module.exports = router;
