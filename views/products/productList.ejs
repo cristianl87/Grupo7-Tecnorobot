@@ -15,12 +15,12 @@
         <section class="lista-productos">
             <% for(let product of products) { %>
                 <a href="/products/detail/<%= product.id %>" class="producto">
-                    <article>
+                    <article class="producto" data-id="<%= product.id %>">
                         <img loading="lazy" src="<%= product.mainImage %>">
                         <div class="info-producto">
                             <div class="precio"> 
-                                <%= product.currency.symbol %> <%= parseInt(product.price) %>
-                                <i class="fas fa-cart-plus cart-icon add-to-cart"></i> 
+                                <%= product.currency.symbol %> <%= product.price %>
+                                <i class="fas fa-cart-plus cart-icon agregar-carrito" data-id="<%= product.id %>"></i> 
                             </div>
                             <% if(product.freeShipping === true) { %>
                             <div class="badge badge-success">Envío gratis</div>

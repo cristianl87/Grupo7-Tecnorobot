@@ -261,12 +261,14 @@ nav.desktop ul li:nth-last-child(1) a {
 /* ESTILOS PRODUCTOS */
 .producto {
     background-color: #fff;
-    box-shadow: var(--sombra);
     border-radius: 4px;
     display: flex;
     flex-direction: column;
     transition: all .3s;
     cursor: pointer;
+}
+a.producto {
+    box-shadow: var(--sombra);
 }
 
 .producto img,
@@ -300,6 +302,9 @@ i.fas.fa-cart-plus.cart-icon.agregar-carrito:hover {
     transition: all .2s;
     border: 1px solid #ffffff85;
     border-radius: 50px;
+}
+.titulo {
+    margin-top: 2rem;
 }
 .titulo,
 .descripcion-corta {
@@ -504,6 +509,7 @@ article.cursos-detalle {
     text-align: center;
     color: #8080808c;
     margin: 40% 0%;
+    cursor: pointer;
 }
 
 #tachito:hover{
@@ -1045,11 +1051,14 @@ input.email{
     }
     .producto:hover {    
         transform: scale(1.03);
-        max-height: 320px;
+        max-height: 400px;
         overflow: hidden;
     }
     .producto:hover img {
         width: 60%;
+    }
+    article.producto {
+        height: -webkit-fill-available;
     }
     .producto:hover .precio {
         color: #fff;
@@ -1148,7 +1157,7 @@ input.email{
     }
 
     .imagen-producto-carrito{
-        width: 15%;
+        width: 80px;
         margin-left: 10px;
         padding: 0px;
     }
@@ -1909,4 +1918,20 @@ tbody#cart-body tr {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+tbody#cart-body tr td {
+    text-transform: none;
+    text-align: center;
+    width: 100%;
+}
+
+a.toStore {
+    padding: 1rem;
+    color: white;
+    background-color: #5498fd;
+    font-weight: bold;
+}
+h2.noProducts {
+    padding: 1.2rem;
+    text-align: center;
 }
